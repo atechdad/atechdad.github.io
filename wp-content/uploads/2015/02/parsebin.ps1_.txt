@@ -1,0 +1,127 @@
+ Param(
+  [switch]$verbose
+ )
+  function log ($type, $message)
+{
+    switch ($type)
+    {
+        "Error" 
+        {Write-Host "[X] " -ForegroundColor Red -NoNewline}
+        "Info" 
+        {Write-Host "[?] " -ForegroundColor Blue -NoNewline}
+        "Warning" 
+        {Write-Host "[!] " -ForegroundColor Yellow -NoNewline}
+    }
+     write-host $message -ForegroundColor White
+}
+ 
+ $verbose = $true
+
+
+ if ($verbose)
+ {
+    log "Info" "Verbosity is ON"
+ }
+
+ $webClient = new-object System.Net.WebClient
+ $seenPastes = @()
+
+ function fetchregext
+ {
+    return get-content ".\regex.txt"
+ }
+
+ function load_pastes
+ {
+    if (test-path .\seen.txt)
+    {
+        foreach ($paste in Get-Content ".\seen.txt")
+        {
+            $seenPastes += paste
+        }
+    }
+ }
+
+ function saw_paste($paste)
+ {
+    Add-Content ".\seen.txt" $paste
+    $seenPastes += $paste
+ }
+ 
+ function list_pastes
+ {
+    $result = @()
+    $html = $webclient.DownloadString("http://pastebin.com/archive")
+    [regex]$regex = '<td><img src="/i/t.gif"  class="i_p0" alt="" border="0" /><a href="/(\w+)">.+</a>'
+    $regex.Matches($html) | foreach-object {
+           
+            $result += ($_.Value -replace '<td><img src="/i/t.gif"  class="i_p0" alt="" border="0" /><a href="/', "").Split('"')[0]
+        }
+    return $result
+ }
+
+ function fetch_paste($paste)
+ {
+        try
+        {
+            $content = $webclient.DownloadString("http://pastebin.com/raw.php?i=" + $paste)
+        }
+        catch
+        {
+            if ($_.Exception.Message -match "(404)")
+            {
+                log "Error" "Unavailable : http://pastebin.com/raw.php?i=$paste"
+            }
+            if ($_.Exception.Message -match "(403)")
+            {
+                log "Error"  "Rate Limited! : Sleeping for 10 minutes"
+                $content = "EMPTY"
+                start-sleep -Seconds 600
+
+            }
+            
+        }
+        finally {}
+
+    return $content
+ }
+
+ function analyze_paste($content)
+ {
+    #$content
+    foreach ($expression in $regexlist)
+    {
+        if ($content -match $expression)
+        {
+           return $true
+        }
+    }
+ }
+
+ $regexlist = fetchregext
+ do
+ {
+    foreach ($paste in list_pastes)
+    {
+        if ($seenPastes -notcontains $paste)
+        {
+            if ($verbose)
+            {
+                log "Info" "Checking : http://pastebin.com/raw.php?i=$paste"
+            }
+            $content = fetch_paste($paste)
+            if (analyze_paste($content))
+            {
+                log "Warning" "Found Match! : http://pastebin.com/raw.php?i=$paste"
+                $content | out-file ".\found\$paste.txt"
+            }
+            saw_paste $paste
+            start-sleep -s 2
+        }
+    }
+     start-sleep -s 3
+}
+while (1 -eq 1)
+
+
+ 

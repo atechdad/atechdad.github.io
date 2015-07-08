@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Karma Rogue AccessPoint Offense with badkarma.py &middot; atechdad
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>An attempt to document my ramblings about all things technology. <br />@techdad</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+    <span class="sidebar-nav-item">Currently v1.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">atechdad</a>
+            <small>make it so</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Karma Rogue AccessPoint Offense with badkarma.py</h1>
+  <span class="post-date">17 Mar 2015</span>
+  <p>For those that don’t know, karma is a patch that is applied to hostapd which allows the creation of a wifi honeypot. This honeypot listens for probe requests from devices which announce SSIDs used to autojoin preferred wifi hotspots. The honeypot then spoofs this SSID, luring in unsuspecting devices. Once on the network, many nasty methods can be used to attempt to compromise the device itself, or the data which traverses the access point.</p>
+
+<p><strong>Detection:</strong><br />
+This attack can be detected simply by creating a nonsense SSID, and attempting to connect.</p>
+
+<p>First, create a nonsense SSID:</p>
+
+<pre>atechdad@kali:~# sudo ifconfig wlan1 down
+atechdad@kali:~# sudo iwconfig wlan1 essid badkarma
+atechdad@kali:~# sudo ifconfig wlan1 up
+atechdad@kali:~# sudo iwconfig wlan1
+</pre>
+
+<p>Then see if we joined. You’ll see we did because Access Point has a MAC assigned.</p>
+
+<pre>wlan0     IEEE 802.11bg  ESSID:"badkarma"  
+          Mode:Managed  Frequency:2.412 GHz  Access Point: <strong>F6:B1:14:6D:AB:01</strong>   
+          Bit Rate=24 Mb/s   Tx-Power=20 dBm   
+          Retry short limit:7   RTS thr:off   Fragment thr:off
+          Encryption key:off
+          Power Management:off
+          Link Quality=70/70  Signal level=-25 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:8   Missed beacon:0
+</pre>
+
+<p>Here is the view from the attacker’s perspective:</p>
+
+<pre>KARMA: Probe Request from 00:1e:2a:18:26:60 for SSID 'badkarma'
+KARMA: Probe Request from 00:1e:2a:18:26:60 for SSID 'badkarma'
+KARMA: Probe Request from 00:1e:2a:18:26:60 for SSID 'badkarma'
+KARMA: Probe Request from 00:1e:2a:18:26:60 for SSID 'badkarma'
+KARMA: Checking SSID for start of association, pass through badkarma
+KARMA: Successful association of 00:1e:2a:18:26:60
+</pre>
+
+<p>So now we’re on the network– and we know how to find it.</p>
+
+<p><strong>Defense:</strong><br />
+There are a few ways I can think of offhand to defend against this kind of attack.<br />
+1. Turn off auto connect.<br />
+2. Audit your devices.<br />
+<del>3. Add a fake AP with bad network settings to your device. Configure your device to alert on join. </del></p>
+
+<p>I wouldn’t recommend #3. Without other controls in place, this could open your device up to the attack we’re trying to avoid.</p>
+
+<p>Here’s how to see what your devices are probing :</p>
+
+<pre>atechdad@kali:~# sudo airmon-ng start wlan1
+atechdad@kali:~# sudo airodump-ng mon0
+</pre>
+
+<p>You’ll see something like this. Pay attention to the second section:</p>
+
+<pre>BSSID              STATION            PWR   Rate    Lost    Frames  Probe
+
+ (not associated)   XX:XX:XX:XX:XX:F6  -44    0 - 1      0        1
+ (not associated)   <strong>00:1E:2A:18:26:60</strong>  -59    0 - 1     86       11  <strong>badkarma
+</strong></pre>
+
+<p>You’ll notice in the second section a list of client devices. Pay attention to the Probe column</p>
+
+<p><strong>Offense:</strong><br />
+badkarma.py is a simple that works by creating a randomized AP, joining it, then deauthenticating all connected guests. It was written to run using kali linux. At minimum, it requires python, wireless-tools, the aircrack-ng suite, and mdk3 be present.</p>
+
+<p>Sample output:</p>
+
+<pre>atechdad@kali:~/badkarma# ./badkarma.py -i wlan1
+[!] Stopping network-manager..
+[!] Starting monitor interface..
+[!] Monitor active on interface mon0
+[!] ESSID is now robesunconnected
+[!] Wireless MAC is now 6c:18:c5:21:29:c3
+[!] Bad AP EA:BE:1C:E7:C3:A7 found! Adding to blacklist...
+[!] Liberation! Disconnecting between: 6C:18:C5:21:29:C3 and: F6:B1:14:6D:AB:01
+[!] Liberation! Disconnecting between: XX:XX:XX:XX:XX:XX and: F6:B1:14:6D:AB:01
+[!] ESSID is now distilsfinagling
+[!] Wireless MAC is now c6:5c:7d:76:f9:a4
+^C[!] Cleaning Up...
+[!] Deleting blacklist...
+[!] Ending deauth...
+[!] Stopping monitor interface mon0
+[!] Resetting interface wlan1
+[!] Starting network-manager...
+[!] Exiting..
+atechdad@kali:~/badkarma#
+</pre>
+
+<p>Verification of deauthentication from Attacker’s perspective:</p>
+
+<pre>wlan0: mgmt::deauth
+wlan0: deauthentication: STA=6c:18:c5:21:29:c3 reason_code=1
+wlan0: STA 6c:18:c5:21:29:c3 IEEE 802.11: deauthenticated
+wlan0: STA 6c:18:c5:21:29:c3 MLME: MLME-DEAUTHENTICATE.indication(6c:18:c5:21:29:c3, 1)
+</pre>
+
+<p><strong>Getting Script:</strong></p>
+
+<pre>atechdad@kali:~# git clone https://github.com/atechdad/badkarma.git
+</pre>
+
+<p><strong>Running:</strong></p>
+
+<pre>atechdad@kali:~# cd badkarma/
+atechdad@kali:~/badkarma# ./badkarma.py -i wlan0
+</pre>
+
+<p>This should only be run against access points you have permission to attack. I assume no responsibility for its use and offer no support.<br />
+The script was just thrown together to meet my needs. If you make improvements, please contribute back.</p>
+
+<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
+</div>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/i-emailed-97931-users-their-passwords/">
+            I Emailed 97,931 Users Their Passwords
+            <small>23 Jun 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/a-brief-look-at-dns-zone-transfer-for-alexias-top-1m-domains/">
+            A Brief Look at DNS Zone Transfer for Alexia&#8217;s Top 1M Domains
+            <small>30 Apr 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/urhack-com/">
+            URHACK.COM
+            <small>22 Apr 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

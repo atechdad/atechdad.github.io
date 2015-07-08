@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      I Emailed 97,931 Users Their Passwords &middot; atechdad
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>An attempt to document my ramblings about all things technology. <br />@techdad</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+    <span class="sidebar-nav-item">Currently v1.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">atechdad</a>
+            <small>make it so</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">I Emailed 97,931 Users Their Passwords</h1>
+  <span class="post-date">23 Jun 2015</span>
+  <p>Hey all-</p>
+
+<p>I run across lots of passwords on the webs. Passwords to bank accounts, Netflix accounts, email accounts- you name it. Pastebin and its clones are very popular repositories for this kind of information.</p>
+
+<p>Now, there are a couple of <a href="https://isc.sans.edu/forums/diary/Quick+Tip+Pastebin+Monitoring+Recon/12091/">solutions</a> a person can use to collect this password data. Not all of them are malicious.</p>
+
+<p>Some of these scripts are often used to alert a person when one of their own accounts are compromised as a kind of canary. I’ve seen various services where a person can opt-in to be notified if one of their accounts has been compromised. A “Canary As A Service” if you will. I can see two issues with this:</p>
+
+<ol>
+  <li>Most users have no idea these services exist.</li>
+  <li>Many users are wary of sending the information they care most about to another online service.</li>
+</ol>
+
+<p><strong>Experiment</strong></p>
+
+<p>I wondered what would happen if I just emailed this information to the people who owned it. Instead of asking people to opt-in — I could offer them the chance to opt-out.</p>
+
+<p><strong>The Plan</strong></p>
+
+<p>I decided to do this as part of <a href="http://urhack.com">urhack.com</a> and call it <del>canary</del> <a href="http://urhack.com/robin">Robin</a> (the reasoning behind this change is there). I set up the email and a reply address to offer people a chance to unsubscribe. I even set up a PayPal donation button. I didn’t expect anything in return, but thought , “Why not?” five dollars would cover the VPS time.</p>
+
+<p><strong>Collection</strong></p>
+
+<p>For 3 days, I scraped Pastebin looking for email address/password combinations. This seemed to be the easiest target since it was the most active. After removing the garbage, I was left with over <strong>97,000</strong> email:password combinations.</p>
+
+<p><strong>Execution</strong></p>
+
+<p>On May 19th 2015, I sent out the emails. I could have waited for more, but this was only an experiment– and honestly I was getting impatient.</p>
+
+<p><strong>The Message</strong></p>
+
+<p>I tried to keep the message simple:</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2015/06/canary.png"><img class="alignnone size-full wp-image-383" src="http://atechdad.com/wp-content/uploads/2015/06/canary.png" alt="canary" width="888" height="440" /></a></p>
+
+<p><strong>Aftermath</strong></p>
+
+<ul>
+  <li><strong>9 Thank Yous (0.009%)</strong>
+    <ul>
+      <li>The thank you notes I got were sincere. One of them validated the entire effort when the person indicated that they use the same password for everything and wanted to know which account had been compromised.</li>
+    </ul>
+  </li>
+  <li><strong>100 Delivery Status Notification (Failure) (0.1%)</strong>
+    <ul>
+      <li>Many of the addresses contacted were no longer in use for obvious reasons.</li>
+    </ul>
+  </li>
+  <li><strong>41 unsubscribes (0.041%)</strong>
+    <ul>
+      <li>Including one request to F**k off. (0.001%) <img src="http://atechdad.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></li>
+    </ul>
+  </li>
+  <li><strong>29 Spam (0.029%)</strong>
+    <ul>
+      <li>Some of these addresses were either compromised accounts which reply to emails with spam or were planted for this purpose.</li>
+    </ul>
+  </li>
+  <li><strong>$0</strong>
+    <ul>
+      <li>I received no donations. This was not unexpected– but since the campaign didn’t cost me much, it’s also absolutely fine.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Overall I consider this experiment a success. I hope that many people were helped and did not reply instead of ignoring or losing the email to spam filters.</p>
+
+<p>My next list has been running since May 19th. My current count has around 300k accounts.</p>
+
+<p>I might just do this again.</p>
+
+<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
+</div>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/a-brief-look-at-dns-zone-transfer-for-alexias-top-1m-domains/">
+            A Brief Look at DNS Zone Transfer for Alexia&#8217;s Top 1M Domains
+            <small>30 Apr 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/urhack-com/">
+            URHACK.COM
+            <small>22 Apr 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/karma-rogue-accesspoint-offense-with-badkarma-py/">
+            Karma Rogue AccessPoint Offense with badkarma.py
+            <small>17 Mar 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
