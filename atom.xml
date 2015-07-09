@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>atechdad</title>
- <link href="http://atechdad.comhttp://atechdad.github.io/atom.xml" rel="self"/>
- <link href="http://atechdad.comhttp://atechdad.github.io/"/>
- <updated>2015-07-09T09:15:55-07:00</updated>
+ <link href="http://atechdad.comhttp://atechdad.com/atom.xml" rel="self"/>
+ <link href="http://atechdad.comhttp://atechdad.com/"/>
+ <updated>2015-07-09T09:54:49-07:00</updated>
  <id>http://atechdad.com</id>
  <author>
    <name>Mark Otto</name>
@@ -16,7 +16,7 @@
    <title>I Emailed 97,931 Users Their Passwords</title>
    <link href="http://atechdad.com/i-emailed-97931-users-their-passwords/"/>
    <updated>2015-06-23T00:00:00-07:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/i-emailed-97931-users-their-passwords</id>
+   <id>http://atechdad.comhttp://atechdad.com/i-emailed-97931-users-their-passwords</id>
    <content type="html">&lt;p&gt;Hey all-&lt;/p&gt;
 
 &lt;p&gt;I run across lots of passwords on the webs. Passwords to bank accounts, Netflix accounts, email accounts- you name it. Pastebin and its clones are very popular repositories for this kind of information.&lt;/p&gt;
@@ -98,7 +98,7 @@
    <title>A Brief Look at DNS Zone Transfer for Alexia&#8217;s Top 1M Domains</title>
    <link href="http://atechdad.com/a-brief-look-at-dns-zone-transfer-for-alexias-top-1m-domains/"/>
    <updated>2015-04-30T00:00:00-07:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/a-brief-look-at-dns-zone-transfer-for-alexias-top-1m-domains</id>
+   <id>http://atechdad.comhttp://atechdad.com/a-brief-look-at-dns-zone-transfer-for-alexias-top-1m-domains</id>
    <content type="html">&lt;p&gt;The [Scans.IO][1] project is hosting a new dataset courtesy of Mr. Hanno Böck. This data contains the result of scans against Alexa’s top 1 million domains looking for DNS servers which have allowed unauthenticated requests for Zone Transfer.&lt;/p&gt;
 
 &lt;p style=&quot;text-align: center;&quot;&gt;
@@ -262,7 +262,7 @@ Registrant Country: Australia
    <title>URHACK.COM</title>
    <link href="http://atechdad.com/urhack-com/"/>
    <updated>2015-04-22T00:00:00-07:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/urhack-com</id>
+   <id>http://atechdad.comhttp://atechdad.com/urhack-com</id>
    <content type="html">&lt;p&gt;Hey all,&lt;/p&gt;
 
 &lt;p&gt;As you know from previous posts, I’ve been combing through logs provided by Project Sonar/scans.io for a little while now. The information I was gathering about hacked pages seemed a little large for here so I’ve stood up a custom site : &lt;a href=&quot;http://urhack.com&quot;&gt;uhack.com&lt;/a&gt;. Check it out!&lt;/p&gt;
@@ -277,7 +277,7 @@ Registrant Country: Australia
    <title>Karma Rogue AccessPoint Offense with badkarma.py</title>
    <link href="http://atechdad.com/karma-rogue-accesspoint-offense-with-badkarma-py/"/>
    <updated>2015-03-17T00:00:00-07:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/karma-rogue-accesspoint-offense-with-badkarma-py</id>
+   <id>http://atechdad.comhttp://atechdad.com/karma-rogue-accesspoint-offense-with-badkarma-py</id>
    <content type="html">&lt;p&gt;For those that don’t know, karma is a patch that is applied to hostapd which allows the creation of a wifi honeypot. This honeypot listens for probe requests from devices which announce SSIDs used to autojoin preferred wifi hotspots. The honeypot then spoofs this SSID, luring in unsuspecting devices. Once on the network, many nasty methods can be used to attempt to compromise the device itself, or the data which traverses the access point.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Detection:&lt;/strong&gt;&lt;br /&gt;
@@ -397,7 +397,7 @@ The script was just thrown together to meet my needs. If you make improvements, 
    <title>Research finds 400k Security Camera DVRs with Hardcoded Credentials</title>
    <link href="http://atechdad.com/passive-scans-for-default-passwords-finds-security-dvrs-with-potential-defaults/"/>
    <updated>2015-03-03T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/passive-scans-for-default-passwords-finds-security-dvrs-with-potential-defaults</id>
+   <id>http://atechdad.comhttp://atechdad.com/passive-scans-for-default-passwords-finds-security-dvrs-with-potential-defaults</id>
    <content type="html">&lt;p&gt;I’ve been tinkering with passive research using public scans which are freely available via Project Sonar. I was curious to search and look for any devices which may have username and passwords hardcoded so I decided to search for a few instances where the username and passwords appear hardcoded to admin. I thought that surely there couldn’t be many– so I kicked off the scan…&lt;/p&gt;
 
 &lt;pre&gt;curl -s https://scans.io/data/rapid7/sonar.http/20141209-http.gz |   zcat |   bin/dap json + select ip data + transform data=base64decode + include data='$(\&quot;password\&quot;).value = \&quot;admin\&quot;' + include data='$(\&quot;username\&quot;).value = \&quot;admin\&quot;'+ decode_http_reply data + select ip + lines  &amp;gt;&amp;gt; ips.txt
@@ -441,7 +441,7 @@ Too many IPs to cat. How many are we talking?&lt;/p&gt;
    <title>Finding Hacked Pages With Passive Scanning via Project Sonar</title>
    <link href="http://atechdad.com/finding-hacked-pages-with-passive-scanning-via-project-sonar/"/>
    <updated>2015-03-01T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/finding-hacked-pages-with-passive-scanning-via-project-sonar</id>
+   <id>http://atechdad.comhttp://atechdad.com/finding-hacked-pages-with-passive-scanning-via-project-sonar</id>
    <content type="html">&lt;p&gt;Recently, &lt;a href=&quot;https://blog.shodan.io/tracking-hacked-websites/&quot;&gt;Shodan’s blog featured instructions&lt;/a&gt; on finding hacked paged by searching for the phrase “Hacked By”.  Here’s how to do this yourself using the scans provided by &lt;a href=&quot;https://github.com/rapid7/sonar/wiki&quot;&gt;Project Sonar&lt;/a&gt;. This information can be used for all kinds of passive scans.&lt;/p&gt;
 
 &lt;pre&gt;sudo apt-get update
@@ -492,7 +492,7 @@ sudo mv GeoLiteCity.dat geoip.dat
    <title>Parsebin &#8211; A Powershell Pastebin Parser</title>
    <link href="http://atechdad.com/parsebin-a-powershell-pastebin-parser/"/>
    <updated>2015-02-16T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/parsebin-a-powershell-pastebin-parser</id>
+   <id>http://atechdad.comhttp://atechdad.com/parsebin-a-powershell-pastebin-parser</id>
    <content type="html">&lt;p&gt;By now, most folks have realized that pastebin holds some interesting data. Some of the information you run across can be interesting – if not hilarious. That is, as long is it’s not *your* data.&lt;/p&gt;
 
 &lt;p&gt;In 2011, Xavier Garcia put together a &lt;a href=&quot;http://www.shellguardians.com/2011/07/monitoring-pastebin-leaks.html&quot;&gt;python pastebin scrape&lt;/a&gt;r.&lt;/p&gt;
@@ -519,7 +519,7 @@ sudo mv GeoLiteCity.dat geoip.dat
    <title>The Poor Man&#8217;s Guide to Hosted Virtual Desktop Infrastructure (DaaS-VDI)</title>
    <link href="http://atechdad.com/the-poor-mans-guide-to-hosted-virtual-desktop-infrastructure-daas-vdi/"/>
    <updated>2015-01-16T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/the-poor-mans-guide-to-hosted-virtual-desktop-infrastructure-daas-vdi</id>
+   <id>http://atechdad.comhttp://atechdad.com/the-poor-mans-guide-to-hosted-virtual-desktop-infrastructure-daas-vdi</id>
    <content type="html">&lt;p&gt;What follows is an account of my attempts to install a desktop environment in the cloud. I’ve done this successfully using a vps from &lt;a href=&quot;https://www.digitalocean.com/?refcode=26b6adc6c1c0&quot;&gt;digitalocean&lt;/a&gt; (referral link ;)). A second part of this will be demonstrating how to pull this into a docker container.&lt;/p&gt;
 
 &lt;p&gt;When you complete this tutorial you will have a hosted virtual desktop behind a html5 frontend.&lt;/p&gt;
@@ -604,7 +604,7 @@ xsetroot -solid grey
    <title>Ouya PS4 Remote Play</title>
    <link href="http://atechdad.com/ouya-ps4-remote-play/"/>
    <updated>2015-01-04T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/ouya-ps4-remote-play</id>
+   <id>http://atechdad.comhttp://atechdad.com/ouya-ps4-remote-play</id>
    <content type="html">&lt;p&gt;The OUYA was a dream that was unrealized by some. While many have gotten immense pleasure out of the android based console, many have ended up either selling their OUYA or not using it at all.&lt;/p&gt;
 
 &lt;p&gt;The kids got a PS4 for Christmas. It hadn’t been even hooked up yet when I started thinking of a Playstation TV and other remote play goodness. Some quick research led me to the official Sony remote play android app– and subsequently to the ‘hacked’ version.&lt;/p&gt;
@@ -666,7 +666,7 @@ xsetroot -solid grey
    <title>Merry Christmas from 1993!</title>
    <link href="http://atechdad.com/merry-christmas-from-1993/"/>
    <updated>2014-12-24T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/merry-christmas-from-1993</id>
+   <id>http://atechdad.comhttp://atechdad.com/merry-christmas-from-1993</id>
    <content type="html">&lt;p&gt;Sorry for the delay. Don’t say I never got you anything.&lt;/p&gt;
 
 &lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
@@ -678,7 +678,7 @@ xsetroot -solid grey
    <title>12 Games in 12 Months : Game 1, Week 1</title>
    <link href="http://atechdad.com/12-games-in-12-months-game-1-week-1/"/>
    <updated>2014-12-14T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/12-games-in-12-months-game-1-week-1</id>
+   <id>http://atechdad.comhttp://atechdad.com/12-games-in-12-months-game-1-week-1</id>
    <content type="html">&lt;p&gt;Hey again all,&lt;br /&gt;
 As promised in my &lt;a href=&quot;http://atechdad.com/12-games-in-12-months/&quot;&gt;previous post&lt;/a&gt;, here is a my progress report on Game 1:&lt;/p&gt;
 
@@ -704,7 +704,7 @@ As promised in my &lt;a href=&quot;http://atechdad.com/12-games-in-12-months/&qu
    <title>Anemone : Anonymity as a Service</title>
    <link href="http://atechdad.com/anemone-anonymity-as-a-service/"/>
    <updated>2014-12-08T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/anemone-anonymity-as-a-service</id>
+   <id>http://atechdad.comhttp://atechdad.com/anemone-anonymity-as-a-service</id>
    <content type="html">&lt;p&gt;I’ve been reading about Docker and it’s started me thinking about the possible services that could be hosted. One instance I thought of was hosting the Tor Browser (I’ve since seen people do this as well). Inspired by &lt;a href=&quot;https://developer.rackspace.com/blog/slumlord-hosting-with-docker/&quot;&gt;Slumlord Hosting with Docker&lt;/a&gt; which was inspired by &lt;a href=&quot;https://github.com/jbarbier/SaaS_Memcached&quot;&gt;Memcached as a Service&lt;/a&gt;, I came up with my own recipe.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;The Concept&lt;/strong&gt;&lt;/p&gt;
@@ -1034,7 +1034,7 @@ Video:&lt;/p&gt;
    <title>Setting up a libgdx build environment</title>
    <link href="http://atechdad.com/setting-up-a-libgdx-build-environment/"/>
    <updated>2014-12-07T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/setting-up-a-libgdx-build-environment</id>
+   <id>http://atechdad.comhttp://atechdad.com/setting-up-a-libgdx-build-environment</id>
    <content type="html">&lt;p&gt;In my previous post, 12 Games in 12 Months, I put committed to the lofty goal of shipping 12 games in 12 months. After careful consideration I’ve decided to use the much-celebrated Libgdx framework to help me with my first game. First things first, however, I need to set up my development environment. I prefer to keep my development area as separated as I can from my normal workstation, so will use a virtual machine to house this.&lt;/p&gt;
 
 &lt;p&gt;What we’ll need:&lt;/p&gt;
@@ -1254,7 +1254,7 @@ Unable to resolve target ‘android-19′ my-gdx-game-android Unknown Android Ta
    <title>12 Games in 12 Months</title>
    <link href="http://atechdad.com/12-games-in-12-months/"/>
    <updated>2014-12-06T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/12-games-in-12-months</id>
+   <id>http://atechdad.comhttp://atechdad.com/12-games-in-12-months</id>
    <content type="html">&lt;p&gt;I never finish my games. I start them. My wife tells me I have some form of A.D.D. I can almost agree with her, but from my perspective it’s like seeing something shiny and new and wanting to play with that for awhile. I always mean to come back and finish …&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/Dog-Up.jpg&quot;&gt;&lt;img class=&quot;size-full wp-image-154 aligncenter&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/Dog-Up.jpg&quot; alt=&quot;Dog-Up&quot; width=&quot;392&quot; height=&quot;340&quot; /&gt;&lt;/a&gt;I need to finish my games.&lt;/p&gt;
@@ -1298,7 +1298,7 @@ Unable to resolve target ‘android-19′ my-gdx-game-android Unknown Android Ta
    <title>atechdad.com has been featured on Hackaday!</title>
    <link href="http://atechdad.com/ive-been-featured-on-hackaday/"/>
    <updated>2014-12-05T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/ive-been-featured-on-hackaday</id>
+   <id>http://atechdad.comhttp://atechdad.com/ive-been-featured-on-hackaday</id>
    <content type="html">&lt;p&gt;atechdad.com was &lt;a href=&quot;http://hackaday.com/2014/12/03/happy-meal-hack-produces-a-google-cardboard-test&quot;&gt;featured on Hackaday&lt;/a&gt; for the &lt;a href=&quot;http://atechdad.com/happy-meal-vr-google-cardboard-hack/&quot;&gt;Happy Meal Google Cardboard hack&lt;/a&gt; and it was awesome! I got some compliments on the hack and even inspired heated debate over the quality of fast food and the justification of feeding it to your children. Hey- I say everything in moderation. Give them treats sometimes. Moderation also allows us to give the kids peanut butter and jelly &lt;em&gt;(and kale.. shh)&lt;/em&gt; smoothies for breakfast too.&lt;/p&gt;
 
 &lt;p&gt;Anyway, I’ve always been a big fan of Hackaday (reading it for years) and it feels surreal to read about my own exploits there. If you’re not currently a reader, I highly recommend it.&lt;/p&gt;
@@ -1315,7 +1315,7 @@ Unable to resolve target ‘android-19′ my-gdx-game-android Unknown Android Ta
    <title>How I Fixed My Inflatable Christmas Tree Lawn Ornament</title>
    <link href="http://atechdad.com/how-i-fixed-my-inflatable-christmas-tree-lawn-ornament/"/>
    <updated>2014-11-29T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/how-i-fixed-my-inflatable-christmas-tree-lawn-ornament</id>
+   <id>http://atechdad.comhttp://atechdad.com/how-i-fixed-my-inflatable-christmas-tree-lawn-ornament</id>
    <content type="html">&lt;p&gt;So– today I took out the Christmas decorations. It was only during the installation ritual that I remembered that the fan in the inflatable tree we purchased last year had stopped working a week after we put it in. I also remembered that I, having thrown away the box and receipt– and being stubborn, had meant to fix it.&lt;br /&gt;
 DISCLAIMER:&lt;/p&gt;
 
@@ -1386,7 +1386,7 @@ DISCLAIMER:&lt;/p&gt;
    <title>Happy Meal VR : A Google Cardboard Hack</title>
    <link href="http://atechdad.com/happy-meal-vr-google-cardboard-hack/"/>
    <updated>2014-11-28T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/happy-meal-vr-google-cardboard-hack</id>
+   <id>http://atechdad.comhttp://atechdad.com/happy-meal-vr-google-cardboard-hack</id>
    <content type="html">&lt;p&gt;I peered through my son’s newest toy he got with his fast food meal and continued my explanation of how binoculars worked. I explained how the two lenses worked together– one magnifying and the other focusing when one of my neurons fired and took my thoughts down another tangent. I’ve been meaning to try out Google’s cardboard since it came out, but I have never gotten around to doing it.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/11/01.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-159&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/11/01.jpg&quot; alt=&quot;0&quot; width=&quot;1024&quot; height=&quot;576&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -1427,7 +1427,7 @@ DISCLAIMER:&lt;/p&gt;
    <title>How to implement jsDOSBox</title>
    <link href="http://atechdad.com/how-to-jsdosbox/"/>
    <updated>2014-11-25T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/how-to-jsdosbox</id>
+   <id>http://atechdad.comhttp://atechdad.com/how-to-jsdosbox</id>
    <content type="html">&lt;p&gt;I had a time getting JsDOSBox going using the current version (I could have been doing it wrong, I dunno). I did manage to get it working. Here’s how I hacked it together:&lt;/p&gt;
 
 &lt;p&gt;Needed:&lt;/p&gt;
@@ -1488,7 +1488,7 @@ DISCLAIMER:&lt;/p&gt;
    <title>1980s meet 2014 &#8211; A BBS with Docker</title>
    <link href="http://atechdad.com/1980-2014-a-bbs-in-docker/"/>
    <updated>2014-11-24T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/1980-2014-a-bbs-in-docker</id>
+   <id>http://atechdad.comhttp://atechdad.com/1980-2014-a-bbs-in-docker</id>
    <content type="html">&lt;h5 id=&quot;what-is-a-bbs&quot;&gt;What is a BBS?&lt;/h5&gt;
 
 &lt;p&gt;A BBS (&lt;strong&gt;bulletin board system) &lt;/strong&gt;is basically terminal software that is lets people connect and share information. These systems were widely used prior to mass adoption of the internet as a means to share software, send messages, and play games. These BBSs were normally accessed via dial-up and as such usually catered to regional audiences.&lt;/p&gt;
@@ -1666,7 +1666,7 @@ EXPOSE 21
    <title>Automatically Launch website for Kids on Login</title>
    <link href="http://atechdad.com/automatically-launch-website-for-kids-on-login/"/>
    <updated>2014-11-23T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/automatically-launch-website-for-kids-on-login</id>
+   <id>http://atechdad.comhttp://atechdad.com/automatically-launch-website-for-kids-on-login</id>
    <content type="html">&lt;p&gt;My son uses an educational website. One point of frustration for him– and us was that he would stray from the site and get lost in obscure places on the desktop. I put together this simple solution so when he logs in, he gets the website. It’s not perfect, but it works for us.&lt;/p&gt;
 
 &lt;p&gt;You’ll Need:&lt;/p&gt;
@@ -1757,7 +1757,7 @@ EXPOSE 21
    <title>Hello world!</title>
    <link href="http://atechdad.com/hello-world/"/>
    <updated>2014-11-22T00:00:00-08:00</updated>
-   <id>http://atechdad.comhttp://atechdad.github.io/hello-world</id>
+   <id>http://atechdad.comhttp://atechdad.com/hello-world</id>
    <content type="html">&lt;p&gt;Welcome to aTechDad.com!&lt;/p&gt;
 
 &lt;p&gt;I created this site to aggregate and archive all of my many, ever-changing interests and practice my writing. If anything posted here helps you, awesome!&lt;/p&gt;
