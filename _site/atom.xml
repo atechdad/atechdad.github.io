@@ -1,0 +1,1771 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>atechdad</title>
+ <link href="http://atechdad.comhttp://atechdad.github.io/atom.xml" rel="self"/>
+ <link href="http://atechdad.comhttp://atechdad.github.io/"/>
+ <updated>2015-07-09T09:14:35-07:00</updated>
+ <id>http://atechdad.com</id>
+ <author>
+   <name>Mark Otto</name>
+   <email>markdotto@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>I Emailed 97,931 Users Their Passwords</title>
+   <link href="http://atechdad.com/i-emailed-97931-users-their-passwords/"/>
+   <updated>2015-06-23T00:00:00-07:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/i-emailed-97931-users-their-passwords</id>
+   <content type="html">&lt;p&gt;Hey all-&lt;/p&gt;
+
+&lt;p&gt;I run across lots of passwords on the webs. Passwords to bank accounts, Netflix accounts, email accounts- you name it. Pastebin and its clones are very popular repositories for this kind of information.&lt;/p&gt;
+
+&lt;p&gt;Now, there are a couple of &lt;a href=&quot;https://isc.sans.edu/forums/diary/Quick+Tip+Pastebin+Monitoring+Recon/12091/&quot;&gt;solutions&lt;/a&gt; a person can use to collect this password data. Not all of them are malicious.&lt;/p&gt;
+
+&lt;p&gt;Some of these scripts are often used to alert a person when one of their own accounts are compromised as a kind of canary. I’ve seen various services where a person can opt-in to be notified if one of their accounts has been compromised. A “Canary As A Service” if you will. I can see two issues with this:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Most users have no idea these services exist.&lt;/li&gt;
+  &lt;li&gt;Many users are wary of sending the information they care most about to another online service.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Experiment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I wondered what would happen if I just emailed this information to the people who owned it. Instead of asking people to opt-in — I could offer them the chance to opt-out.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Plan&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I decided to do this as part of &lt;a href=&quot;http://urhack.com&quot;&gt;urhack.com&lt;/a&gt; and call it &lt;del&gt;canary&lt;/del&gt; &lt;a href=&quot;http://urhack.com/robin&quot;&gt;Robin&lt;/a&gt; (the reasoning behind this change is there). I set up the email and a reply address to offer people a chance to unsubscribe. I even set up a PayPal donation button. I didn’t expect anything in return, but thought , “Why not?” five dollars would cover the VPS time.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Collection&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;For 3 days, I scraped Pastebin looking for email address/password combinations. This seemed to be the easiest target since it was the most active. After removing the garbage, I was left with over &lt;strong&gt;97,000&lt;/strong&gt; email:password combinations.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Execution&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;On May 19th 2015, I sent out the emails. I could have waited for more, but this was only an experiment– and honestly I was getting impatient.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Message&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I tried to keep the message simple:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2015/06/canary.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-383&quot; src=&quot;http://atechdad.com/wp-content/uploads/2015/06/canary.png&quot; alt=&quot;canary&quot; width=&quot;888&quot; height=&quot;440&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aftermath&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;9 Thank Yous (0.009%)&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;The thank you notes I got were sincere. One of them validated the entire effort when the person indicated that they use the same password for everything and wanted to know which account had been compromised.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;100 Delivery Status Notification (Failure) (0.1%)&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Many of the addresses contacted were no longer in use for obvious reasons.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;41 unsubscribes (0.041%)&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Including one request to F**k off. (0.001%) &lt;img src=&quot;http://atechdad.com/wp-includes/images/smilies/simple-smile.png&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; style=&quot;height: 1em; max-height: 1em;&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;29 Spam (0.029%)&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Some of these addresses were either compromised accounts which reply to emails with spam or were planted for this purpose.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;$0&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;I received no donations. This was not unexpected– but since the campaign didn’t cost me much, it’s also absolutely fine.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Overall I consider this experiment a success. I hope that many people were helped and did not reply instead of ignoring or losing the email to spam filters.&lt;/p&gt;
+
+&lt;p&gt;My next list has been running since May 19th. My current count has around 300k accounts.&lt;/p&gt;
+
+&lt;p&gt;I might just do this again.&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>A Brief Look at DNS Zone Transfer for Alexia&#8217;s Top 1M Domains</title>
+   <link href="http://atechdad.com/a-brief-look-at-dns-zone-transfer-for-alexias-top-1m-domains/"/>
+   <updated>2015-04-30T00:00:00-07:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/a-brief-look-at-dns-zone-transfer-for-alexias-top-1m-domains</id>
+   <content type="html">&lt;p&gt;The [Scans.IO][1] project is hosting a new dataset courtesy of Mr. Hanno Böck. This data contains the result of scans against Alexa’s top 1 million domains looking for DNS servers which have allowed unauthenticated requests for Zone Transfer.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;
+  &lt;strong&gt;About AXFR&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The purpose of DNS Zone Transfer (AXFR) is to replicate DNS data across DNS servers. Usually this information is protected with ACLs, but there are many DNS servers which allow unauthenticated requests and provide potentially sensitive information. This information is often used by hackers while conducting recon.&lt;/p&gt;
+
+&lt;p&gt;US-CERT even put out an alert in April of 2015. – &lt;a href=&quot;https://www.us-cert.gov/ncas/alerts/TA15-103A&quot;&gt;https://www.us-cert.gov/ncas/alerts/TA15-103A&lt;/a&gt;&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;
+  &lt;strong&gt;The Numbers&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: left;&quot;&gt;
+  I parsed through the files very briefly using standard command-line tools and found some interesting things.
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;There are 67,647 domains exposed or 6.7% of the Alexa top 1 million scanned.&lt;/li&gt;
+  &lt;li&gt;There are 47,025 unique DNS servers listed.&lt;/li&gt;
+  &lt;li&gt;451 (or .95%) appear to contain records indicating the use of DNSSEC.&lt;/li&gt;
+  &lt;li&gt;2,282 of the records contain the word intranet&lt;/li&gt;
+  &lt;li&gt;285 of the records contain HINFO data
+    &lt;ul&gt;
+      &lt;li&gt;There are 15,382 HINFO records&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;102 of the DNS servers use the .gov TLD.
+    &lt;ul&gt;
+      &lt;li&gt;Of these, 8,166 records are exposed.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;779 records contain the word password
+    &lt;ul&gt;
+      &lt;li&gt;Of these, 58 contain both the words password and reset&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;39.5% are .com domain servers&lt;/li&gt;
+  &lt;li&gt;26,083 records contain the word proxy.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;
+  &lt;strong&gt;Top 15 DNS Domains by Count of Exposed Domains&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;xserver.jp – 11022&lt;/li&gt;
+  &lt;li&gt;secure.net – 2003&lt;/li&gt;
+  &lt;li&gt;mainnameserver.com – 1689&lt;/li&gt;
+  &lt;li&gt;pointhq.com – 1187&lt;/li&gt;
+  &lt;li&gt;linuxpl.com – 1010&lt;/li&gt;
+  &lt;li&gt;firstvds.ru – 920&lt;/li&gt;
+  &lt;li&gt;sedoparking.com – 902&lt;/li&gt;
+  &lt;li&gt;sixcore.ne.jp – 878&lt;/li&gt;
+  &lt;li&gt;wpx.ne.jp – 875&lt;/li&gt;
+  &lt;li&gt;dnsexit.com – 820&lt;/li&gt;
+  &lt;li&gt;a2hosting.com – 727&lt;/li&gt;
+  &lt;li&gt;parklogic.com – 722&lt;/li&gt;
+  &lt;li&gt;netsons.com.- 662&lt;/li&gt;
+  &lt;li&gt;1gb.ru – 597&lt;/li&gt;
+  &lt;li&gt;linode.com – 508&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;
+  &lt;strong&gt;Number of DNS Servers by TLD&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;.com – 18598&lt;/li&gt;
+  &lt;li&gt;.net – 5982&lt;/li&gt;
+  &lt;li&gt;.ru – 3380&lt;/li&gt;
+  &lt;li&gt;.org – 1384&lt;/li&gt;
+  &lt;li&gt;.pl – 1237&lt;/li&gt;
+  &lt;li&gt;.br – 1170&lt;/li&gt;
+  &lt;li&gt;.jp – 1168&lt;/li&gt;
+  &lt;li&gt;.ir – 970&lt;/li&gt;
+  &lt;li&gt;.de – 628&lt;/li&gt;
+  &lt;li&gt;.uk – 551&lt;/li&gt;
+  &lt;li&gt;.nl – 532&lt;/li&gt;
+  &lt;li&gt;.ua – 514&lt;/li&gt;
+  &lt;li&gt;.tw – 514&lt;/li&gt;
+  &lt;li&gt;.kr – 479&lt;/li&gt;
+  &lt;li&gt;info – 444&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;
+  &lt;strong&gt;Malicious Sites&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Looks like there may be some nasty domains with enough traffic to be listed in the Alexa top 1 million too:&lt;/p&gt;
+
+&lt;pre&gt;axfr loginj.com @ns1-king.vivawebhost.com.
+&lt;/pre&gt;
+
+&lt;p&gt;This domain has about 1400 subdomains– all appearing to be phishing related.&lt;/p&gt;
+
+&lt;p&gt;Examples:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;autoconfig.wellsfargoonline.loginj[.]com&lt;/li&gt;
+  &lt;li&gt;www.yahooemail.loginj[.]com&lt;/li&gt;
+  &lt;li&gt;www.walmartcareers.loginj[.]com&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;According to Alexa, 91.5% of visitors to this site are from the US.&lt;/p&gt;
+
+&lt;p&gt;[&lt;img class=&quot;alignnone size-full wp-image-357&quot; src=&quot;http://atechdad.com/wp-content/uploads/2015/04/alexa.png&quot; alt=&quot;alexa&quot; width=&quot;764&quot; height=&quot;333&quot; /&gt;][2]&lt;/p&gt;
+
+&lt;p&gt;While the site itself is registered to someone in Australia&lt;/p&gt;
+
+&lt;pre&gt;Registrant City: Deer Park
+Registrant State/Province: Victoria
+Registrant Postal Code: 3023
+Registrant Country: Australia
+&lt;/pre&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;
+  &lt;b&gt;So now what?&lt;/b&gt;
+&lt;/p&gt;
+
+&lt;p&gt;I did reach out to US-CERT and to one of the VPS providers on the list.&lt;/p&gt;
+
+&lt;p&gt;The response from the provider was:&lt;/p&gt;
+
+&lt;p style=&quot;text-align: justify;&quot;&gt;
+  &lt;em&gt;Thank you for bringing this to our attention. While our servers are configured to allow AXFR, the ability to perform them is disabled by default &amp;#8212; it is the responsibility of the user to configure their ACL&amp;#8217;s to allow access to the servers they wish to allow replication between.[&amp;#8230;] &lt;/em&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: left;&quot;&gt;
+  I did not receive anything from US-CERT. However, with the alert above, I&amp;#8217;m assuming they are aware of the .gov exposure.
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: justify;&quot;&gt;
+  Anyway, the scans are located here:&lt;a href=&quot;https://scans.io/study/hanno-axfr&quot;&gt; https://scans.io/study/hanno-axfr&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: justify;&quot;&gt;
+  If you find anything interesting, let me know.
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: justify;&quot;&gt;
+  &lt;p style=&quot;text-align: justify;&quot;&gt;
+    &lt;strong&gt;Correction:&lt;/strong&gt;
+  &lt;/p&gt;
+  
+  &lt;p style=&quot;text-align: justify;&quot;&gt;
+    Earlier versions of this post credited Rapid7 for this data. The data was instead gathered by Mr. Hanno Böck and is being hosted by scans.io
+  &lt;/p&gt;
+  
+  &lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+  &lt;/div&gt;
+
+ [1]: https://scans.io/
+ [2]: http://atechdad.com/wp-content/uploads/2015/04/alexa.png
+&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>URHACK.COM</title>
+   <link href="http://atechdad.com/urhack-com/"/>
+   <updated>2015-04-22T00:00:00-07:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/urhack-com</id>
+   <content type="html">&lt;p&gt;Hey all,&lt;/p&gt;
+
+&lt;p&gt;As you know from previous posts, I’ve been combing through logs provided by Project Sonar/scans.io for a little while now. The information I was gathering about hacked pages seemed a little large for here so I’ve stood up a custom site : &lt;a href=&quot;http://urhack.com&quot;&gt;uhack.com&lt;/a&gt;. Check it out!&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Karma Rogue AccessPoint Offense with badkarma.py</title>
+   <link href="http://atechdad.com/karma-rogue-accesspoint-offense-with-badkarma-py/"/>
+   <updated>2015-03-17T00:00:00-07:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/karma-rogue-accesspoint-offense-with-badkarma-py</id>
+   <content type="html">&lt;p&gt;For those that don’t know, karma is a patch that is applied to hostapd which allows the creation of a wifi honeypot. This honeypot listens for probe requests from devices which announce SSIDs used to autojoin preferred wifi hotspots. The honeypot then spoofs this SSID, luring in unsuspecting devices. Once on the network, many nasty methods can be used to attempt to compromise the device itself, or the data which traverses the access point.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Detection:&lt;/strong&gt;&lt;br /&gt;
+This attack can be detected simply by creating a nonsense SSID, and attempting to connect.&lt;/p&gt;
+
+&lt;p&gt;First, create a nonsense SSID:&lt;/p&gt;
+
+&lt;pre&gt;atechdad@kali:~# sudo ifconfig wlan1 down
+atechdad@kali:~# sudo iwconfig wlan1 essid badkarma
+atechdad@kali:~# sudo ifconfig wlan1 up
+atechdad@kali:~# sudo iwconfig wlan1
+&lt;/pre&gt;
+
+&lt;p&gt;Then see if we joined. You’ll see we did because Access Point has a MAC assigned.&lt;/p&gt;
+
+&lt;pre&gt;wlan0     IEEE 802.11bg  ESSID:&quot;badkarma&quot;  
+          Mode:Managed  Frequency:2.412 GHz  Access Point: &lt;strong&gt;F6:B1:14:6D:AB:01&lt;/strong&gt;   
+          Bit Rate=24 Mb/s   Tx-Power=20 dBm   
+          Retry short limit:7   RTS thr:off   Fragment thr:off
+          Encryption key:off
+          Power Management:off
+          Link Quality=70/70  Signal level=-25 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:8   Missed beacon:0
+&lt;/pre&gt;
+
+&lt;p&gt;Here is the view from the attacker’s perspective:&lt;/p&gt;
+
+&lt;pre&gt;KARMA: Probe Request from 00:1e:2a:18:26:60 for SSID 'badkarma'
+KARMA: Probe Request from 00:1e:2a:18:26:60 for SSID 'badkarma'
+KARMA: Probe Request from 00:1e:2a:18:26:60 for SSID 'badkarma'
+KARMA: Probe Request from 00:1e:2a:18:26:60 for SSID 'badkarma'
+KARMA: Checking SSID for start of association, pass through badkarma
+KARMA: Successful association of 00:1e:2a:18:26:60
+&lt;/pre&gt;
+
+&lt;p&gt;So now we’re on the network– and we know how to find it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Defense:&lt;/strong&gt;&lt;br /&gt;
+There are a few ways I can think of offhand to defend against this kind of attack.&lt;br /&gt;
+1. Turn off auto connect.&lt;br /&gt;
+2. Audit your devices.&lt;br /&gt;
+&lt;del&gt;3. Add a fake AP with bad network settings to your device. Configure your device to alert on join. &lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;I wouldn’t recommend #3. Without other controls in place, this could open your device up to the attack we’re trying to avoid.&lt;/p&gt;
+
+&lt;p&gt;Here’s how to see what your devices are probing :&lt;/p&gt;
+
+&lt;pre&gt;atechdad@kali:~# sudo airmon-ng start wlan1
+atechdad@kali:~# sudo airodump-ng mon0
+&lt;/pre&gt;
+
+&lt;p&gt;You’ll see something like this. Pay attention to the second section:&lt;/p&gt;
+
+&lt;pre&gt;BSSID              STATION            PWR   Rate    Lost    Frames  Probe
+
+ (not associated)   XX:XX:XX:XX:XX:F6  -44    0 - 1      0        1
+ (not associated)   &lt;strong&gt;00:1E:2A:18:26:60&lt;/strong&gt;  -59    0 - 1     86       11  &lt;strong&gt;badkarma
+&lt;/strong&gt;&lt;/pre&gt;
+
+&lt;p&gt;You’ll notice in the second section a list of client devices. Pay attention to the Probe column&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Offense:&lt;/strong&gt;&lt;br /&gt;
+badkarma.py is a simple that works by creating a randomized AP, joining it, then deauthenticating all connected guests. It was written to run using kali linux. At minimum, it requires python, wireless-tools, the aircrack-ng suite, and mdk3 be present.&lt;/p&gt;
+
+&lt;p&gt;Sample output:&lt;/p&gt;
+
+&lt;pre&gt;atechdad@kali:~/badkarma# ./badkarma.py -i wlan1
+[!] Stopping network-manager..
+[!] Starting monitor interface..
+[!] Monitor active on interface mon0
+[!] ESSID is now robesunconnected
+[!] Wireless MAC is now 6c:18:c5:21:29:c3
+[!] Bad AP EA:BE:1C:E7:C3:A7 found! Adding to blacklist...
+[!] Liberation! Disconnecting between: 6C:18:C5:21:29:C3 and: F6:B1:14:6D:AB:01
+[!] Liberation! Disconnecting between: XX:XX:XX:XX:XX:XX and: F6:B1:14:6D:AB:01
+[!] ESSID is now distilsfinagling
+[!] Wireless MAC is now c6:5c:7d:76:f9:a4
+^C[!] Cleaning Up...
+[!] Deleting blacklist...
+[!] Ending deauth...
+[!] Stopping monitor interface mon0
+[!] Resetting interface wlan1
+[!] Starting network-manager...
+[!] Exiting..
+atechdad@kali:~/badkarma#
+&lt;/pre&gt;
+
+&lt;p&gt;Verification of deauthentication from Attacker’s perspective:&lt;/p&gt;
+
+&lt;pre&gt;wlan0: mgmt::deauth
+wlan0: deauthentication: STA=6c:18:c5:21:29:c3 reason_code=1
+wlan0: STA 6c:18:c5:21:29:c3 IEEE 802.11: deauthenticated
+wlan0: STA 6c:18:c5:21:29:c3 MLME: MLME-DEAUTHENTICATE.indication(6c:18:c5:21:29:c3, 1)
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Getting Script:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;atechdad@kali:~# git clone https://github.com/atechdad/badkarma.git
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Running:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;atechdad@kali:~# cd badkarma/
+atechdad@kali:~/badkarma# ./badkarma.py -i wlan0
+&lt;/pre&gt;
+
+&lt;p&gt;This should only be run against access points you have permission to attack. I assume no responsibility for its use and offer no support.&lt;br /&gt;
+The script was just thrown together to meet my needs. If you make improvements, please contribute back.&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Research finds 400k Security Camera DVRs with Hardcoded Credentials</title>
+   <link href="http://atechdad.com/passive-scans-for-default-passwords-finds-security-dvrs-with-potential-defaults/"/>
+   <updated>2015-03-03T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/passive-scans-for-default-passwords-finds-security-dvrs-with-potential-defaults</id>
+   <content type="html">&lt;p&gt;I’ve been tinkering with passive research using public scans which are freely available via Project Sonar. I was curious to search and look for any devices which may have username and passwords hardcoded so I decided to search for a few instances where the username and passwords appear hardcoded to admin. I thought that surely there couldn’t be many– so I kicked off the scan…&lt;/p&gt;
+
+&lt;pre&gt;curl -s https://scans.io/data/rapid7/sonar.http/20141209-http.gz |   zcat |   bin/dap json + select ip data + transform data=base64decode + include data='$(\&quot;password\&quot;).value = \&quot;admin\&quot;' + include data='$(\&quot;username\&quot;).value = \&quot;admin\&quot;'+ decode_http_reply data + select ip + lines  &amp;gt;&amp;gt; ips.txt
+&lt;/pre&gt;
+
+&lt;p&gt;..and waited.  The above command streams the huge scan database and inspects it live so I don’t have to download the entire thing. I know it’s lazy, but the VPS I was running this from only has a 20GB hd.&lt;/p&gt;
+
+&lt;p&gt;A few hours passed and the command completed. So I checked the file….&lt;br /&gt;
+Too many IPs to cat. How many are we talking?&lt;/p&gt;
+
+&lt;pre&gt;atechdad@server:~$ cat ips.txt | wc -l
+467807
+&lt;/pre&gt;
+
+&lt;p&gt;Er. Can’t be right. Let’s check one of the records.&lt;/p&gt;
+
+&lt;p&gt;Something called NETSurveillance in the title. That’s odd. How many of these are there?&lt;/p&gt;
+
+&lt;pre&gt;curl -s https://scans.io/data/rapid7/sonar.http/20141209-http.gz |   zcat |   bin/dap json + select ip data + transform data=base64decode + include data='$(\&quot;password\&quot;).value = \&quot;admin\&quot;' + include data='$(\&quot;username\&quot;).value = \&quot;admin\&quot;'+ decode_http_reply data + select data + lines |grep -i surveillance
+&lt;/pre&gt;
+
+&lt;p&gt;Ok. Lots.&lt;/p&gt;
+
+&lt;p&gt;So what is this thing?&lt;/p&gt;
+
+&lt;p&gt;It seems most of these are security camera / DVRs of assorted brands which source from China. The most common appears to be branded by the identifier, NetSurveillance. An example of one is &lt;a href=&quot;http://www.cctvcamerapros.com/H264-Stand-Alone-DVRs-s/358.htm&quot;&gt;H.264 8 Cam DVR-9108VH&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It appears that a good many of these devices are configured with admin:admin.&lt;/p&gt;
+
+&lt;p&gt;I hope that at over 400,000 devices, there are many false positives. Also, why aren’t these things behind a firewall? A cheap consumer router would be better than nothing.&lt;/p&gt;
+
+&lt;p&gt;Anyway, so that’s yet another thing you can do with the info from scans.io.&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Finding Hacked Pages With Passive Scanning via Project Sonar</title>
+   <link href="http://atechdad.com/finding-hacked-pages-with-passive-scanning-via-project-sonar/"/>
+   <updated>2015-03-01T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/finding-hacked-pages-with-passive-scanning-via-project-sonar</id>
+   <content type="html">&lt;p&gt;Recently, &lt;a href=&quot;https://blog.shodan.io/tracking-hacked-websites/&quot;&gt;Shodan’s blog featured instructions&lt;/a&gt; on finding hacked paged by searching for the phrase “Hacked By”.  Here’s how to do this yourself using the scans provided by &lt;a href=&quot;https://github.com/rapid7/sonar/wiki&quot;&gt;Project Sonar&lt;/a&gt;. This information can be used for all kinds of passive scans.&lt;/p&gt;
+
+&lt;pre&gt;sudo apt-get update
+sudo apt-get install libgeoip-dev ruby1.9.1-dev git build-essential
+&lt;/pre&gt;
+
+&lt;pre&gt;git clone https://github.com/rapid7/dap.git
+cd dap
+sudo gem install bundler
+bundle install
+&lt;/pre&gt;
+
+&lt;p&gt;This installs the geoIP library in case you’re wanting to do other things with dap.&lt;/p&gt;
+
+&lt;pre&gt;sudo mkdir -p /var/lib/geoip
+cd /var/lib/geoip
+sudo wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+sudo gunzip GeoLiteCity.dat.gz
+sudo mv GeoLiteCity.dat geoip.dat
+&lt;/pre&gt;
+
+&lt;p&gt;This command downloads the scan file which is pretty big and does the searching inline:&lt;/p&gt;
+
+&lt;pre&gt;curl -s https://scans.io/data/rapid7/sonar.http/20150217-http.gz | zcat | bin/dap json + select data + transform data=base64decode + include data='Hacked By' + decode_http_reply data + lines | grep &quot;Hacked By&quot;
+&lt;/pre&gt;
+
+&lt;p&gt;Then you could use some command-line parsing to clean it up even more!.&lt;/p&gt;
+
+&lt;p&gt;Happy research!&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;(ignore this below. This is just me playing and saving my notes…)&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;curl -s https://scans.io/data/rapid7/sonar.http/20141209-http.gz |   zcat |   bin/dap json + select ip data + transform data=base64decode + include data=’Hacked By’ + decode_http_reply data + lines | stdbuf -o0 grep -iPo ‘(?&amp;lt;=HTTP/1.1 200\s|Hacked By\s)[^\s]*’ | stdbuf -o0 grep OK -A1 | stdbuf -o0 grep -Ev “OK|–” » test.txt&lt;/del&gt;&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Parsebin &#8211; A Powershell Pastebin Parser</title>
+   <link href="http://atechdad.com/parsebin-a-powershell-pastebin-parser/"/>
+   <updated>2015-02-16T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/parsebin-a-powershell-pastebin-parser</id>
+   <content type="html">&lt;p&gt;By now, most folks have realized that pastebin holds some interesting data. Some of the information you run across can be interesting – if not hilarious. That is, as long is it’s not *your* data.&lt;/p&gt;
+
+&lt;p&gt;In 2011, Xavier Garcia put together a &lt;a href=&quot;http://www.shellguardians.com/2011/07/monitoring-pastebin-leaks.html&quot;&gt;python pastebin scrape&lt;/a&gt;r.&lt;/p&gt;
+
+&lt;p&gt;For no real reason I decided to &lt;del&gt;hack together&lt;/del&gt; rewrite this in powershell. If this helps you, cool.&lt;/p&gt;
+
+&lt;p&gt;Description of required files:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;./seen.txt&lt;/strong&gt; : a list of pasties scraped already. This is created by the script&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;./regex.txt&lt;/strong&gt; : the regex expressions used to look for juicy information. This is created by you&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;./found/&lt;/strong&gt; : this is actually a folder you’ll need to create. This is to hold the auto-downloaded pastes found. I’ve commented this out. Use at your own risk!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Script (parsebin.ps1) : I’ve linked to it &lt;a href=&quot;http://atechdad.com/wp-content/uploads/2015/02/parsebin.ps1_.txt&quot;&gt;here&lt;/a&gt;. Rename it to .ps1 of course.&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>The Poor Man&#8217;s Guide to Hosted Virtual Desktop Infrastructure (DaaS-VDI)</title>
+   <link href="http://atechdad.com/the-poor-mans-guide-to-hosted-virtual-desktop-infrastructure-daas-vdi/"/>
+   <updated>2015-01-16T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/the-poor-mans-guide-to-hosted-virtual-desktop-infrastructure-daas-vdi</id>
+   <content type="html">&lt;p&gt;What follows is an account of my attempts to install a desktop environment in the cloud. I’ve done this successfully using a vps from &lt;a href=&quot;https://www.digitalocean.com/?refcode=26b6adc6c1c0&quot;&gt;digitalocean&lt;/a&gt; (referral link ;)). A second part of this will be demonstrating how to pull this into a docker container.&lt;/p&gt;
+
+&lt;p&gt;When you complete this tutorial you will have a hosted virtual desktop behind a html5 frontend.&lt;/p&gt;
+
+&lt;p&gt;First, we’ll update and upgrade, install the desktop environment, guacamole, a virtual framebuffer, the VNC server, and the md5 hash generator.&lt;/p&gt;
+
+&lt;pre&gt;sudo apt-get update &amp;amp;&amp;amp; apt-get upgrade -y
+sudo apt-get install -y --no-install-recommends guacamole-tomcat gnome-core xfce4 xvfb vnc4server isomd5sum&lt;/pre&gt;
+
+&lt;p&gt;You can select no when prompted to restart the tomcat server. We’ll do this later.&lt;/p&gt;
+
+&lt;p&gt;We’re going to generate a md5 hash based off of a password. It’s a little more secure than plaintext… Use your own password please. This one’s mine.&lt;/p&gt;
+
+&lt;pre&gt;echo -n &lt;strong&gt;PASSWORD&lt;/strong&gt; | md5sum&lt;/pre&gt;
+
+&lt;p&gt;Remeber your password. Save off the hash itself, but leave out spaces and the dash (-).&lt;/p&gt;
+
+&lt;p&gt;Now let’s clear our command history.&lt;/p&gt;
+
+&lt;pre&gt;history -c&lt;/pre&gt;
+
+&lt;p&gt;Next, we’ll edit the guacamole user mapping XML file which defines our user and vnc client configuration.&lt;/p&gt;
+
+&lt;pre&gt;sudo nano /etc/guacamole/user-mapping.xml&lt;/pre&gt;
+
+&lt;p&gt;Replace all of the content with the following. In nano you can hold &lt;strong&gt;ctrl-k&lt;/strong&gt; to delete lines. Again, don’t steal my super secure credentials. Replace the values in bold with your own.&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;user-mapping&amp;gt;
+     &amp;lt;authorize
+          username=&quot;&lt;strong&gt;admin&lt;/strong&gt;&quot;
+          password=&quot;&lt;strong&gt;319f4d26e3c536b5dd871bb2c52e3178&lt;/strong&gt;&quot;
+          encoding=&quot;md5&quot;&amp;gt;
+          &amp;lt;protocol&amp;gt;vnc&amp;lt;/protocol&amp;gt;
+          &amp;lt;param name=&quot;hostname&quot;&amp;gt;localhost&amp;lt;/param&amp;gt;
+          &amp;lt;param name=&quot;port&quot;&amp;gt;5901&amp;lt;/param&amp;gt;
+          &amp;lt;param name=&quot;password&quot;&amp;gt;&lt;strong&gt;VNCPASS&lt;/strong&gt;&amp;lt;/param&amp;gt;
+     &amp;lt;/authorize&amp;gt;
+&amp;lt;/user-mapping&amp;gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Next, we’ll start the VNC server to generate the default config files, then kill it. Make sure you start this as the user you’ll be wanting to run the VNC server.&lt;/p&gt;
+
+&lt;pre&gt;vncserver&lt;/pre&gt;
+
+&lt;p&gt;Enter the VNC password when prompted. This should match the password you used to replaced &lt;strong&gt;VNCPASS&lt;/strong&gt; in the prior step.&lt;br /&gt;
+Now we’ll kill VNC.&lt;/p&gt;
+
+&lt;pre&gt;vncserver -kill :1&lt;/pre&gt;
+
+&lt;p&gt;Next, we’ll edit the VNC startup to start our GUI on boot.&lt;/p&gt;
+
+&lt;pre&gt;nano .vnc/xstartup&lt;/pre&gt;
+
+&lt;p&gt;Replace all content with :&lt;/p&gt;
+
+&lt;pre&gt;#!/bin/sh
+
+[ -x /etc/vnc/xstartup ] &amp;amp;&amp;amp; exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] &amp;amp;&amp;amp; xrdb $HOME/.Xresources
+
+startxfce4 &amp;amp;
+xsetroot -solid grey
+&lt;/pre&gt;
+
+&lt;p&gt;Now we’ll restart tomcat.&lt;/p&gt;
+
+&lt;pre&gt;sudo /etc/init.d/tomcat6 restart&lt;/pre&gt;
+
+&lt;p&gt;And finally we’ll start the server.&lt;/p&gt;
+
+&lt;pre&gt;vncserver -localhost&lt;/pre&gt;
+
+&lt;p&gt;You should now be able to reach your new desktop from : http://&lt;strong&gt;YOURserverIP&lt;/strong&gt;:8080/guacamole&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Ouya PS4 Remote Play</title>
+   <link href="http://atechdad.com/ouya-ps4-remote-play/"/>
+   <updated>2015-01-04T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/ouya-ps4-remote-play</id>
+   <content type="html">&lt;p&gt;The OUYA was a dream that was unrealized by some. While many have gotten immense pleasure out of the android based console, many have ended up either selling their OUYA or not using it at all.&lt;/p&gt;
+
+&lt;p&gt;The kids got a PS4 for Christmas. It hadn’t been even hooked up yet when I started thinking of a Playstation TV and other remote play goodness. Some quick research led me to the official Sony remote play android app– and subsequently to the ‘hacked’ version.&lt;/p&gt;
+
+&lt;p&gt;I installed it on my phone first– and it worked out of the box. I then went around and began testing it on a several other android-enabled devices throughout the house. The OUYA did not work out of the box. The more I thought about it, the more I wanted it. I knew it must be possible.&lt;/p&gt;
+
+&lt;p&gt;The following is an account of my attempts to use my OUYA for Remote Play with the PS4.&lt;/p&gt;
+
+&lt;p&gt;My first attempt was obvious. I tried to install the apk onto the Ouya directly. While the app didn’t crash, it also didn’t work. Those who have tried have been greeted by this lovely screen:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2015/01/ouyaFail.png&quot;&gt;&lt;img class=&quot;alignnone size-large wp-image-232&quot; src=&quot;http://atechdad.com/wp-content/uploads/2015/01/ouyaFail-1024x576.png&quot; alt=&quot;ouyaFail&quot; width=&quot;1024&quot; height=&quot;576&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Meh.&lt;/p&gt;
+
+&lt;p&gt;Second attempt:&lt;/p&gt;
+
+&lt;p&gt;What follows is what I did. I had to replace the stock firmware with Cyanogenmod.  I cannot guarantee this will work for you. Paraphrased from the Cyanogenmod site:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I am not responsible for bricked devices, dead SD cards, or any other issues. Please do some research if you have any concerns about these instructions. YOU are choosing to make these modifications. Your warranty will be void if you tamper with any part of your device / software.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Avoiding tl;dr, here is the summary:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Install su/busybox binaries&lt;/strong&gt;. You can get them here :&lt;a href=&quot;%20http://forum.xda-developers.com/showthread.php?t=2385485&quot; title=&quot; http://forum.xda-developers.com/showthread.php?t=2385485&quot;&gt; http://forum.xda-developers.com/showthread.php?t=2385485&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Install CWM&lt;/strong&gt; : &lt;a href=&quot;http://forum.xda-developers.com/showthread.php?t=2295645&quot; title=&quot;http://forum.xda-developers.com/showthread.php?t=2295645&quot;&gt;http://forum.xda-developers.com/showthread.php?t=2295645&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;I had to use the fastboot method in Linux. You can use the binaries in the one click installer.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Update CWM&lt;/strong&gt; : &lt;a href=&quot;http://milaq.net/downloads/ouya/misc/recovery-clockwork-6.0.4.8-ouya.zip&quot; title=&quot;http://milaq.net/downloads/ouya/misc/recovery-clockwork-6.0.4.8-ouya.zip&quot;&gt;http://milaq.net/downloads/ouya/misc/recovery-clockwork-6.0.4.8-ouya.zip&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Install BootMenu&lt;/strong&gt; : &lt;a href=&quot;http://forum.xda-developers.com/showthread.php?t=2692836&quot;&gt;http://forum.xda-developers.com/showthread.php?t=2692836&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Install Cyanogenmod Custom Rom for the OUYA&lt;/strong&gt; : &lt;a href=&quot;http://forum.xda-developers.com/showthread.php?t=2692843&quot;&gt;http://forum.xda-developers.com/showthread.php?t=2692843&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Make sure you install the gapps zip, etc&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Install the PS4 Remote Play App&lt;/strong&gt; : &lt;a href=&quot;http://forum.xda-developers.com/android/apps-games/ps4-remote-play-t2929147&quot;&gt;http://forum.xda-developers.com/android/apps-games/ps4-remote-play-t2929147&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Game&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Observations:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Wireless network play is laggy/choppy. Use a hardwired connection on both devices if possible.&lt;/li&gt;
+  &lt;li&gt;The PS4 Remote is the only remote I was able to get working. Others may be possible. There are rumors the OUYA remote will work, but I haven’t got this going yet.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Proof:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2015/01/ouya1.jpg&quot;&gt;&lt;img class=&quot;alignnone size-large wp-image-236&quot; src=&quot;http://atechdad.com/wp-content/uploads/2015/01/ouya1-1024x699.jpg&quot; alt=&quot;ouya1&quot; width=&quot;1024&quot; height=&quot;699&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2015/01/ouya2.jpg&quot;&gt;&lt;img class=&quot;alignnone size-large wp-image-237&quot; src=&quot;http://atechdad.com/wp-content/uploads/2015/01/ouya2-1024x633.jpg&quot; alt=&quot;ouya2&quot; width=&quot;1024&quot; height=&quot;633&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Merry Christmas from 1993!</title>
+   <link href="http://atechdad.com/merry-christmas-from-1993/"/>
+   <updated>2014-12-24T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/merry-christmas-from-1993</id>
+   <content type="html">&lt;p&gt;Sorry for the delay. Don’t say I never got you anything.&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>12 Games in 12 Months : Game 1, Week 1</title>
+   <link href="http://atechdad.com/12-games-in-12-months-game-1-week-1/"/>
+   <updated>2014-12-14T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/12-games-in-12-months-game-1-week-1</id>
+   <content type="html">&lt;p&gt;Hey again all,&lt;br /&gt;
+As promised in my &lt;a href=&quot;http://atechdad.com/12-games-in-12-months/&quot;&gt;previous post&lt;/a&gt;, here is a my progress report on Game 1:&lt;/p&gt;
+
+&lt;p&gt;The game is being built using Libgdx. It’s kind of like Pacman. I haven’t completed much to date except for the base engine. I don’t have any menus, or UI to speak of. There is no scorekeeping or goal completion yet. I hope to stitch this together to meet my deadline. I am targeting release for android and web environments.&lt;/p&gt;
+
+&lt;p&gt;Here’s the obligatory screenshot :&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;alignnone size-full wp-image-223&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/mower.jpg&quot; alt=&quot;mower&quot; width=&quot;638&quot; height=&quot;479&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I didn’t create the artwork for the guy. While he probably won’t make it into the final cut, I would still like to give credit if I could find where I got him from. If you know, let me know and I’ll update this &lt;img src=&quot;http://atechdad.com/wp-includes/images/smilies/simple-smile.png&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; style=&quot;height: 1em; max-height: 1em;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Anemone : Anonymity as a Service</title>
+   <link href="http://atechdad.com/anemone-anonymity-as-a-service/"/>
+   <updated>2014-12-08T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/anemone-anonymity-as-a-service</id>
+   <content type="html">&lt;p&gt;I’ve been reading about Docker and it’s started me thinking about the possible services that could be hosted. One instance I thought of was hosting the Tor Browser (I’ve since seen people do this as well). Inspired by &lt;a href=&quot;https://developer.rackspace.com/blog/slumlord-hosting-with-docker/&quot;&gt;Slumlord Hosting with Docker&lt;/a&gt; which was inspired by &lt;a href=&quot;https://github.com/jbarbier/SaaS_Memcached&quot;&gt;Memcached as a Service&lt;/a&gt;, I came up with my own recipe.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Concept&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This is the concept, watered down:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/aaasconcept.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-217&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/aaasconcept.jpg&quot; alt=&quot;aaasconcept&quot; width=&quot;566&quot; height=&quot;307&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can skip to the bottom for a demonstration video if you’d prefer.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What We’ll Need:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ubuntu 14.04.1 LAMP Server (I got mine from DigitalOcean : &lt;a href=&quot;https://www.digitalocean.com/?refcode=26b6adc6c1c0&quot;&gt;Referral Link&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Ubuntu 14.04.1 Docker Server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I built these with two network interfaces. One on a private network and one on the public network. It could be argued that the Docker server doesn’t need a public interface.&lt;/p&gt;
+
+&lt;p&gt;Log into your Web/LAMP server.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Install LAMP: (Highlights from &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04&quot;&gt;here&lt;/a&gt;):&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;sudo apt-get update
+sudo apt-get install apache2 -y
+sudo apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql -y
+sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt php5-curl -y
+sudo apt-get install makepasswd
+&lt;/pre&gt;
+
+&lt;pre&gt;sudo mysql_install_db
+sudo /usr/bin/mysql_secure_installation
+rm /var/www/html/index.html
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Install Guacamole and the SQL Authentication Plugin:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;sudo apt-get install guacamole-tomcat -y
+sudo service tomcat6 stop
+sudo service guacd stop
+&lt;/pre&gt;
+
+&lt;pre&gt;cd ~
+wget http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.23.tar.gz
+wget http://downloads.sourceforge.net/project/guacamole/current/extensions/guacamole-auth-mysql-0.8.4.tar.gz
+
+tar xzvf guacamole-auth-mysql-0.8.4.tar.gz
+tar xzvf mysql-connector-java-5.1.23.tar.gz
+
+sudo mkdir /var/lib/guacamole/classpath
+
+sudo cp guacamole-auth-mysql-0.8.4/lib/* /var/lib/guacamole/classpath/
+sudo cp mysql-connector-java-5.1.23/mysql-connector-java-5.1.23-bin.jar /var/lib/guacamole/classpath/
+&lt;/pre&gt;
+
+&lt;pre&gt;mysql -u root -p
+CREATE DATABASE guacamole;
+CREATE USER 'guacamole'@'localhost' IDENTIFIED BY 'YOURPWCHANGEME!';
+GRANT SELECT,INSERT,UPDATE,DELETE ON guacamole.* TO 'guacamole'@'localhost';
+FLUSH PRIVILEGES;
+exit
+&lt;/pre&gt;
+
+&lt;pre&gt;cat guacamole-auth-mysql-0.8.4/schema/*.sql | mysql -u root -p guacamole
+&lt;/pre&gt;
+
+&lt;pre&gt;sudo nano /etc/guacamole/guacamole.properties
+&lt;/pre&gt;
+
+&lt;p&gt;replace the contents with this:&lt;/p&gt;
+
+&lt;pre&gt;guacd-hostname: localhost
+guacd-port: 4822
+
+lib-directory: /var/lib/guacamole/classpath
+
+# Auth provider class
+auth-provider: net.sourceforge.guacamole.net.auth.mysql.MySQLAuthenticationProvider
+
+# MySQL properties
+mysql-hostname: localhost
+mysql-port: 3306
+mysql-database: guacamole
+mysql-username: guacamole
+mysql-password: YOURPWCHANGEME!
+&lt;/pre&gt;
+
+&lt;pre&gt;sudo service tomcat6 start
+sudo service guacd start
+&lt;/pre&gt;
+
+&lt;p&gt;You should be able to hit http://&lt;strong&gt;yourip&lt;/strong&gt;:8080/guacamole now. The default username:pass is guacadmin:guacadmin. I suggest you change that now…&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/guacamole.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-203&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/guacamole.jpg&quot; alt=&quot;guacamole&quot; width=&quot;477&quot; height=&quot;268&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Log into your Docker server.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Install Docker (Highlights from &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-getting-started&quot;&gt;here&lt;/a&gt;):&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;sudo apt-get update
+sudo apt-get install linux-image-extra-`uname -r` -y
+sudo sh -c &quot;wget -qO- https://get.docker.io/gpg | apt-key add -&quot;
+sudo sh -c &quot;echo deb http://get.docker.io/ubuntu docker main\
+&amp;gt; /etc/apt/sources.list.d/docker.list&quot;
+sudo apt-get update
+sudo apt-get install lxc-docker -y&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Create your Dockerfile&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;nano Dockerfile
+&lt;/pre&gt;
+
+&lt;pre&gt;from ubuntu:trusty
+run apt-get update
+run apt-get install -y wget x11vnc xvfb xz-utils firefox
+run useradd anon --create-home -s /bin/sh
+run wget https://dist.torproject.org/torbrowser/4.0.2/tor-browser-linux64-4.0.2_en-US.tar.xz
+run tar -C /home/anon -xvJf tor-browser-linux64-4.0.2_en-US.tar.xz
+run rm /*.xz
+
+add start.sh /home/anon/start.sh
+
+run chmod +x /home/anon/start.sh
+
+cmd [&quot;/home/anon/start.sh&quot;]
+
+EXPOSE 5900
+
+USER anon
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Create the start.sh&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;nano start.sh
+
+#!/bin/bash
+x11vnc -once -create -geometry 1280x1024 \
+-env X11VNC_CREATE_GEOM=${1:-1280x1024x8} \
+-env FD_PROG=&quot;/home/anon/tor-browser_en-US/start-tor-browser \
+-height 1024 -width 1280&quot; &amp;amp;
+
+sleep 10m
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Build the docker image:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;sudo docker build -t anemone_img .
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Enable the docker remote API **(&lt;a href=&quot;http://www.virtuallyghetto.com/2014/07/quick-tip-how-to-enable-docker-remote-api.html&quot;&gt;from here&lt;/a&gt;)&lt;/strong&gt;: **&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;**There is no authentication for the Docker the API out of the box. You should implement your own. I am restricting the API to the private IP address. In a real world deployment you should implement as many security best practices as you feasibly can. This can include changing the default port, listenting only on the private interface, implementing authentication, SSL, etc.**&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;sudo nano /etc/init/docker.conf
+&lt;/pre&gt;
+
+&lt;p&gt;Find the line that starts with DOCKER_OPTS, and change it to the below&lt;/p&gt;
+
+&lt;pre&gt;DOCKER_OPTS='-H tcp://&lt;strong&gt;YOURDOCKER'sPRIVATEIP&lt;/strong&gt;:4243 -H unix:///var/run/docker.sock'
+&lt;/pre&gt;
+
+&lt;p&gt;Save, Exit. Then run:&lt;/p&gt;
+
+&lt;pre&gt;sudo service docker stop
+sudo service docker start
+&lt;/pre&gt;
+
+&lt;p&gt;Log back into your webserver.&lt;/p&gt;
+
+&lt;p&gt;Please be understanding. I hack things together. I never said I do it well– or prettily. I know I should be using stored procedures. I know I am not using best practices. I know my PHP sucks. Instead of tearing me up for writing bad code, create your own and share? &lt;img src=&quot;http://atechdad.com/wp-includes/images/smilies/simple-smile.png&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; style=&quot;height: 1em; max-height: 1em;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;index.php&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;?php
+
+session_start();
+$duration = (10 * 60);
+$guacServer = &quot;&lt;strong&gt;YOUR WEB SERVER PUBLIC IP&lt;/strong&gt;&quot;;
+
+if(isset($_SESSION['started']))
+{
+$time = ($duration - (time() - $_SESSION['started']));
+if($time &amp;lt;= 0)
+{
+unset($_SESSION['UN']);
+unset($_SESSION['PW']);
+unset($_SESSION['started']);
+}
+}
+
+if(!isset($_SESSION['started']))
+{
+$_SESSION['started'] = time();
+$ch = curl_init('http://127.0.0.1/createInstance.php');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$result = curl_exec($ch);
+$obj = json_decode($result);
+$_SESSION['UN'] = sanitize_text_field($obj-&amp;gt;name);
+$_SESSION['PW'] = sanitize_text_field($obj-&amp;gt;pw);
+}
+print (&quot;User: &quot;.$_SESSION['UN'].&quot;&amp;lt;br /&amp;gt;&quot;);
+print (&quot;Password: &quot;.$_SESSION['PW'].&quot;&amp;lt;br /&amp;gt;&quot;);
+print ('&amp;lt;iframe src=&quot;http://'.$guacServer.':8080/guacamole&quot; width=&quot;800&quot; height=&quot;600&quot; frameBorder=&quot;0&quot;&amp;gt;&amp;lt;/iframe&amp;gt;');
+?&amp;gt;
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;createUser.php&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;?php
+if ( isset( $_GET['user'] ) &amp;amp;&amp;amp; !empty( $_GET['user'] ) )
+{
+
+$user = strtolower($_GET['user']);
+$pw = $_GET['pw'];
+$cn = strtolower($_GET['cn']);
+$ip = strtolower($_GET['ip']);
+$port = strtolower($_GET['port']);
+
+$mysqli = new mysqli(&quot;localhost&quot;, &quot;guacamole&quot;, &quot;YOURPWCHANGEME!&quot;, &quot;guacamole&quot;);
+if ($mysqli-&amp;gt;connect_errno) {
+echo &quot;Failed to connect to MySQL: (&quot; . $mysqli-&amp;gt;connect_errno . &quot;) &quot; . $mysqli-&amp;gt;connect_error;
+}
+
+$sql = &quot;SET @salt = UNHEX(SHA2(UUID(), 256)); &quot;;
+$sql.= &quot;INSERT INTO guacamole_user (username, password_salt, password_hash) VALUES ('&quot;.$user.&quot;', @salt, UNHEX(SHA2(CONCAT('&quot;.$pw.&quot;', HEX(@salt)), 256))); &quot;;
+$sql.= &quot;Set @userid = LAST_INSERT_ID(); &quot;;
+$sql.= &quot;INSERT INTO guacamole_connection (connection_name, protocol) VALUES ('&quot;.$cn.&quot;', 'vnc'); &quot;;
+$sql.= &quot;SET @id = LAST_INSERT_ID(); &quot;;
+$sql.= &quot;INSERT INTO guacamole_connection_parameter VALUES (@id, 'hostname', '&quot;.$ip.&quot;'); &quot;;
+$sql.= &quot;INSERT INTO guacamole_connection_parameter VALUES (@id, 'port', '&quot;.$port.&quot;'); &quot;;
+$sql.= &quot;INSERT INTO guacamole_connection_parameter VALUES (@id, 'password', '&quot;.$pw.&quot;'); &quot;;
+$sql.= &quot;INSERT INTO guacamole_connection_permission VALUES (@userid, @id, 'READ'); &quot;;
+
+print ($sql);
+
+if (!$mysqli-&amp;gt;multi_query($sql)) {
+echo &quot;Multi query failed: (&quot; . $mysqli-&amp;gt;errno . &quot;) &quot; . $mysqli-&amp;gt;error;
+}
+}
+
+?&amp;gt;
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;createInstance.php&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;?php
+$dockerhost = 'YOUR DOCKER HOST'S PRIVATE IP';
+$data_string = '{&quot;Image&quot;:&quot;anemone_img&quot;}';
+
+$ch = curl_init('http://'.$dockerhost.':4243/containers/create');
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, &quot;POST&quot;);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json',
+    'Content-Length: ' . strlen($data_string))
+);
+
+$result = curl_exec($ch);
+
+if( !($result = curl_exec($ch)) ) {
+    curl_close($ch);
+    exit;
+}
+curl_close($ch);
+$obj = json_decode($result);
+
+$contId = $obj-&amp;gt;{'Id'};
+
+$rndPort = mt_rand(11000, 11900);
+$data_string = '{&quot;PortBindings&quot;:{ &quot;5900/tcp&quot;: [{ &quot;HostIp&quot; : &quot;'.$dockerhost.'&quot;, &quot;HostPort&quot;: &quot;'.$rndPort.'&quot; }] }}';
+
+$ch = curl_init('http://'.$dockerhost.':4243/containers/' . $contId . '/start');
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, &quot;POST&quot;);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json',
+    'Content-Length: ' . strlen($data_string))
+);
+
+$result = curl_exec($ch);
+
+curl_close($ch);
+
+$ch = curl_init('http://'.$dockerhost.':4243/containers/' . $contId . '/json');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$result = curl_exec($ch);
+if( !($result = curl_exec($ch)) ) {
+    curl_close($ch);
+    exit;
+}
+curl_close($ch);
+
+$obj = json_decode($result);
+
+$hostPort =  $obj-&amp;gt;HostConfig-&amp;gt;{'PortBindings'}-&amp;gt;{'5900/tcp'}[0]-&amp;gt;{'HostPort'};
+$name = $obj-&amp;gt;Name;
+$name = str_replace(&quot;/&quot;, &quot;&quot;, $name);
+
+$pass = trim(shell_exec('makepasswd --minchars 15 --maxchars 25'));
+
+$ch = curl_init('http://127.0.0.1/createUser.php?user='.$name.'&amp;amp;pw='.$pass.'&amp;amp;cn='.$name.'&amp;amp;ip='.$dockerhost.'&amp;amp;port='.$hostPort);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$result = curl_exec($ch);
+$arr = array ('name'=&amp;gt;$name,'pw'=&amp;gt;$pass);
+echo json_encode($arr);
+
+?&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Screenshots:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/guac2.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-205&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/guac2.jpg&quot; alt=&quot;guac2&quot; width=&quot;811&quot; height=&quot;652&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/guac3.jpg&quot;&gt;&lt;img class=&quot;alignnone size-large wp-image-206&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/guac3-1024x458.jpg&quot; alt=&quot;guac3&quot; width=&quot;1024&quot; height=&quot;458&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+Video:&lt;/p&gt;
+
+&lt;p&gt;You get the point. You’ll need to implement some kind of flood control, user cleanup, etc. There are so many things that would need to be cleaned up to make this a viable product. Again, this is just a proof of concept. I am not going to make this example usable, but I made some screenshots and a video to demonstrate.&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Setting up a libgdx build environment</title>
+   <link href="http://atechdad.com/setting-up-a-libgdx-build-environment/"/>
+   <updated>2014-12-07T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/setting-up-a-libgdx-build-environment</id>
+   <content type="html">&lt;p&gt;In my previous post, 12 Games in 12 Months, I put committed to the lofty goal of shipping 12 games in 12 months. After careful consideration I’ve decided to use the much-celebrated Libgdx framework to help me with my first game. First things first, however, I need to set up my development environment. I prefer to keep my development area as separated as I can from my normal workstation, so will use a virtual machine to house this.&lt;/p&gt;
+
+&lt;p&gt;What we’ll need:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ubuntu 14.04.1 Server&lt;/li&gt;
+  &lt;li&gt;Desktop Hypervisor (VMWare Workstation, Hyper-V, VirtualBox, etc)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let’s get started:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Install Ubuntu Server 14.04.1.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I know. Right now you may be wondering why I chose the server OS. I did this because I find that the desktop flavor feels a little bloated for what I need. We’re not looking for a full desktop experience.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Install a desktop environment.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;sudo apt-get update&lt;/pre&gt;
+
+&lt;pre&gt;sudo apt-get install -y --no-install-recommends lubuntu-desktop&lt;/pre&gt;
+
+&lt;p&gt;This will install a customized lightweight LXDE window manager. I know it’s not the linux way, but I prefer to reboot here. This lets me make sure that the window manager will come up on a reboot and gets the GUI going for me for later.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/login.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-181&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/login.jpg&quot; alt=&quot;login&quot; width=&quot;801&quot; height=&quot;599&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now that you’re back up, you’ll need to log in and open a terminal window. Click on the button on the bottom left, go to accessories, then LXTerminal. If there is another terminal you prefer, use that instead.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/terminal.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-182&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/terminal.jpg&quot; alt=&quot;terminal&quot; width=&quot;399&quot; height=&quot;279&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We will also be installing Google’s Android SDK. Since we’re going for easy, we’ll use Google’s ADT bundle which includes the development IDE, Eclipse, and the Android SDK already married and ready to go.&lt;/p&gt;
+
+&lt;p&gt;At the time of writing this, this is the most current link. You may need to update the link below. We’re downloading it, unpacking, then cleaning up after ourselves.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Install the SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;cd ~&lt;/pre&gt;
+
+&lt;pre&gt;wget https://dl.google.com/android/adt/adt-bundle-linux-x86_64-20140702.zip&lt;/pre&gt;
+
+&lt;pre&gt;unzip adt-bundle-linux-x86_64-20140702.zip&lt;/pre&gt;
+
+&lt;pre&gt;rm adt-bundle-linux-x86_64-20140702.zip&lt;/pre&gt;
+
+&lt;p&gt;Assuming all went well, we’ll have an eclipse folder and an sdk folder under the adt folder. I like to move these to my home folder because I am lazy &lt;img src=&quot;http://atechdad.com/wp-includes/images/smilies/simple-smile.png&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; style=&quot;height: 1em; max-height: 1em;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;optional :&lt;/p&gt;
+
+&lt;pre&gt;mv adt-bundle-linux-x86_64-20140702/* ~&lt;/pre&gt;
+
+&lt;pre&gt;rmdir mv adt-bundle-linux-x86_64-20140702&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Next we’ll install Libgdx&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;First, let’s install the prerequisites.&lt;/p&gt;
+
+&lt;pre&gt;sudo apt-get install -y libgl1-mesa-dev:i386 openjdk-7-jdk&lt;/pre&gt;
+
+&lt;p&gt;Next let’s download the gdx-setup.jar&lt;/p&gt;
+
+&lt;pre&gt;wget http://libgdx.badlogicgames.com/nightlies/dist/gdx-setup.jar&lt;/pre&gt;
+
+&lt;p&gt;I like to make a folder for my games. Let’s make one and we’ll call it umm.. games.&lt;/p&gt;
+
+&lt;pre&gt;mkdir ~/games&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Now, we’ll need to launch eclipse and add the grade integration plugin to eclipse&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;cd ~/eclipse&lt;/pre&gt;
+
+&lt;pre&gt;./eclipse&lt;/pre&gt;
+
+&lt;p&gt;Accept the default workspace unless you have a different preference. Click the checkbox to not ask again (unless you like being annoyed– I’m not judging)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/workspace.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-183&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/workspace.jpg&quot; alt=&quot;workspace&quot; width=&quot;679&quot; height=&quot;355&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I’ll let you pick your usage statistics option. I can’t make all of your choices for you &lt;img src=&quot;http://atechdad.com/wp-includes/images/smilies/simple-smile.png&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; style=&quot;height: 1em; max-height: 1em;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next go to &lt;strong&gt;Help &amp;gt; Install New Software&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/installnewsoftware.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-184&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/installnewsoftware.jpg&quot; alt=&quot;installnewsoftware&quot; width=&quot;482&quot; height=&quot;324&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You’ll now be greeted by a screen asking for a URL to install your plugin. Since the version of eclipse we are using is &amp;lt; 4.4, we’ll use &lt;a href=&quot;http://dist.springsource.com/release/TOOLS/gradle&quot;&gt;http://dist.springsource.com/release/TOOLS/gradle&lt;/a&gt; under Work With.&lt;/p&gt;
+
+&lt;p&gt;You’ll have to name this. I went crazy and named mine &lt;strong&gt;Gradle Plugin&lt;/strong&gt;. You can copy me or pick your own. I’d suggest something memorable…&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/GradlePlugin.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-185&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/GradlePlugin.jpg&quot; alt=&quot;GradlePlugin&quot; width=&quot;745&quot; height=&quot;303&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Click OK&lt;/strong&gt;.  On the next screen, expand the plugins and** choose Gradle IDE**.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/GradlePlugin2.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-188&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/GradlePlugin2.jpg&quot; alt=&quot;GradlePlugin2&quot; width=&quot;373&quot; height=&quot;204&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;On the next screen, select Gradle IDE, then click Next, read the stuff, accept it if you want (can’t move forward without it), then &lt;strong&gt;click Finish&lt;/strong&gt;. Wait for the install.  You’ll be prompted to restart eclipse. Go for it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Exit Eclipse&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now list the directories in the home folder.&lt;/p&gt;
+
+&lt;pre&gt;cd ~&lt;/pre&gt;
+
+&lt;pre&gt;ls&lt;/pre&gt;
+
+&lt;p&gt;Should look something like this&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/ls.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-189&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/ls.jpg&quot; alt=&quot;ls&quot; width=&quot;618&quot; height=&quot;77&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now let’s test it all out.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We’ll build a project&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;java -jar gdx-setup.jar&lt;/pre&gt;
+
+&lt;p&gt;For testing, we can accept the defaults. We will need to specify the path to the SDK and game folder. Make you stuff look something like mine:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/libgdx.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-190&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/libgdx.jpg&quot; alt=&quot;libgdx&quot; width=&quot;617&quot; height=&quot;717&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Click Generate.&lt;/p&gt;
+
+&lt;p&gt;When everything finishes, and you see BUILD SUCCESSFUL, close the Project Generator.&lt;/p&gt;
+
+&lt;p&gt;Now we’ll open eclipse again.&lt;/p&gt;
+
+&lt;pre&gt;cd ~/eclipse&lt;/pre&gt;
+
+&lt;pre&gt;./eclipse&lt;/pre&gt;
+
+&lt;p&gt;Now we’ll import the libgdx project we created.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;File -&amp;gt; Import -&amp;gt; Gradle -&amp;gt; Gradle Project&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Click Next&lt;/strong&gt;, then browse to your game folder.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/gradleimport.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-191&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/gradleimport.jpg&quot; alt=&quot;gradleimport&quot; width=&quot;848&quot; height=&quot;671&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Click OK.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Now** click Build Model.** Wait..&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Click the topmost checkbox to import each project, then click finish.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/gradleimport2.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-192&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/gradleimport2.jpg&quot; alt=&quot;gradleimport2&quot; width=&quot;690&quot; height=&quot;268&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Wait a little more. While you’re waiting, you should see projects start to populate on the left panel in eclipse.&lt;/p&gt;
+
+&lt;p&gt;All done.&lt;/p&gt;
+
+&lt;p&gt;..&lt;/p&gt;
+
+&lt;p&gt;…&lt;/p&gt;
+
+&lt;p&gt;Except for that red x next to the android project. What’s that about?&lt;/p&gt;
+
+&lt;p&gt;Description Resource Path Location Type&lt;br /&gt;
+Unable to resolve target ‘android-19′ my-gdx-game-android Unknown Android Target Problem&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Hm. Looks like we need to fix this.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Go to &lt;strong&gt;Window &amp;gt; Android SDK Manager&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Wait a few and you should see a lot of options populate. We could add any we want — and you should do this as part of your testing with the emulator later. But not now. Now we’ll just get rid of that error.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Select the 19 SDK option.&lt;/strong&gt; Try and make sure its the only SDK selected for now. You can leave the defaults of android 5.0 sdk and all that, but you will get prompted when you build asking if you want to use the newer one. Up to you. Also select the API 19.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/sdk191.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-194&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/sdk191.jpg&quot; alt=&quot;sdk19&quot; width=&quot;601&quot; height=&quot;198&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Click Install XX packages, accept your licenses, and click ok.&lt;/strong&gt; Now wait some more while the SDK downloads.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Click OK and close the window when you’ve finished&lt;/strong&gt;. I close and reopen eclipse here. When it’s back up, I give eclipse time to catch up and– what do you know?&lt;/p&gt;
+
+&lt;p&gt;The error is gone. &lt;strong&gt;Click on the Desktop project and click Run..&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Select Java Application and click OK.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Now DesktopLauncher and OK&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/mygdxgame.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-197&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/mygdxgame.jpg&quot; alt=&quot;mygdxgame&quot; width=&quot;640&quot; height=&quot;504&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Good to go.&lt;/p&gt;
+
+&lt;p&gt;And that’s how I set up libgdx from scratch on Ubuntu.&lt;/p&gt;
+
+&lt;p&gt;References:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;http://www.ubuntu.com/download/server&lt;/li&gt;
+  &lt;li&gt;http://lubuntu.net/&lt;/li&gt;
+  &lt;li&gt;http://developer.android.com/sdk/installing/index.html?pkg=adt&lt;/li&gt;
+  &lt;li&gt;https://github.com/libgdx/libgdx/wiki/Setting-up-your-Development-Environment-%28Eclipse,-Intellij-IDEA,-NetBeans%29#setting-up-eclipse&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>12 Games in 12 Months</title>
+   <link href="http://atechdad.com/12-games-in-12-months/"/>
+   <updated>2014-12-06T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/12-games-in-12-months</id>
+   <content type="html">&lt;p&gt;I never finish my games. I start them. My wife tells me I have some form of A.D.D. I can almost agree with her, but from my perspective it’s like seeing something shiny and new and wanting to play with that for awhile. I always mean to come back and finish …&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/12/Dog-Up.jpg&quot;&gt;&lt;img class=&quot;size-full wp-image-154 aligncenter&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/12/Dog-Up.jpg&quot; alt=&quot;Dog-Up&quot; width=&quot;392&quot; height=&quot;340&quot; /&gt;&lt;/a&gt;I need to finish my games.&lt;/p&gt;
+
+&lt;p&gt;So, I’ve been reading a bit — and I see that I’ve not been the only person afflicted with this condition– technology induced A.D.D.&lt;/p&gt;
+
+&lt;p&gt;Reading posts by folks like &lt;a href=&quot;https://levels.io/12-startups-12-months/&quot;&gt;levelsIO&lt;/a&gt;, I had this amazing idea that I would complete 12 games in 12 months. I then found out I was about &lt;a href=&quot;http://mcfunkypants.com/2012/12-games-in-12-months/&quot;&gt;2 years late&lt;/a&gt; to the party.&lt;/p&gt;
+
+&lt;p&gt;I am not deterred– in fact, I am doubly motivated and I’ll give it a shot anyway.&lt;/p&gt;
+
+&lt;p&gt;I will rate my games– and post my progress here to everyone for accountability.&lt;/p&gt;
+
+&lt;p&gt;My Scorecard:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Finish in 30 days : 100 points&lt;/li&gt;
+  &lt;li&gt;Implement a Menu/UI : 50 points&lt;/li&gt;
+  &lt;li&gt;Sound Effects : 25 points&lt;/li&gt;
+  &lt;li&gt;Music : 25 points&lt;/li&gt;
+  &lt;li&gt;Particle Effects : 25 points&lt;/li&gt;
+  &lt;li&gt;Screenshake / Other Post Effects : 25 points&lt;/li&gt;
+  &lt;li&gt;Leaderboard : 50 points&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Multipliers:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Multiplatform : x multiplier (x being the number of supported platforms)&lt;/li&gt;
+  &lt;li&gt;Multiplayer : x multiplier (x being the number of supported players)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Wish me luck!&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>atechdad.com has been featured on Hackaday!</title>
+   <link href="http://atechdad.com/ive-been-featured-on-hackaday/"/>
+   <updated>2014-12-05T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/ive-been-featured-on-hackaday</id>
+   <content type="html">&lt;p&gt;atechdad.com was &lt;a href=&quot;http://hackaday.com/2014/12/03/happy-meal-hack-produces-a-google-cardboard-test&quot;&gt;featured on Hackaday&lt;/a&gt; for the &lt;a href=&quot;http://atechdad.com/happy-meal-vr-google-cardboard-hack/&quot;&gt;Happy Meal Google Cardboard hack&lt;/a&gt; and it was awesome! I got some compliments on the hack and even inspired heated debate over the quality of fast food and the justification of feeding it to your children. Hey- I say everything in moderation. Give them treats sometimes. Moderation also allows us to give the kids peanut butter and jelly &lt;em&gt;(and kale.. shh)&lt;/em&gt; smoothies for breakfast too.&lt;/p&gt;
+
+&lt;p&gt;Anyway, I’ve always been a big fan of Hackaday (reading it for years) and it feels surreal to read about my own exploits there. If you’re not currently a reader, I highly recommend it.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How I Fixed My Inflatable Christmas Tree Lawn Ornament</title>
+   <link href="http://atechdad.com/how-i-fixed-my-inflatable-christmas-tree-lawn-ornament/"/>
+   <updated>2014-11-29T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/how-i-fixed-my-inflatable-christmas-tree-lawn-ornament</id>
+   <content type="html">&lt;p&gt;So– today I took out the Christmas decorations. It was only during the installation ritual that I remembered that the fan in the inflatable tree we purchased last year had stopped working a week after we put it in. I also remembered that I, having thrown away the box and receipt– and being stubborn, had meant to fix it.&lt;br /&gt;
+DISCLAIMER:&lt;/p&gt;
+
+&lt;p&gt;I am not an electrician or anything of the sort. I may not even be a person from which you should be getting advice. This is what I did to get this working. Don’t follow these instructions. If you do, I do not take any responsibility for the outcome.&lt;/p&gt;
+
+&lt;p&gt;Now that that’s said, here’s how I got this classy lawn ornament working again:&lt;/p&gt;
+
+&lt;p&gt;I checked the voltage at the adapter- everything checked out. I swapped the adapter anyway with a known good adapter. No luck.  I popped open the case and give it a once over. Aside from being unimpressed, I didn’t see anything that stood out to explain the failure.&lt;/p&gt;
+
+&lt;p&gt;I really didn’t feel like testing every component on the board. I began to wonder– the fan was rated at 12v, 1.5a. I then wondered if another 12v fan could be used in its place.&lt;/p&gt;
+
+&lt;p&gt;Finding a suitable fan took several tries. Many of the fans I had were under-powered and could not inflate the tree. The fan I settled on was sourced from an old power supply.&lt;/p&gt;
+
+&lt;p&gt;What I needed:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Power Supply Fan&lt;/li&gt;
+  &lt;li&gt;Glue – A kind of Epoxy&lt;/li&gt;
+  &lt;li&gt;Screwdriver&lt;/li&gt;
+  &lt;li&gt;Hot Glue&lt;/li&gt;
+  &lt;li&gt;Wire Nuts&lt;/li&gt;
+  &lt;li&gt;Electrical Tape&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Make sure everything is unplugged.&lt;/p&gt;
+
+&lt;p&gt;Use the screwdriver to open the fan’s enclosure. On the model I played with, there were also some clips&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/11/with-Case.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-127&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/11/with-Case.jpg&quot; alt=&quot;with Case&quot; width=&quot;1024&quot; height=&quot;576&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/11/oldfan.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-126&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/11/oldfan.jpg&quot; alt=&quot;oldfan&quot; width=&quot;1024&quot; height=&quot;576&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Clip the wires at the fan. Strip them&lt;/p&gt;
+
+&lt;p&gt;Make sure you’ve identified positive and negative leads. If you haven’t– take a second and do so.&lt;/p&gt;
+
+&lt;p&gt;Wire the new fan into the leads. Use the wire nuts. At this point, I used the hot glue to seal the nuts and electrical tape to hold it together. I know some folks are probably screaming about waterproofing right about now. I understand, it’ll be difficult for me to pass QC like original:&lt;img class=&quot;alignnone size-full wp-image-128&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/11/waterproof.jpg&quot; alt=&quot;waterproof&quot; width=&quot;1024&quot; height=&quot;576&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Now, if you are like me, you’ll find while the fan works, but you lose a lot of air. Something about a square peg and a round hole.  I found something to minimize the air loss here — an old koozie worked.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/11/koozie.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-124&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/11/koozie.jpg&quot; alt=&quot;koozie&quot; width=&quot;1024&quot; height=&quot;576&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Glue it all up. I used the epoxy to hold everything together and the hot glue to seal everything. I used electrical tape to hold everything in place while the glue set.&lt;/p&gt;
+
+&lt;p&gt;Plug it up.&lt;/p&gt;
+
+&lt;p&gt;My final product:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/11/final.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-125&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/11/final.jpg&quot; alt=&quot;final&quot; width=&quot;1024&quot; height=&quot;678&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is the tree, powered and inflated.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/11/2014-11-29-19.46.081.jpg&quot;&gt;&lt;img class=&quot;size-full wp-image-123 aligncenter&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/11/2014-11-29-19.46.081.jpg&quot; alt=&quot;It's Alive!&quot; width=&quot;450&quot; height=&quot;1024&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;And that’s how I fixed my classy inflatable lawn ornament tree thing. My neighbors will be so happy!&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Happy Meal VR : A Google Cardboard Hack</title>
+   <link href="http://atechdad.com/happy-meal-vr-google-cardboard-hack/"/>
+   <updated>2014-11-28T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/happy-meal-vr-google-cardboard-hack</id>
+   <content type="html">&lt;p&gt;I peered through my son’s newest toy he got with his fast food meal and continued my explanation of how binoculars worked. I explained how the two lenses worked together– one magnifying and the other focusing when one of my neurons fired and took my thoughts down another tangent. I’ve been meaning to try out Google’s cardboard since it came out, but I have never gotten around to doing it.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/11/01.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-159&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/11/01.jpg&quot; alt=&quot;0&quot; width=&quot;1024&quot; height=&quot;576&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ah, Black Friday. It’s &amp;lt; 24 hours later and the toy is forgotten. I ask my son if he minds if I take his toy apart. He’s slightly curious, but not really. The toy salutes me as I begin my attempts to liberate the lenses…&lt;/p&gt;
+
+&lt;p&gt;Apparently, it’s only to mock me. The screws are triangular, but with a little effort, I remove them.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/11/11.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-160&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/11/11.jpg&quot; alt=&quot;1&quot; width=&quot;1024&quot; height=&quot;576&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;And still no dice. I now use some of my more advanced skillset to reverse-engineer the toy and extract the lenses.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/11/21.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-161&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/11/21.jpg&quot; alt=&quot;2&quot; width=&quot;1024&quot; height=&quot;576&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Not pictured are the pliers I use to &lt;del&gt;finish off&lt;/del&gt; skillfully dismantle the second guy.&lt;/p&gt;
+
+&lt;p&gt;I now take both of the bigger lenses and attach them to a pair of safety goggles (should have worn these before now) to see if this is worth continuing.&lt;/p&gt;
+
+&lt;p&gt;Behold. Pay special attention to the craftsmanship.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://atechdad.com/wp-content/uploads/2014/11/31.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-162&quot; src=&quot;http://atechdad.com/wp-content/uploads/2014/11/31.jpg&quot; alt=&quot;3&quot; width=&quot;1024&quot; height=&quot;576&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;And they actually work! I mean, I have to hold the phone and it’s not perfect, but it does work.&lt;/p&gt;
+
+&lt;p&gt;The focal length on these lenses is around 6″. Not really practical for a permanent enclosure. However, this did give me a chance to play with Google’s Cardboard app. I will definitely be acquiring or building a better solution soon.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading!&lt;/p&gt;
+
+&lt;p&gt;P.S. Does anyone else remember the early 2000s era 3D carnival ‘VR’ attractions with the very dated, not-so-immersive Duke Nukem 3D?&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How to implement jsDOSBox</title>
+   <link href="http://atechdad.com/how-to-jsdosbox/"/>
+   <updated>2014-11-25T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/how-to-jsdosbox</id>
+   <content type="html">&lt;p&gt;I had a time getting JsDOSBox going using the current version (I could have been doing it wrong, I dunno). I did manage to get it working. Here’s how I hacked it together:&lt;/p&gt;
+
+&lt;p&gt;Needed:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sourceforge.net/p/jsdosbox/home/Home/&quot;&gt;JsDOSBox&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Ubuntu 14.04 with Apache (or another webserver)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Issues (As of 11/14):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Version 3 didn’t seem to have everything I needed.&lt;/li&gt;
+  &lt;li&gt;I was able to get version 2 to work with one change.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;mkdir ~/game&lt;/pre&gt;
+
+&lt;pre&gt;cd ~/game&lt;/pre&gt;
+
+&lt;pre&gt;wget http://downloads.sourceforge.net/project/jsdosbox/version2/jsdosbox.zip&lt;/pre&gt;
+
+&lt;pre&gt;unzip jsdosbox.zip&lt;/pre&gt;
+
+&lt;pre&gt;wget https://jsdosbox.appspot.com/jsdosbox/jsdosbox.nocache.js&lt;/pre&gt;
+
+&lt;pre&gt;mv jsdosbox.nocache.js jsdosbox2/jsdosbox2.nocache.js&lt;/pre&gt;
+
+&lt;pre&gt;nano index.html&lt;/pre&gt;
+
+&lt;p&gt;change :&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;!-- input id=&quot;autorun&quot; type=&quot;hidden&quot; value=&quot;imgmount c http://localhost:8080/war/paper.zip -t zip !c:!paper.exe&quot; --&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;to :&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;input id=&quot;autorun&quot; type=&quot;hidden&quot; value=&quot;&lt;strong&gt;YOURZIPFILE.zip&lt;/strong&gt; -t zip !c:!&lt;b&gt;YOURCOMMAND.exe&lt;/b&gt;&quot;&amp;gt;&lt;/pre&gt;
+
+&lt;pre&gt;mv ~/game /var/www/html&lt;/pre&gt;
+
+&lt;p&gt;(or wherever you want to serve it from)&lt;/p&gt;
+
+&lt;p&gt;Hit the your new webpage from your PC.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+
+&lt;p&gt;Sample: &lt;a href=&quot;http://atechdad.com/games/duke-nukem&quot; target=&quot;_blank&quot;&gt;http://atechdad.com/games/duke-nukem&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>1980s meet 2014 &#8211; A BBS with Docker</title>
+   <link href="http://atechdad.com/1980-2014-a-bbs-in-docker/"/>
+   <updated>2014-11-24T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/1980-2014-a-bbs-in-docker</id>
+   <content type="html">&lt;h5 id=&quot;what-is-a-bbs&quot;&gt;What is a BBS?&lt;/h5&gt;
+
+&lt;p&gt;A BBS (&lt;strong&gt;bulletin board system) &lt;/strong&gt;is basically terminal software that is lets people connect and share information. These systems were widely used prior to mass adoption of the internet as a means to share software, send messages, and play games. These BBSs were normally accessed via dial-up and as such usually catered to regional audiences.&lt;/p&gt;
+
+&lt;h5 id=&quot;what-you8217ll-need-or-what-i-used&quot;&gt;What you’ll need (or what I used..)&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ubuntu 14.04&lt;/li&gt;
+  &lt;li&gt;Docker&lt;/li&gt;
+  &lt;li&gt;Syncronet&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;let8217s-get-started&quot;&gt;Let’s get started:&lt;/h5&gt;
+
+&lt;h6 id=&quot;install-docker&quot;&gt;1. Install Docker&lt;/h6&gt;
+
+&lt;p&gt;From &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-getting-started&quot;&gt;digitalocean&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;sudo apt-get update
+sudo aptitude install linux-image-extra-`uname -r`
+sudo sh -c &quot;wget -qO- https://get.docker.io/gpg | apt-key add -&quot;
+sudo sh -c &quot;echo deb http://get.docker.io/ubuntu docker main\
+&amp;gt; /etc/apt/sources.list.d/docker.list&quot;
+
+sudo aptitude update
+sudo aptitude install lxc-docker
+&lt;/pre&gt;
+
+&lt;h6 id=&quot;now-let8217s-createyour-dockerfile&quot;&gt;2. Now, let’s create your Dockerfile&lt;/h6&gt;
+
+&lt;pre&gt;mkdir ~/docker
+nano ~/docker/Dockerfile
+&lt;/pre&gt;
+
+&lt;p&gt;Dockerfile:&lt;/p&gt;
+
+&lt;pre&gt;############################################################
+
+# Set the base image to Ubuntu
+FROM ubuntu
+
+# File Author / Maintainer
+MAINTAINER Example julian@atechdad.com
+
+# Update the repository sources list
+RUN apt-get update
+
+################## BEGIN INSTALLATION ######################
+RUN apt-get install wget build-essential pkg-config cvs python zip libnspr4-dev libncurses-dev authbind -y
+
+RUN useradd bbsuser
+
+RUN mkdir /sbbs
+
+RUN wget 'http://cvs.synchro.net/cgi-bin/viewcvs.cgi/*checkout*/install/GNUmakefile' -P /sbbs
+
+RUN cd /sbbs &amp;amp;&amp;amp; make install SYMLINK=1
+
+RUN chown -R bbsuser:bbsuser /sbbs
+
+ADD sbbs.ini /sbbs/ctrl/sbbs.ini
+
+RUN sed -i 's/RLoginPort=513/RLoginPort=40513/' /sbbs/ctrl/sbbs.ini
+
+RUN touch /etc/authbind/byport/18
+RUN chmod 500 /etc/authbind/byport/18
+RUN chown bbsuser /etc/authbind/byport/18
+
+RUN touch /etc/authbind/byport/23
+RUN chmod 500 /etc/authbind/byport/23
+RUN chown bbsuser /etc/authbind/byport/23
+
+RUN touch /etc/authbind/byport/21
+RUN chmod 500 /etc/authbind/byport/21
+RUN chown bbsuser /etc/authbind/byport/21
+
+RUN touch /etc/authbind/byport/119
+RUN chmod 500 /etc/authbind/byport/119
+RUN chown bbsuser /etc/authbind/byport/119
+
+RUN touch /etc/authbind/byport/110
+RUN chmod 500 /etc/authbind/byport/110
+RUN chown bbsuser /etc/authbind/byport/110
+
+RUN touch /etc/authbind/byport/22
+RUN chmod 500 /etc/authbind/byport/22
+RUN chown bbsuser /etc/authbind/byport/22
+
+RUN touch /etc/authbind/byport/25
+RUN chmod 500 /etc/authbind/byport/25
+RUN chown bbsuser /etc/authbind/byport/25
+
+RUN touch /etc/authbind/byport/80
+RUN chmod 500 /etc/authbind/byport/80
+RUN chown bbsuser /etc/authbind/byport/80
+
+RUN touch /etc/authbind/byport/11
+RUN chmod 500 /etc/authbind/byport/11
+RUN chown bbsuser /etc/authbind/byport/11
+
+RUN touch /etc/authbind/byport/17
+RUN chmod 500 /etc/authbind/byport/17
+RUN chown bbsuser /etc/authbind/byport/17
+
+RUN touch /etc/authbind/byport/79
+RUN chmod 500 /etc/authbind/byport/79
+RUN chown bbsuser /etc/authbind/byport/79
+
+RUN touch /etc/authbind/byport/70
+RUN chmod 500 /etc/authbind/byport/70
+RUN chown bbsuser /etc/authbind/byport/70
+
+USER bbsuser
+
+EXPOSE 21
+&lt;/pre&gt;
+
+&lt;h6 id=&quot;now-build-your-docker-image-this-will-take-a-little-while&quot;&gt;3. Now, build your docker image. This will take a little while.&lt;/h6&gt;
+
+&lt;pre&gt;sudo docker build -t bbs_img .&lt;/pre&gt;
+
+&lt;h6 id=&quot;now-let8217s-run-the-image-this-will-build-a-container-and-run-binbash-giving-us-a-shell-inside-of-it&quot;&gt;4. Now, let’s run the image. This will build a container and run /bin/bash, giving us a shell inside of it.&lt;/h6&gt;
+
+&lt;pre&gt;sudo docker run -i -t bbs_img /bin/bash&lt;/pre&gt;
+
+&lt;p&gt;Here you can edit your config via &lt;strong&gt;/sbbs/exec/scfg&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;When you are done you can commit the changes you made to your container back to your image with:&lt;/p&gt;
+
+&lt;pre&gt;sudo docker commit bbs bbs_img&lt;/pre&gt;
+
+&lt;p&gt;Now, to run this as a single instance, use:&lt;/p&gt;
+
+&lt;pre&gt;sudo docker run -i -t bbs_img /usr/bin/authbind /sbbs/exec/sbbs&lt;/pre&gt;
+
+&lt;p&gt;This will start a fresh instance of this container. Usually with something like a BBS we’d want persistent storage. There are a couple of ways to do this. In this case I chose to run the container with a name– and then start that specific container each time:&lt;/p&gt;
+
+&lt;pre&gt;sudo docker run -i -t --name bbs bbs_img /usr/bin/authbind /sbbs/exec/sbbs&lt;/pre&gt;
+
+&lt;p&gt;next time I run this container, I’d use&lt;/p&gt;
+
+&lt;pre&gt;sudo docker start bbs&lt;/pre&gt;
+
+&lt;p&gt;It might also be a good idea to set up a cronjob to commit changes if this is the way you want to go.&lt;/p&gt;
+
+&lt;p&gt;Telnet to port 23.&lt;/p&gt;
+
+&lt;p&gt;Profit!&lt;/p&gt;
+
+&lt;h6 id=&quot;disclaimer&quot;&gt;Disclaimer:&lt;/h6&gt;
+
+&lt;p&gt;This is only a proof of concept. It’s not intended to be permanent — or even good. Use it to learn or as a starting point for something better. If you make any improvements, please post them in the comments below. &lt;img src=&quot;http://atechdad.com/wp-includes/images/smilies/simple-smile.png&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; style=&quot;height: 1em; max-height: 1em;&quot; /&gt;&lt;/p&gt;
+
+&lt;h6 id=&quot;further-reading&quot;&gt;Further Reading:&lt;/h6&gt;
+
+&lt;p&gt;Docker: &lt;a href=&quot;https://docs.docker.com/userguide/&quot; target=&quot;_blank&quot;&gt;https://docs.docker.com/userguide/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Synchronet: &lt;a href=&quot;http://www.synchro.net/&quot; target=&quot;_blank&quot;&gt;http://www.synchro.net/&lt;br /&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;BBS The Documentary: &lt;a href=&quot;https://www.youtube.com/playlist?list=PLADB2C91B4BC96D20&quot; target=&quot;_blank&quot;&gt;https://www.youtube.com/playlist?list=PLADB2C91B4BC96D20&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The image above is a snapshot from https://www.youtube.com/user/SquirrelMonkeyCom&lt;/p&gt;
+
+&lt;h6 id=&quot;why&quot;&gt;Why?&lt;/h6&gt;
+
+&lt;p&gt;I did this to learn more about Docker and as an excuse to build a BBS.&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Automatically Launch website for Kids on Login</title>
+   <link href="http://atechdad.com/automatically-launch-website-for-kids-on-login/"/>
+   <updated>2014-11-23T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/automatically-launch-website-for-kids-on-login</id>
+   <content type="html">&lt;p&gt;My son uses an educational website. One point of frustration for him– and us was that he would stray from the site and get lost in obscure places on the desktop. I put together this simple solution so when he logs in, he gets the website. It’s not perfect, but it works for us.&lt;/p&gt;
+
+&lt;p&gt;You’ll Need:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Windows (&lt;em&gt;This has been tested from XP to Windows 10 TechPreview. The details may not be exactly the same, but the method does work&lt;/em&gt;)&lt;/li&gt;
+  &lt;li&gt;Chrome Browser&lt;/li&gt;
+  &lt;li&gt;Login for the Kids&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How it works:&lt;/p&gt;
+
+&lt;p&gt;Windows Operating systems load a shell, usually explorer.exe, when a user logs in. This hack replaces this shell with a custom Chrome. Chrome launches the website in fullscreen (kiosk) mode.&lt;/p&gt;
+
+&lt;p&gt;Let’s make it happen:&lt;/p&gt;
+
+&lt;h5 id=&quot;install-chrome1&quot;&gt;1. Install &lt;a href=&quot;https://www.google.com/chrome/browser/#eula&quot;&gt;Chrome&lt;/a&gt;&lt;/h5&gt;
+
+&lt;p&gt;If you need instructions, please click on the link above.&lt;/p&gt;
+
+&lt;h5 id=&quot;create-a-login&quot;&gt;2. Create a Login&lt;/h5&gt;
+
+&lt;p&gt;From &lt;a href=&quot;http://windows.microsoft.com/en-us/windows/create-user-account#create-user-account=windows-7&quot;&gt;Microsoft&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ol class=&quot;ordered_dec&quot;&gt;
+  &lt;li class=&quot;step&quot;&gt;
+    &lt;div class=&quot;para&quot;&gt;
+      To open User Accounts, click the &lt;span class=&quot;ui&quot;&gt;Start&lt;/span&gt; button &lt;img class=&quot;embedObject&quot; src=&quot;http://res2.windows.microsoft.com/resbox/en/windows%207/main/4f6cbd09-148c-4dd8-b1f2-48f232a2fd33_818.jpg&quot; alt=&quot;Picture of the Start button&quot; data-id=&quot;pageContainer0_ID0EHBHBBBBA&quot; /&gt;, click &lt;span class=&quot;ui&quot;&gt;Control Panel&lt;/span&gt;, click &lt;span class=&quot;ui&quot;&gt;User Accounts and Family Safety&lt;/span&gt;, and then click &lt;span class=&quot;ui&quot;&gt;User Accounts&lt;/span&gt;.
+    &lt;/div&gt;
+  &lt;/li&gt;
+  
+  &lt;li class=&quot;step&quot;&gt;
+    &lt;p class=&quot;para&quot;&gt;
+      Click &lt;span class=&quot;ui&quot;&gt;Manage another account&lt;/span&gt;. &lt;span class=&quot;phrase&quot;&gt;&lt;img class=&quot;embedObject&quot; src=&quot;http://res2.windows.microsoft.com/resbox/en/windows%207/main/18abb370-ac1e-4b6b-b663-e028a75bf05b_48.jpg&quot; alt=&quot;Administrator permission required&quot; data-id=&quot;pageContainer0_ID0EBABFBBBBA&quot; /&gt; If you&amp;#8217;re prompted for an administrator password or confirmation, type the password or provide confirmation.&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/li&gt;
+  
+  &lt;li class=&quot;step&quot;&gt;
+    &lt;p class=&quot;para&quot;&gt;
+      Click &lt;span class=&quot;ui&quot;&gt;Create a new account&lt;/span&gt;.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  
+  &lt;li class=&quot;step&quot;&gt;
+    &lt;p class=&quot;para lastElement&quot;&gt;
+      Type the name you want to give the user account, click an account type, and then click &lt;span class=&quot;ui&quot;&gt;Create Account&lt;/span&gt;.
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Since this account is meant for a 2 year old, I created the account with no password.&lt;/p&gt;
+
+&lt;h5 id=&quot;log-in-create-the-registry-files&quot;&gt;2.  Log in, Create the Registry files&lt;/h5&gt;
+
+&lt;p&gt;Log in as your target user. Create a text file named&lt;strong&gt; ReplaceShell.reg&lt;/strong&gt;. Use this content– replace with your website of choice:&lt;/p&gt;
+
+&lt;pre&gt;Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\Winlogon]
+&quot;Shell&quot;=&quot;\&quot;C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\&quot; --kiosk &lt;strong&gt;http://atechdad.com&lt;/strong&gt;&quot;
+&lt;/pre&gt;
+
+&lt;p&gt;Save the file and doubleclick on it. If all went well you should be prompted with a warning along the lines of, &lt;em&gt;“Adding information can break your computer, etc. Do you want to continue?”. &lt;/em&gt;Click Yes. Log out.&lt;/p&gt;
+
+&lt;p&gt;Congratulations. If all went well, on your next login you should be met with the site you chose&lt;/p&gt;
+
+&lt;h5 id=&quot;help-how-do-i-get-out--get-my-shell-back&quot;&gt;3. HELP! How do I get out / get my shell back?&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Temporary&lt;/strong&gt;: When logged in as the user without the default shell, press Ctrl-Alt-Delete. You should be greeted by either your task manager, or a window that allows you to launch your task manager. Launch it. Click File &amp;gt; New Task. Type explorer.exe and press okay. You should now have your familiar windows shell up.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Permanent&lt;/strong&gt;: Once you complete the above procedure, find your ReplaceShell.reg. Replace the text with this:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\Winlogon]
+&quot;Shell&quot;=&quot;explorer.exe&quot;&lt;/pre&gt;
+
+&lt;p&gt;Double-Click on the .reg file. Accept just as before and log out. You should be back to normal.&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Hello world!</title>
+   <link href="http://atechdad.com/hello-world/"/>
+   <updated>2014-11-22T00:00:00-08:00</updated>
+   <id>http://atechdad.comhttp://atechdad.github.io/hello-world</id>
+   <content type="html">&lt;p&gt;Welcome to aTechDad.com!&lt;/p&gt;
+
+&lt;p&gt;I created this site to aggregate and archive all of my many, ever-changing interests and practice my writing. If anything posted here helps you, awesome!&lt;/p&gt;
+
+&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+
+</feed>

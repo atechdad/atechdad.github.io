@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      atechdad &middot; make it so
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="http://atechdad.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="http://atechdad.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="http://atechdad.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://atechdad.github.io/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="http://atechdad.github.io/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>An attempt to document my ramblings about all things technology. <br />@techdad</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://atechdad.github.io/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+    <span class="sidebar-nav-item">Currently v1.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="http://atechdad.github.io/" title="Home">atechdad</a>
+            <small>make it so</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://atechdad.github.io//finding-hacked-pages-with-passive-scanning-via-project-sonar/">
+        Finding Hacked Pages With Passive Scanning via Project Sonar
+      </a>
+    </h1>
+
+    <span class="post-date">01 Mar 2015</span>
+
+    <p>Recently, <a href="https://blog.shodan.io/tracking-hacked-websites/">Shodan’s blog featured instructions</a> on finding hacked paged by searching for the phrase “Hacked By”.  Here’s how to do this yourself using the scans provided by <a href="https://github.com/rapid7/sonar/wiki">Project Sonar</a>. This information can be used for all kinds of passive scans.</p>
+
+<pre>sudo apt-get update
+sudo apt-get install libgeoip-dev ruby1.9.1-dev git build-essential
+</pre>
+
+<pre>git clone https://github.com/rapid7/dap.git
+cd dap
+sudo gem install bundler
+bundle install
+</pre>
+
+<p>This installs the geoIP library in case you’re wanting to do other things with dap.</p>
+
+<pre>sudo mkdir -p /var/lib/geoip
+cd /var/lib/geoip
+sudo wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+sudo gunzip GeoLiteCity.dat.gz
+sudo mv GeoLiteCity.dat geoip.dat
+</pre>
+
+<p>This command downloads the scan file which is pretty big and does the searching inline:</p>
+
+<pre>curl -s https://scans.io/data/rapid7/sonar.http/20150217-http.gz | zcat | bin/dap json + select data + transform data=base64decode + include data='Hacked By' + decode_http_reply data + lines | grep "Hacked By"
+</pre>
+
+<p>Then you could use some command-line parsing to clean it up even more!.</p>
+
+<p>Happy research!</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>(ignore this below. This is just me playing and saving my notes…)</p>
+
+<p><del>curl -s https://scans.io/data/rapid7/sonar.http/20141209-http.gz |   zcat |   bin/dap json + select ip data + transform data=base64decode + include data=’Hacked By’ + decode_http_reply data + lines | stdbuf -o0 grep -iPo ‘(?&lt;=HTTP/1.1 200\s|Hacked By\s)[^\s]*’ | stdbuf -o0 grep OK -A1 | stdbuf -o0 grep -Ev “OK|–” » test.txt</del></p>
+
+<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
+</div>
+
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://atechdad.github.io//parsebin-a-powershell-pastebin-parser/">
+        Parsebin &#8211; A Powershell Pastebin Parser
+      </a>
+    </h1>
+
+    <span class="post-date">16 Feb 2015</span>
+
+    <p>By now, most folks have realized that pastebin holds some interesting data. Some of the information you run across can be interesting – if not hilarious. That is, as long is it’s not *your* data.</p>
+
+<p>In 2011, Xavier Garcia put together a <a href="http://www.shellguardians.com/2011/07/monitoring-pastebin-leaks.html">python pastebin scrape</a>r.</p>
+
+<p>For no real reason I decided to <del>hack together</del> rewrite this in powershell. If this helps you, cool.</p>
+
+<p>Description of required files:</p>
+
+<ul>
+  <li><strong>./seen.txt</strong> : a list of pasties scraped already. This is created by the script</li>
+  <li><strong>./regex.txt</strong> : the regex expressions used to look for juicy information. This is created by you</li>
+  <li><strong>./found/</strong> : this is actually a folder you’ll need to create. This is to hold the auto-downloaded pastes found. I’ve commented this out. Use at your own risk!</li>
+</ul>
+
+<p>Script (parsebin.ps1) : I’ve linked to it <a href="http://atechdad.com/wp-content/uploads/2015/02/parsebin.ps1_.txt">here</a>. Rename it to .ps1 of course.</p>
+
+<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
+</div>
+
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://atechdad.github.io//the-poor-mans-guide-to-hosted-virtual-desktop-infrastructure-daas-vdi/">
+        The Poor Man&#8217;s Guide to Hosted Virtual Desktop Infrastructure (DaaS-VDI)
+      </a>
+    </h1>
+
+    <span class="post-date">16 Jan 2015</span>
+
+    <p>What follows is an account of my attempts to install a desktop environment in the cloud. I’ve done this successfully using a vps from <a href="https://www.digitalocean.com/?refcode=26b6adc6c1c0">digitalocean</a> (referral link ;)). A second part of this will be demonstrating how to pull this into a docker container.</p>
+
+<p>When you complete this tutorial you will have a hosted virtual desktop behind a html5 frontend.</p>
+
+<p>First, we’ll update and upgrade, install the desktop environment, guacamole, a virtual framebuffer, the VNC server, and the md5 hash generator.</p>
+
+<pre>sudo apt-get update &amp;&amp; apt-get upgrade -y
+sudo apt-get install -y --no-install-recommends guacamole-tomcat gnome-core xfce4 xvfb vnc4server isomd5sum</pre>
+
+<p>You can select no when prompted to restart the tomcat server. We’ll do this later.</p>
+
+<p>We’re going to generate a md5 hash based off of a password. It’s a little more secure than plaintext… Use your own password please. This one’s mine.</p>
+
+<pre>echo -n <strong>PASSWORD</strong> | md5sum</pre>
+
+<p>Remeber your password. Save off the hash itself, but leave out spaces and the dash (-).</p>
+
+<p>Now let’s clear our command history.</p>
+
+<pre>history -c</pre>
+
+<p>Next, we’ll edit the guacamole user mapping XML file which defines our user and vnc client configuration.</p>
+
+<pre>sudo nano /etc/guacamole/user-mapping.xml</pre>
+
+<p>Replace all of the content with the following. In nano you can hold <strong>ctrl-k</strong> to delete lines. Again, don’t steal my super secure credentials. Replace the values in bold with your own.</p>
+
+<pre>&lt;user-mapping&gt;
+     &lt;authorize
+          username="<strong>admin</strong>"
+          password="<strong>319f4d26e3c536b5dd871bb2c52e3178</strong>"
+          encoding="md5"&gt;
+          &lt;protocol&gt;vnc&lt;/protocol&gt;
+          &lt;param name="hostname"&gt;localhost&lt;/param&gt;
+          &lt;param name="port"&gt;5901&lt;/param&gt;
+          &lt;param name="password"&gt;<strong>VNCPASS</strong>&lt;/param&gt;
+     &lt;/authorize&gt;
+&lt;/user-mapping&gt;
+</pre>
+
+<p>Next, we’ll start the VNC server to generate the default config files, then kill it. Make sure you start this as the user you’ll be wanting to run the VNC server.</p>
+
+<pre>vncserver</pre>
+
+<p>Enter the VNC password when prompted. This should match the password you used to replaced <strong>VNCPASS</strong> in the prior step.<br />
+Now we’ll kill VNC.</p>
+
+<pre>vncserver -kill :1</pre>
+
+<p>Next, we’ll edit the VNC startup to start our GUI on boot.</p>
+
+<pre>nano .vnc/xstartup</pre>
+
+<p>Replace all content with :</p>
+
+<pre>#!/bin/sh
+
+[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources
+
+startxfce4 &amp;
+xsetroot -solid grey
+</pre>
+
+<p>Now we’ll restart tomcat.</p>
+
+<pre>sudo /etc/init.d/tomcat6 restart</pre>
+
+<p>And finally we’ll start the server.</p>
+
+<pre>vncserver -localhost</pre>
+
+<p>You should now be able to reach your new desktop from : http://<strong>YOURserverIP</strong>:8080/guacamole</p>
+
+<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
+</div>
+
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://atechdad.github.io//ouya-ps4-remote-play/">
+        Ouya PS4 Remote Play
+      </a>
+    </h1>
+
+    <span class="post-date">04 Jan 2015</span>
+
+    <p>The OUYA was a dream that was unrealized by some. While many have gotten immense pleasure out of the android based console, many have ended up either selling their OUYA or not using it at all.</p>
+
+<p>The kids got a PS4 for Christmas. It hadn’t been even hooked up yet when I started thinking of a Playstation TV and other remote play goodness. Some quick research led me to the official Sony remote play android app– and subsequently to the ‘hacked’ version.</p>
+
+<p>I installed it on my phone first– and it worked out of the box. I then went around and began testing it on a several other android-enabled devices throughout the house. The OUYA did not work out of the box. The more I thought about it, the more I wanted it. I knew it must be possible.</p>
+
+<p>The following is an account of my attempts to use my OUYA for Remote Play with the PS4.</p>
+
+<p>My first attempt was obvious. I tried to install the apk onto the Ouya directly. While the app didn’t crash, it also didn’t work. Those who have tried have been greeted by this lovely screen:</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2015/01/ouyaFail.png"><img class="alignnone size-large wp-image-232" src="http://atechdad.com/wp-content/uploads/2015/01/ouyaFail-1024x576.png" alt="ouyaFail" width="1024" height="576" /></a></p>
+
+<p>Meh.</p>
+
+<p>Second attempt:</p>
+
+<p>What follows is what I did. I had to replace the stock firmware with Cyanogenmod.  I cannot guarantee this will work for you. Paraphrased from the Cyanogenmod site:</p>
+
+<p><strong>I am not responsible for bricked devices, dead SD cards, or any other issues. Please do some research if you have any concerns about these instructions. YOU are choosing to make these modifications. Your warranty will be void if you tamper with any part of your device / software.</strong></p>
+
+<p>Avoiding tl;dr, here is the summary:</p>
+
+<ul>
+  <li><strong>Install su/busybox binaries</strong>. You can get them here :<a href="%20http://forum.xda-developers.com/showthread.php?t=2385485" title=" http://forum.xda-developers.com/showthread.php?t=2385485"> http://forum.xda-developers.com/showthread.php?t=2385485</a></li>
+  <li><strong>Install CWM</strong> : <a href="http://forum.xda-developers.com/showthread.php?t=2295645" title="http://forum.xda-developers.com/showthread.php?t=2295645">http://forum.xda-developers.com/showthread.php?t=2295645</a>
+    <ul>
+      <li>I had to use the fastboot method in Linux. You can use the binaries in the one click installer.</li>
+    </ul>
+  </li>
+  <li><strong>Update CWM</strong> : <a href="http://milaq.net/downloads/ouya/misc/recovery-clockwork-6.0.4.8-ouya.zip" title="http://milaq.net/downloads/ouya/misc/recovery-clockwork-6.0.4.8-ouya.zip">http://milaq.net/downloads/ouya/misc/recovery-clockwork-6.0.4.8-ouya.zip</a></li>
+  <li><strong>Install BootMenu</strong> : <a href="http://forum.xda-developers.com/showthread.php?t=2692836">http://forum.xda-developers.com/showthread.php?t=2692836</a></li>
+  <li><strong>Install Cyanogenmod Custom Rom for the OUYA</strong> : <a href="http://forum.xda-developers.com/showthread.php?t=2692843">http://forum.xda-developers.com/showthread.php?t=2692843</a>
+    <ul>
+      <li>Make sure you install the gapps zip, etc</li>
+    </ul>
+  </li>
+  <li><strong>Install the PS4 Remote Play App</strong> : <a href="http://forum.xda-developers.com/android/apps-games/ps4-remote-play-t2929147">http://forum.xda-developers.com/android/apps-games/ps4-remote-play-t2929147</a></li>
+  <li>Game</li>
+</ul>
+
+<p>Observations:</p>
+
+<ul>
+  <li>Wireless network play is laggy/choppy. Use a hardwired connection on both devices if possible.</li>
+  <li>The PS4 Remote is the only remote I was able to get working. Others may be possible. There are rumors the OUYA remote will work, but I haven’t got this going yet.</li>
+</ul>
+
+<p>Proof:</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2015/01/ouya1.jpg"><img class="alignnone size-large wp-image-236" src="http://atechdad.com/wp-content/uploads/2015/01/ouya1-1024x699.jpg" alt="ouya1" width="1024" height="699" /></a><a href="http://atechdad.com/wp-content/uploads/2015/01/ouya2.jpg"><img class="alignnone size-large wp-image-237" src="http://atechdad.com/wp-content/uploads/2015/01/ouya2-1024x633.jpg" alt="ouya2" width="1024" height="633" /></a></p>
+
+<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
+</div>
+
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://atechdad.github.io//merry-christmas-from-1993/">
+        Merry Christmas from 1993!
+      </a>
+    </h1>
+
+    <span class="post-date">24 Dec 2014</span>
+
+    <p>Sorry for the delay. Don’t say I never got you anything.</p>
+
+<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
+</div>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="http://atechdad.github.io/page3">Older</a>
+  
+  
+    
+      <a class="pagination-item newer" href="http://atechdad.github.io/">Newer</a>
+    
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57035528-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
