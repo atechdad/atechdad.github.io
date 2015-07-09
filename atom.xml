@@ -4,7 +4,7 @@
  <title>atechdad</title>
  <link href="http://atechdad.comhttp://atechdad.com/atom.xml" rel="self"/>
  <link href="http://atechdad.comhttp://atechdad.com/"/>
- <updated>2015-07-09T13:10:30-07:00</updated>
+ <updated>2015-07-09T13:25:42-07:00</updated>
  <id>http://atechdad.com</id>
  <author>
    <name>Mark Otto</name>
@@ -67,7 +67,7 @@
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;41 unsubscribes (0.041%)&lt;/strong&gt;
     &lt;ul&gt;
-      &lt;li&gt;Including one request to F**k off. (0.001%) &lt;img src=&quot;http://atechdad.com/wp-includes/images/smilies/simple-smile.png&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; style=&quot;height: 1em; max-height: 1em;&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;Including one request to F**k off. (0.001%) :)” /&amp;gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;29 Spam (0.029%)&lt;/strong&gt;
@@ -669,8 +669,7 @@ xsetroot -solid grey
    <id>http://atechdad.comhttp://atechdad.com/merry-christmas-from-1993</id>
    <content type="html">&lt;p&gt;Sorry for the delay. Don’t say I never got you anything.&lt;/p&gt;
 
-&lt;div class=&quot;wpInsert wpInsertInPostAd wpInsertBelow&quot; style=&quot;margin: 5px; padding: 0px;&quot;&gt;
-&lt;/div&gt;
+&lt;iframe src=&quot;http://atechdad.com/games/jetpk_ch/index.html&quot;&gt;&lt;/iframe&gt;
 </content>
  </entry>
  
