@@ -4,7 +4,7 @@
  <title>atechdad</title>
  <link href="http://atechdad.comhttp://atechdad.com/atom.xml" rel="self"/>
  <link href="http://atechdad.comhttp://atechdad.com/"/>
- <updated>2015-07-09T13:34:15-07:00</updated>
+ <updated>2015-07-09T13:36:25-07:00</updated>
  <id>http://atechdad.com</id>
  <author>
    <name>Mark Otto</name>
@@ -670,6 +670,7 @@ xsetroot -solid grey
    <content type="html">&lt;p&gt;Sorry for the delay. Don’t say I never got you anything.&lt;/p&gt;
 
 &lt;p&gt;&amp;lt;iframe src=”http://atechdad.com/games/jetpk_ch/index.html width=”640” height=”480”&amp;gt; &amp;lt;/iframe&amp;gt;&lt;/p&gt;
+
 </content>
  </entry>
  
