@@ -113,6 +113,17 @@
         <div class="post">
   <h1 class="post-title">Research finds 400k Security Camera DVRs with Hardcoded Credentials</h1>
   <span class="post-date">03 Mar 2015</span>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- urhack.com -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2211631185657111"
+     data-ad-slot="3962715381"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
   <p>I’ve been tinkering with passive research using public scans which are freely available via Project Sonar. I was curious to search and look for any devices which may have username and passwords hardcoded so I decided to search for a few instances where the username and passwords appear hardcoded to admin. I thought that surely there couldn’t be many– so I kicked off the scan…</p>
 
 <pre>curl -s https://scans.io/data/rapid7/sonar.http/20141209-http.gz |   zcat |   bin/dap json + select ip data + transform data=base64decode + include data='$(\"password\").value = \"admin\"' + include data='$(\"username\").value = \"admin\"'+ decode_http_reply data + select ip + lines  &gt;&gt; ips.txt
@@ -151,6 +162,17 @@ Too many IPs to cat. How many are we talking?</p>
 
 
 </div>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57035528-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
