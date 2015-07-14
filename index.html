@@ -117,6 +117,69 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="http://atechdad.com/i-sent-218317-users-their-passwords">
+        I Sent 281,317 Users Their Passwords
+      </a>
+    </h1>
+
+    <span class="post-date">13 Jul 2015</span>
+
+    <h2 id="i-did-it-again"><strong>I did it again.</strong></h2>
+
+<p>So- hey again. Several weeks ago, I <a href="http://atechdad.com/i-emailed-97931-users-their-passwords/">wrote about</a> emailing over 97,000 people their own passwords and documented the results. The post was pretty popular. I got lots of feedback from HN, Reddit, via email, and through comments. People were mostly positive and many had very good suggestions. So- I took some of the feedback from folks and did a second experiment.</p>
+
+<h2 id="tldr">TL;DR</h2>
+
+<ul>
+  <li>Got banned from Mandrilla</li>
+  <li>Got prebanned from SendGrid</li>
+  <li>Rolled a mail server</li>
+  <li>Cleaned up password lists</li>
+  <li>Rebuilt Email Templates</li>
+  <li>Sent 281,317 emails</li>
+  <li>Received $82 in donations</li>
+</ul>
+
+<h2 id="changes">Changes</h2>
+
+<p>I realized that in order to make this more successful I would need to make some changes. I am relatively new to the mass email arena, so I tried to  partner with some known vendors.</p>
+
+<p>I chose Mandrilla. Using their site, I found it very easy to convert my message into one that appeared much more professional and trustworthy. I have to admin, their interface is slick. So I began with a test run and queued up around two thousand emails. I decided to try and track open rates to see if messages were successful.  I kept an eye on the GUI all day.</p>
+
+<p>About 900 emails got out before was banned.  I couldn’t log in or recover any data - nothing. After discussing with their technical support teams,  there was nothing they could do.</p>
+
+<p>I then called Sendgrid– wanting to see if I could partner with them before I went through all the work of setting things up again. I just got a no.</p>
+
+<p>So I ended up rolling my own mail server.  I cleaned up my email template. I tested and retested the spamminess of my message. I asked my wife for her opinion. I cleaned up the password lists.</p>
+
+<h2 id="so-here-are-the-numbers">So here are the numbers:</h2>
+
+<ul>
+  <li>Thanks: 68 (+59) or .02%</li>
+  <li>Unsubscribes: 29 (-12) or .01%
+    <ul>
+      <li>Requests when opting out: 4 (+3) or .001%
+        <ul>
+          <li>stop sending spam</li>
+          <li>F**K OFF!!!!!!!!!!!!!!!!!!!!!</li>
+          <li>f**k off slime bag - do your best to hack me and i’ll find you and let my pet camel f**k you in the *ss.</li>
+          <li>F**k off scammer</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Opens: 3,478+ (This one is difficult to measure due to image blocking and other tracking blocks)</li>
+  <li>Donations: $82 (+$82)</li>
+</ul>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>I’m not sure. If I’m going to turn this into a service I will need to better optimize delivery and take care of some back office type stuff. The donations will be reinvested back into the service.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="http://atechdad.com/i-emailed-97931-users-their-passwords/">
         I Emailed 97,931 Users Their Passwords
       </a>
@@ -509,54 +572,6 @@ The script was just thrown together to meet my needs. If you make improvements, 
 
 <div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
 </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://atechdad.com/passive-scans-for-default-passwords-finds-security-dvrs-with-potential-defaults/">
-        Research finds 400k Security Camera DVRs with Hardcoded Credentials
-      </a>
-    </h1>
-
-    <span class="post-date">03 Mar 2015</span>
-
-    <p>I’ve been tinkering with passive research using public scans which are freely available via Project Sonar. I was curious to search and look for any devices which may have username and passwords hardcoded so I decided to search for a few instances where the username and passwords appear hardcoded to admin. I thought that surely there couldn’t be many– so I kicked off the scan…</p>
-
-<pre>curl -s https://scans.io/data/rapid7/sonar.http/20141209-http.gz |   zcat |   bin/dap json + select ip data + transform data=base64decode + include data='$(\"password\").value = \"admin\"' + include data='$(\"username\").value = \"admin\"'+ decode_http_reply data + select ip + lines  &gt;&gt; ips.txt
-</pre>
-
-<p>..and waited.  The above command streams the huge scan database and inspects it live so I don’t have to download the entire thing. I know it’s lazy, but the VPS I was running this from only has a 20GB hd.</p>
-
-<p>A few hours passed and the command completed. So I checked the file….<br />
-Too many IPs to cat. How many are we talking?</p>
-
-<pre>atechdad@server:~$ cat ips.txt | wc -l
-467807
-</pre>
-
-<p>Er. Can’t be right. Let’s check one of the records.</p>
-
-<p>Something called NETSurveillance in the title. That’s odd. How many of these are there?</p>
-
-<pre>curl -s https://scans.io/data/rapid7/sonar.http/20141209-http.gz |   zcat |   bin/dap json + select ip data + transform data=base64decode + include data='$(\"password\").value = \"admin\"' + include data='$(\"username\").value = \"admin\"'+ decode_http_reply data + select data + lines |grep -i surveillance
-</pre>
-
-<p>Ok. Lots.</p>
-
-<p>So what is this thing?</p>
-
-<p>It seems most of these are security camera / DVRs of assorted brands which source from China. The most common appears to be branded by the identifier, NetSurveillance. An example of one is <a href="http://www.cctvcamerapros.com/H264-Stand-Alone-DVRs-s/358.htm">H.264 8 Cam DVR-9108VH</a></p>
-
-<p>It appears that a good many of these devices are configured with admin:admin.</p>
-
-<p>I hope that at over 400,000 devices, there are many false positives. Also, why aren’t these things behind a firewall? A cheap consumer router would be better than nothing.</p>
-
-<p>Anyway, so that’s yet another thing you can do with the info from scans.io.</p>
-
-<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
-</div>
-
 
   </div>
   

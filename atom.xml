@@ -4,13 +4,72 @@
  <title>atechdad</title>
  <link href="http://atechdad.comhttp://atechdad.com/atom.xml" rel="self"/>
  <link href="http://atechdad.comhttp://atechdad.com/"/>
- <updated>2015-07-09T13:47:54-07:00</updated>
+ <updated>2015-07-14T07:55:16-07:00</updated>
  <id>http://atechdad.com</id>
  <author>
    <name>Mark Otto</name>
    <email>markdotto@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>I Sent 281,317 Users Their Passwords</title>
+   <link href="http://atechdad.com/i-sent-218317-users-their-passwords"/>
+   <updated>2015-07-13T13:05:00-07:00</updated>
+   <id>http://atechdad.comhttp://atechdad.com/i-sent-281317-users-their-passwords</id>
+   <content type="html">&lt;h2 id=&quot;i-did-it-again&quot;&gt;&lt;strong&gt;I did it again.&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;So- hey again. Several weeks ago, I &lt;a href=&quot;http://atechdad.com/i-emailed-97931-users-their-passwords/&quot;&gt;wrote about&lt;/a&gt; emailing over 97,000 people their own passwords and documented the results. The post was pretty popular. I got lots of feedback from HN, Reddit, via email, and through comments. People were mostly positive and many had very good suggestions. So- I took some of the feedback from folks and did a second experiment.&lt;/p&gt;
+
+&lt;h2 id=&quot;tldr&quot;&gt;TL;DR&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Got banned from Mandrilla&lt;/li&gt;
+  &lt;li&gt;Got prebanned from SendGrid&lt;/li&gt;
+  &lt;li&gt;Rolled a mail server&lt;/li&gt;
+  &lt;li&gt;Cleaned up password lists&lt;/li&gt;
+  &lt;li&gt;Rebuilt Email Templates&lt;/li&gt;
+  &lt;li&gt;Sent 281,317 emails&lt;/li&gt;
+  &lt;li&gt;Received $82 in donations&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;changes&quot;&gt;Changes&lt;/h2&gt;
+
+&lt;p&gt;I realized that in order to make this more successful I would need to make some changes. I am relatively new to the mass email arena, so I tried to  partner with some known vendors.&lt;/p&gt;
+
+&lt;p&gt;I chose Mandrilla. Using their site, I found it very easy to convert my message into one that appeared much more professional and trustworthy. I have to admin, their interface is slick. So I began with a test run and queued up around two thousand emails. I decided to try and track open rates to see if messages were successful.  I kept an eye on the GUI all day.&lt;/p&gt;
+
+&lt;p&gt;About 900 emails got out before was banned.  I couldn’t log in or recover any data - nothing. After discussing with their technical support teams,  there was nothing they could do.&lt;/p&gt;
+
+&lt;p&gt;I then called Sendgrid– wanting to see if I could partner with them before I went through all the work of setting things up again. I just got a no.&lt;/p&gt;
+
+&lt;p&gt;So I ended up rolling my own mail server.  I cleaned up my email template. I tested and retested the spamminess of my message. I asked my wife for her opinion. I cleaned up the password lists.&lt;/p&gt;
+
+&lt;h2 id=&quot;so-here-are-the-numbers&quot;&gt;So here are the numbers:&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Thanks: 68 (+59) or .02%&lt;/li&gt;
+  &lt;li&gt;Unsubscribes: 29 (-12) or .01%
+    &lt;ul&gt;
+      &lt;li&gt;Requests when opting out: 4 (+3) or .001%
+        &lt;ul&gt;
+          &lt;li&gt;stop sending spam&lt;/li&gt;
+          &lt;li&gt;F**K OFF!!!!!!!!!!!!!!!!!!!!!&lt;/li&gt;
+          &lt;li&gt;f**k off slime bag - do your best to hack me and i’ll find you and let my pet camel f**k you in the *ss.&lt;/li&gt;
+          &lt;li&gt;F**k off scammer&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Opens: 3,478+ (This one is difficult to measure due to image blocking and other tracking blocks)&lt;/li&gt;
+  &lt;li&gt;Donations: $82 (+$82)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;next-steps&quot;&gt;Next Steps&lt;/h2&gt;
+
+&lt;p&gt;I’m not sure. If I’m going to turn this into a service I will need to better optimize delivery and take care of some back office type stuff. The donations will be reinvested back into the service.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>I Emailed 97,931 Users Their Passwords</title>

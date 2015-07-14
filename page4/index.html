@@ -117,6 +117,27 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="http://atechdad.com/ive-been-featured-on-hackaday/">
+        atechdad.com has been featured on Hackaday!
+      </a>
+    </h1>
+
+    <span class="post-date">05 Dec 2014</span>
+
+    <p>atechdad.com was <a href="http://hackaday.com/2014/12/03/happy-meal-hack-produces-a-google-cardboard-test">featured on Hackaday</a> for the <a href="http://atechdad.com/happy-meal-vr-google-cardboard-hack/">Happy Meal Google Cardboard hack</a> and it was awesome! I got some compliments on the hack and even inspired heated debate over the quality of fast food and the justification of feeding it to your children. Hey- I say everything in moderation. Give them treats sometimes. Moderation also allows us to give the kids peanut butter and jelly <em>(and kale.. shh)</em> smoothies for breakfast too.</p>
+
+<p>Anyway, I’ve always been a big fan of Hackaday (reading it for years) and it feels surreal to read about my own exploits there. If you’re not currently a reader, I highly recommend it.</p>
+
+<p> </p>
+
+<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
+</div>
+
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="http://atechdad.com/how-i-fixed-my-inflatable-christmas-tree-lawn-ornament/">
         How I Fixed My Inflatable Christmas Tree Lawn Ornament
       </a>
@@ -475,101 +496,6 @@ EXPOSE 21
 <h6 id="why">Why?</h6>
 
 <p>I did this to learn more about Docker and as an excuse to build a BBS.</p>
-
-<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
-</div>
-
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://atechdad.com/automatically-launch-website-for-kids-on-login/">
-        Automatically Launch website for Kids on Login
-      </a>
-    </h1>
-
-    <span class="post-date">23 Nov 2014</span>
-
-    <p>My son uses an educational website. One point of frustration for him– and us was that he would stray from the site and get lost in obscure places on the desktop. I put together this simple solution so when he logs in, he gets the website. It’s not perfect, but it works for us.</p>
-
-<p>You’ll Need:</p>
-
-<ul>
-  <li>Windows (<em>This has been tested from XP to Windows 10 TechPreview. The details may not be exactly the same, but the method does work</em>)</li>
-  <li>Chrome Browser</li>
-  <li>Login for the Kids</li>
-</ul>
-
-<p>How it works:</p>
-
-<p>Windows Operating systems load a shell, usually explorer.exe, when a user logs in. This hack replaces this shell with a custom Chrome. Chrome launches the website in fullscreen (kiosk) mode.</p>
-
-<p>Let’s make it happen:</p>
-
-<h5 id="install-chrome1">1. Install <a href="https://www.google.com/chrome/browser/#eula">Chrome</a></h5>
-
-<p>If you need instructions, please click on the link above.</p>
-
-<h5 id="create-a-login">2. Create a Login</h5>
-
-<p>From <a href="http://windows.microsoft.com/en-us/windows/create-user-account#create-user-account=windows-7">Microsoft</a>:</p>
-
-<ol class="ordered_dec">
-  <li class="step">
-    <div class="para">
-      To open User Accounts, click the <span class="ui">Start</span> button <img class="embedObject" src="http://res2.windows.microsoft.com/resbox/en/windows%207/main/4f6cbd09-148c-4dd8-b1f2-48f232a2fd33_818.jpg" alt="Picture of the Start button" data-id="pageContainer0_ID0EHBHBBBBA" />, click <span class="ui">Control Panel</span>, click <span class="ui">User Accounts and Family Safety</span>, and then click <span class="ui">User Accounts</span>.
-    </div>
-  </li>
-  
-  <li class="step">
-    <p class="para">
-      Click <span class="ui">Manage another account</span>. <span class="phrase"><img class="embedObject" src="http://res2.windows.microsoft.com/resbox/en/windows%207/main/18abb370-ac1e-4b6b-b663-e028a75bf05b_48.jpg" alt="Administrator permission required" data-id="pageContainer0_ID0EBABFBBBBA" /> If you&#8217;re prompted for an administrator password or confirmation, type the password or provide confirmation.</span>
-    </p>
-  </li>
-  
-  <li class="step">
-    <p class="para">
-      Click <span class="ui">Create a new account</span>.
-    </p>
-  </li>
-  
-  <li class="step">
-    <p class="para lastElement">
-      Type the name you want to give the user account, click an account type, and then click <span class="ui">Create Account</span>.
-    </p>
-  </li>
-</ol>
-
-<p>Since this account is meant for a 2 year old, I created the account with no password.</p>
-
-<h5 id="log-in-create-the-registry-files">2.  Log in, Create the Registry files</h5>
-
-<p>Log in as your target user. Create a text file named<strong> ReplaceShell.reg</strong>. Use this content– replace with your website of choice:</p>
-
-<pre>Windows Registry Editor Version 5.00
-
-[HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\Winlogon]
-"Shell"="\"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\" --kiosk <strong>http://atechdad.com</strong>"
-</pre>
-
-<p>Save the file and doubleclick on it. If all went well you should be prompted with a warning along the lines of, <em>“Adding information can break your computer, etc. Do you want to continue?”. </em>Click Yes. Log out.</p>
-
-<p>Congratulations. If all went well, on your next login you should be met with the site you chose</p>
-
-<h5 id="help-how-do-i-get-out--get-my-shell-back">3. HELP! How do I get out / get my shell back?</h5>
-
-<ol>
-  <li><strong>Temporary</strong>: When logged in as the user without the default shell, press Ctrl-Alt-Delete. You should be greeted by either your task manager, or a window that allows you to launch your task manager. Launch it. Click File &gt; New Task. Type explorer.exe and press okay. You should now have your familiar windows shell up.</li>
-  <li><strong>Permanent</strong>: Once you complete the above procedure, find your ReplaceShell.reg. Replace the text with this:</li>
-</ol>
-
-<pre>Windows Registry Editor Version 5.00
-
-[HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\Winlogon]
-"Shell"="explorer.exe"</pre>
-
-<p>Double-Click on the .reg file. Accept just as before and log out. You should be back to normal.</p>
 
 <div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
 </div>
