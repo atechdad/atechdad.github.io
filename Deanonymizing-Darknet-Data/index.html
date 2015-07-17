@@ -11,7 +11,7 @@
 
   <title>
     
-      atechdad.com has been featured on Hackaday! &middot; atechdad
+      Deanonymizing Darknet Data &middot; atechdad
     
   </title>
 
@@ -114,16 +114,53 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">atechdad.com has been featured on Hackaday!</h1>
-  <span class="post-date">05 Dec 2014</span>
-  <p>atechdad.com was <a href="http://hackaday.com/2014/12/03/happy-meal-hack-produces-a-google-cardboard-test">featured on Hackaday</a> for the <a href="http://atechdad.com/happy-meal-vr-google-cardboard-hack/">Happy Meal Google Cardboard hack</a> and it was awesome! I got some compliments on the hack and even inspired heated debate over the quality of fast food and the justification of feeding it to your children. Hey- I say everything in moderation. Give them treats sometimes. Moderation also allows us to give the kids peanut butter and jelly <em>(and kale.. shh)</em> smoothies for breakfast too.</p>
+  <h1 class="post-title">Deanonymizing Darknet Data</h1>
+  <span class="post-date">16 Jul 2015</span>
+  <p>Hey all,this is a pretty simple post, so I’ll keep it quick. 
+Yesterday, someone <a href="http://www.gwern.net/Black-market%20archives">released a dump</a> containing several archives of Darknet black-market sites for research purposes. This looked interesting, so I took them and did a little research.</p>
 
-<p>Anyway, I’ve always been a big fan of Hackaday (reading it for years) and it feels surreal to read about my own exploits there. If you’re not currently a reader, I highly recommend it.</p>
+<p>One of the suggested uses by gwern was:</p>
 
-<p> </p>
+<blockquote>
+  <p>“deanonymization and information leaks (eg GPS coordinates in metadata, usernames reused on the clearnet, valid emails in PGP public keys)”</p>
+</blockquote>
 
-<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
-</div>
+<p>Sounds like a good start to me.</p>
+
+<h3 id="assumptions">Assumptions:</h3>
+<ul>
+  <li>Some of these sites and forums were probably custom coded so they may not have sanitized exif data.</li>
+  <li>Some people who posted images probably used their mobile devices.</li>
+  <li>Some people were not aware that some devices record your location when taking a picture by default.</li>
+</ul>
+
+<h3 id="what-i-did">What I did:</h3>
+<p>For my target, I chose a random archive with a decent amount of data. I wanted something that had potential. I also decided to only look at .jpg images. I did this so I could standardize on the method in which I collected the data.</p>
+
+<p>I then hacked together a script that would extract all of the files I wanted from the tar.gz. The script would then get each file’s latitude and longitude if it existed within the metadata of each image.</p>
+
+<h3 id="results">Results:</h3>
+<p>After parsing hundreds of thousands of images, I came across about 37 unique images that were not properly sanitized. This means that the files contained exif data which may identify the latitude and longitude where the pictures were taken. (Keep in mind, this data could also be spoofed). Overall, it appears as if these images came from just a handfull of individuals.</p>
+
+<h3 id="map">Map:</h3>
+
+<p><img src="./content/map.jpg" alt="Map of images" /></p>
+
+<h3 id="for-the-curious-this-is-a-sanitized-montage-of-the-images">For the curious, this is a sanitized montage of the images:</h3>
+
+<p><img src="./content/montage.jpg" alt="Montage of images" /></p>
+
+<p>sigh.</p>
+
+<h3 id="lessons-learned">Lessons Learned:</h3>
+<ol>
+  <li>You cannot depend on TOR alone to render yourself truly anonymous. If you don’t understand, it’s probably better if you don’t use it.</li>
+  <li>Don’t do illegal things. You’ll get caught eventually.</li>
+</ol>
+
+<p>So that’s it. Have a good weekend!</p>
+
+<p>-julian (@techdad)</p>
 
 
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -158,15 +195,6 @@
     
       <li>
         <h3>
-          <a href="http://atechdad.com/Deanonymizing-Darknet-Data">
-            Deanonymizing Darknet Data
-            <small>16 Jul 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
           <a href="http://atechdad.com/i-sent-218317-users-their-passwords">
             I Sent 281,317 Users Their Passwords
             <small>13 Jul 2015</small>
@@ -179,6 +207,15 @@
           <a href="http://atechdad.com/i-emailed-97931-users-their-passwords/">
             I Emailed 97,931 Users Their Passwords
             <small>23 Jun 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="http://atechdad.com/a-brief-look-at-dns-zone-transfer-for-alexias-top-1m-domains/">
+            A Brief Look at DNS Zone Transfer for Alexia&#8217;s Top 1M Domains
+            <small>30 Apr 2015</small>
           </a>
         </h3>
       </li>

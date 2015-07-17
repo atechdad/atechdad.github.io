@@ -4,13 +4,67 @@
  <title>atechdad</title>
  <link href="http://atechdad.comhttp://atechdad.com/atom.xml" rel="self"/>
  <link href="http://atechdad.comhttp://atechdad.com/"/>
- <updated>2015-07-14T09:02:11-07:00</updated>
+ <updated>2015-07-17T08:57:00-07:00</updated>
  <id>http://atechdad.com</id>
  <author>
    <name>Mark Otto</name>
    <email>markdotto@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Deanonymizing Darknet Data</title>
+   <link href="http://atechdad.com/Deanonymizing-Darknet-Data"/>
+   <updated>2015-07-16T23:05:00-07:00</updated>
+   <id>http://atechdad.comhttp://atechdad.com/deanonymizing-darknet-data</id>
+   <content type="html">&lt;p&gt;Hey all,this is a pretty simple post, so I’ll keep it quick. 
+Yesterday, someone &lt;a href=&quot;http://www.gwern.net/Black-market%20archives&quot;&gt;released a dump&lt;/a&gt; containing several archives of Darknet black-market sites for research purposes. This looked interesting, so I took them and did a little research.&lt;/p&gt;
+
+&lt;p&gt;One of the suggested uses by gwern was:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“deanonymization and information leaks (eg GPS coordinates in metadata, usernames reused on the clearnet, valid emails in PGP public keys)”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sounds like a good start to me.&lt;/p&gt;
+
+&lt;h3 id=&quot;assumptions&quot;&gt;Assumptions:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Some of these sites and forums were probably custom coded so they may not have sanitized exif data.&lt;/li&gt;
+  &lt;li&gt;Some people who posted images probably used their mobile devices.&lt;/li&gt;
+  &lt;li&gt;Some people were not aware that some devices record your location when taking a picture by default.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;what-i-did&quot;&gt;What I did:&lt;/h3&gt;
+&lt;p&gt;For my target, I chose a random archive with a decent amount of data. I wanted something that had potential. I also decided to only look at .jpg images. I did this so I could standardize on the method in which I collected the data.&lt;/p&gt;
+
+&lt;p&gt;I then hacked together a script that would extract all of the files I wanted from the tar.gz. The script would then get each file’s latitude and longitude if it existed within the metadata of each image.&lt;/p&gt;
+
+&lt;h3 id=&quot;results&quot;&gt;Results:&lt;/h3&gt;
+&lt;p&gt;After parsing hundreds of thousands of images, I came across about 37 unique images that were not properly sanitized. This means that the files contained exif data which may identify the latitude and longitude where the pictures were taken. (Keep in mind, this data could also be spoofed). Overall, it appears as if these images came from just a handfull of individuals.&lt;/p&gt;
+
+&lt;h3 id=&quot;map&quot;&gt;Map:&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;./content/map.jpg&quot; alt=&quot;Map of images&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;for-the-curious-this-is-a-sanitized-montage-of-the-images&quot;&gt;For the curious, this is a sanitized montage of the images:&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;./content/montage.jpg&quot; alt=&quot;Montage of images&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;sigh.&lt;/p&gt;
+
+&lt;h3 id=&quot;lessons-learned&quot;&gt;Lessons Learned:&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;You cannot depend on TOR alone to render yourself truly anonymous. If you don’t understand, it’s probably better if you don’t use it.&lt;/li&gt;
+  &lt;li&gt;Don’t do illegal things. You’ll get caught eventually.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;So that’s it. Have a good weekend!&lt;/p&gt;
+
+&lt;p&gt;-julian (@techdad)&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>I Sent 281,317 Users Their Passwords</title>
