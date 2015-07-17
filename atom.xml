@@ -4,7 +4,7 @@
  <title>atechdad</title>
  <link href="http://atechdad.comhttp://atechdad.com/atom.xml" rel="self"/>
  <link href="http://atechdad.comhttp://atechdad.com/"/>
- <updated>2015-07-17T08:57:00-07:00</updated>
+ <updated>2015-07-17T09:03:36-07:00</updated>
  <id>http://atechdad.com</id>
  <author>
    <name>Mark Otto</name>
@@ -45,11 +45,11 @@ Yesterday, someone &lt;a href=&quot;http://www.gwern.net/Black-market%20archives
 
 &lt;h3 id=&quot;map&quot;&gt;Map:&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;./content/map.jpg&quot; alt=&quot;Map of images&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://atechdad.com/content/map.jpg&quot; alt=&quot;Map of images&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;for-the-curious-this-is-a-sanitized-montage-of-the-images&quot;&gt;For the curious, this is a sanitized montage of the images:&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;./content/montage.jpg&quot; alt=&quot;Montage of images&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://atechdad.com/content/montage.jpg&quot; alt=&quot;Montage of images&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;sigh.&lt;/p&gt;
 
