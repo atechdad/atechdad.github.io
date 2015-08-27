@@ -16,14 +16,14 @@
   </title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="http://atechdad.com/public/css/poole.css">
-  <link rel="stylesheet" href="http://atechdad.com/public/css/syntax.css">
-  <link rel="stylesheet" href="http://atechdad.com/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://atechdad.com/public/apple-touch-icon-precomposed.png">
-  <link rel="shortcut icon" href="http://atechdad.com/public/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
@@ -31,6 +31,7 @@
 
 
   <body>
+
     <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
 <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
@@ -38,11 +39,11 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>An attempt to document my ramblings about all things technology. <br />@techdad</p>
+    <p>An attempt to document my ramblings about all things technology. <a href="https://twitter.com/atechdad" target="_blank">@atechdad</a>.</p>
   </div>
 
   <nav class="sidebar-nav">
-    <a class="sidebar-nav-item" href="http://atechdad.com/">Home</a>
+    <a class="sidebar-nav-item" href="/">Home</a>
 
     
 
@@ -75,7 +76,7 @@
       
     
 
-    <span class="sidebar-nav-item">Currently v1.0.0</span>
+    <span class="sidebar-nav-item">Currently v1.0</span>
   </nav>
 
   <div class="sidebar-item">
@@ -83,20 +84,6 @@
       &copy; 2015. All rights reserved.
     </p>
   </div>
-  <div class="sidebar-item">
-<p>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- atechdad-Text -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:200px;height:90px"
-     data-ad-client="ca-pub-2211631185657111"
-     data-ad-slot="3471675386"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-</p>
-</div>
 </div>
 
 
@@ -106,7 +93,7 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="http://atechdad.com/" title="Home">atechdad</a>
+            <a href="/" title="Home">atechdad</a>
             <small>make it so</small>
           </h3>
         </div>
@@ -117,7 +104,231 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://atechdad.com/12-games-in-12-months/">
+      <a href="//2014/12/07/setting-up-a-libgdx-build-environment/">
+        Setting up a libgdx build environment
+      </a>
+    </h1>
+
+    <span class="post-date">07 Dec 2014</span>
+
+    <p>In my previous post, 12 Games in 12 Months, I put committed to the lofty goal of shipping 12 games in 12 months. After careful consideration I’ve decided to use the much-celebrated Libgdx framework to help me with my first game. First things first, however, I need to set up my development environment. I prefer to keep my development area as separated as I can from my normal workstation, so will use a virtual machine to house this.</p>
+
+<p>What we’ll need:</p>
+
+<ul>
+  <li>Ubuntu 14.04.1 Server</li>
+  <li>Desktop Hypervisor (VMWare Workstation, Hyper-V, VirtualBox, etc)</li>
+</ul>
+
+<p>Let’s get started:</p>
+
+<ul>
+  <li>Install Ubuntu Server 14.04.1.</li>
+</ul>
+
+<p>I know. Right now you may be wondering why I chose the server OS. I did this because I find that the desktop flavor feels a little bloated for what I need. We’re not looking for a full desktop experience.</p>
+
+<ul>
+  <li>Install a desktop environment.</li>
+</ul>
+
+<pre>sudo apt-get update</pre>
+
+<pre>sudo apt-get install -y --no-install-recommends lubuntu-desktop</pre>
+
+<p>This will install a customized lightweight LXDE window manager. I know it’s not the linux way, but I prefer to reboot here. This lets me make sure that the window manager will come up on a reboot and gets the GUI going for me for later.</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2014/12/login.jpg"><img class="alignnone size-full wp-image-181" src="http://atechdad.com/wp-content/uploads/2014/12/login.jpg" alt="login" width="801" height="599" /></a></p>
+
+<p>Now that you’re back up, you’ll need to log in and open a terminal window. Click on the button on the bottom left, go to accessories, then LXTerminal. If there is another terminal you prefer, use that instead.</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2014/12/terminal.jpg"><img class="alignnone size-full wp-image-182" src="http://atechdad.com/wp-content/uploads/2014/12/terminal.jpg" alt="terminal" width="399" height="279" /></a></p>
+
+<p>We will also be installing Google’s Android SDK. Since we’re going for easy, we’ll use Google’s ADT bundle which includes the development IDE, Eclipse, and the Android SDK already married and ready to go.</p>
+
+<p>At the time of writing this, this is the most current link. You may need to update the link below. We’re downloading it, unpacking, then cleaning up after ourselves.</p>
+
+<ul>
+  <li>Install the SDK</li>
+</ul>
+
+<pre>cd ~</pre>
+
+<pre>wget https://dl.google.com/android/adt/adt-bundle-linux-x86_64-20140702.zip</pre>
+
+<pre>unzip adt-bundle-linux-x86_64-20140702.zip</pre>
+
+<pre>rm adt-bundle-linux-x86_64-20140702.zip</pre>
+
+<p>Assuming all went well, we’ll have an eclipse folder and an sdk folder under the adt folder. I like to move these to my home folder because I am lazy <img src="http://atechdad.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+
+<p>optional :</p>
+
+<pre>mv adt-bundle-linux-x86_64-20140702/* ~</pre>
+
+<pre>rmdir mv adt-bundle-linux-x86_64-20140702</pre>
+
+<ul>
+  <li>Next we’ll install Libgdx</li>
+</ul>
+
+<p>First, let’s install the prerequisites.</p>
+
+<pre>sudo apt-get install -y libgl1-mesa-dev:i386 openjdk-7-jdk</pre>
+
+<p>Next let’s download the gdx-setup.jar</p>
+
+<pre>wget http://libgdx.badlogicgames.com/nightlies/dist/gdx-setup.jar</pre>
+
+<p>I like to make a folder for my games. Let’s make one and we’ll call it umm.. games.</p>
+
+<pre>mkdir ~/games</pre>
+
+<ul>
+  <li>Now, we’ll need to launch eclipse and add the grade integration plugin to eclipse</li>
+</ul>
+
+<pre>cd ~/eclipse</pre>
+
+<pre>./eclipse</pre>
+
+<p>Accept the default workspace unless you have a different preference. Click the checkbox to not ask again (unless you like being annoyed– I’m not judging)</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2014/12/workspace.jpg"><img class="alignnone size-full wp-image-183" src="http://atechdad.com/wp-content/uploads/2014/12/workspace.jpg" alt="workspace" width="679" height="355" /></a></p>
+
+<p>I’ll let you pick your usage statistics option. I can’t make all of your choices for you <img src="http://atechdad.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+
+<p>Next go to <strong>Help &gt; Install New Software</strong></p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2014/12/installnewsoftware.jpg"><img class="alignnone size-full wp-image-184" src="http://atechdad.com/wp-content/uploads/2014/12/installnewsoftware.jpg" alt="installnewsoftware" width="482" height="324" /></a></p>
+
+<p>You’ll now be greeted by a screen asking for a URL to install your plugin. Since the version of eclipse we are using is &lt; 4.4, we’ll use <a href="http://dist.springsource.com/release/TOOLS/gradle">http://dist.springsource.com/release/TOOLS/gradle</a> under Work With.</p>
+
+<p>You’ll have to name this. I went crazy and named mine <strong>Gradle Plugin</strong>. You can copy me or pick your own. I’d suggest something memorable…</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2014/12/GradlePlugin.jpg"><img class="alignnone size-full wp-image-185" src="http://atechdad.com/wp-content/uploads/2014/12/GradlePlugin.jpg" alt="GradlePlugin" width="745" height="303" /></a></p>
+
+<p> </p>
+
+<p><strong>Click OK</strong>.  On the next screen, expand the plugins and** choose Gradle IDE**.</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2014/12/GradlePlugin2.jpg"><img class="alignnone size-full wp-image-188" src="http://atechdad.com/wp-content/uploads/2014/12/GradlePlugin2.jpg" alt="GradlePlugin2" width="373" height="204" /></a></p>
+
+<p>On the next screen, select Gradle IDE, then click Next, read the stuff, accept it if you want (can’t move forward without it), then <strong>click Finish</strong>. Wait for the install.  You’ll be prompted to restart eclipse. Go for it.</p>
+
+<p><strong>Exit Eclipse</strong>.</p>
+
+<p>Now list the directories in the home folder.</p>
+
+<pre>cd ~</pre>
+
+<pre>ls</pre>
+
+<p>Should look something like this</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2014/12/ls.jpg"><img class="alignnone size-full wp-image-189" src="http://atechdad.com/wp-content/uploads/2014/12/ls.jpg" alt="ls" width="618" height="77" /></a></p>
+
+<p>Now let’s test it all out.</p>
+
+<ul>
+  <li>We’ll build a project</li>
+</ul>
+
+<pre>java -jar gdx-setup.jar</pre>
+
+<p>For testing, we can accept the defaults. We will need to specify the path to the SDK and game folder. Make you stuff look something like mine:</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2014/12/libgdx.jpg"><img class="alignnone size-full wp-image-190" src="http://atechdad.com/wp-content/uploads/2014/12/libgdx.jpg" alt="libgdx" width="617" height="717" /></a></p>
+
+<p>Click Generate.</p>
+
+<p>When everything finishes, and you see BUILD SUCCESSFUL, close the Project Generator.</p>
+
+<p>Now we’ll open eclipse again.</p>
+
+<pre>cd ~/eclipse</pre>
+
+<pre>./eclipse</pre>
+
+<p>Now we’ll import the libgdx project we created.</p>
+
+<p><strong>File -&gt; Import -&gt; Gradle -&gt; Gradle Project</strong></p>
+
+<p><strong>Click Next</strong>, then browse to your game folder.</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2014/12/gradleimport.jpg"><img class="alignnone size-full wp-image-191" src="http://atechdad.com/wp-content/uploads/2014/12/gradleimport.jpg" alt="gradleimport" width="848" height="671" /></a></p>
+
+<p><strong>Click OK.</strong></p>
+
+<p>Now** click Build Model.** Wait..</p>
+
+<p><strong>Click the topmost checkbox to import each project, then click finish.</strong></p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2014/12/gradleimport2.jpg"><img class="alignnone size-full wp-image-192" src="http://atechdad.com/wp-content/uploads/2014/12/gradleimport2.jpg" alt="gradleimport2" width="690" height="268" /></a></p>
+
+<p> </p>
+
+<p>Wait a little more. While you’re waiting, you should see projects start to populate on the left panel in eclipse.</p>
+
+<p>All done.</p>
+
+<p>..</p>
+
+<p>…</p>
+
+<p>Except for that red x next to the android project. What’s that about?</p>
+
+<p>Description Resource Path Location Type<br />
+Unable to resolve target ‘android-19′ my-gdx-game-android Unknown Android Target Problem</p>
+
+<ul>
+  <li>Hm. Looks like we need to fix this.</li>
+</ul>
+
+<p>Go to <strong>Window &gt; Android SDK Manager</strong></p>
+
+<p>Wait a few and you should see a lot of options populate. We could add any we want — and you should do this as part of your testing with the emulator later. But not now. Now we’ll just get rid of that error.</p>
+
+<p><strong>Select the 19 SDK option.</strong> Try and make sure its the only SDK selected for now. You can leave the defaults of android 5.0 sdk and all that, but you will get prompted when you build asking if you want to use the newer one. Up to you. Also select the API 19.</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2014/12/sdk191.jpg"><img class="alignnone size-full wp-image-194" src="http://atechdad.com/wp-content/uploads/2014/12/sdk191.jpg" alt="sdk19" width="601" height="198" /></a></p>
+
+<p><strong>Click Install XX packages, accept your licenses, and click ok.</strong> Now wait some more while the SDK downloads.</p>
+
+<p><strong>Click OK and close the window when you’ve finished</strong>. I close and reopen eclipse here. When it’s back up, I give eclipse time to catch up and– what do you know?</p>
+
+<p>The error is gone. <strong>Click on the Desktop project and click Run..</strong></p>
+
+<p><strong>Select Java Application and click OK.</strong></p>
+
+<p><strong>Now DesktopLauncher and OK</strong>.</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2014/12/mygdxgame.jpg"><img class="alignnone size-full wp-image-197" src="http://atechdad.com/wp-content/uploads/2014/12/mygdxgame.jpg" alt="mygdxgame" width="640" height="504" /></a></p>
+
+<p>Good to go.</p>
+
+<p>And that’s how I set up libgdx from scratch on Ubuntu.</p>
+
+<p>References:</p>
+
+<ul>
+  <li>http://www.ubuntu.com/download/server</li>
+  <li>http://lubuntu.net/</li>
+  <li>http://developer.android.com/sdk/installing/index.html?pkg=adt</li>
+  <li>https://github.com/libgdx/libgdx/wiki/Setting-up-your-Development-Environment-%28Eclipse,-Intellij-IDEA,-NetBeans%29#setting-up-eclipse</li>
+</ul>
+
+<p> </p>
+
+<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
+</div>
+
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="//2014/12/06/12-games-in-12-months/">
         12 Games in 12 Months
       </a>
     </h1>
@@ -165,7 +376,7 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://atechdad.com/ive-been-featured-on-hackaday/">
+      <a href="//2014/12/05/atechdad.com-has-been-featured-on-hackaday/">
         atechdad.com has been featured on Hackaday!
       </a>
     </h1>
@@ -186,7 +397,7 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://atechdad.com/how-i-fixed-my-inflatable-christmas-tree-lawn-ornament/">
+      <a href="//2014/11/29/how-i-fixed-my-inflatable-christmas-tree-lawn-ornament/">
         How I Fixed My Inflatable Christmas Tree Lawn Ornament
       </a>
     </h1>
@@ -261,7 +472,7 @@ DISCLAIMER:</p>
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://atechdad.com/happy-meal-vr-google-cardboard-hack/">
+      <a href="//2014/11/28/happy-meal-vr-a-google-cardboard-hack/">
         Happy Meal VR : A Google Cardboard Hack
       </a>
     </h1>
@@ -304,80 +515,15 @@ DISCLAIMER:</p>
 
   </div>
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://atechdad.com/how-to-jsdosbox/">
-        How to implement jsDOSBox
-      </a>
-    </h1>
-
-    <span class="post-date">25 Nov 2014</span>
-
-    <p>I had a time getting JsDOSBox going using the current version (I could have been doing it wrong, I dunno). I did manage to get it working. Here’s how I hacked it together:</p>
-
-<p>Needed:</p>
-
-<ul>
-  <li><a href="http://sourceforge.net/p/jsdosbox/home/Home/">JsDOSBox</a></li>
-  <li>Ubuntu 14.04 with Apache (or another webserver)</li>
-</ul>
-
-<p>Issues (As of 11/14):</p>
-
-<ul>
-  <li>Version 3 didn’t seem to have everything I needed.</li>
-  <li>I was able to get version 2 to work with one change.</li>
-</ul>
-
-<pre>mkdir ~/game</pre>
-
-<pre>cd ~/game</pre>
-
-<pre>wget http://downloads.sourceforge.net/project/jsdosbox/version2/jsdosbox.zip</pre>
-
-<pre>unzip jsdosbox.zip</pre>
-
-<pre>wget https://jsdosbox.appspot.com/jsdosbox/jsdosbox.nocache.js</pre>
-
-<pre>mv jsdosbox.nocache.js jsdosbox2/jsdosbox2.nocache.js</pre>
-
-<pre>nano index.html</pre>
-
-<p>change :</p>
-
-<pre>&lt;!-- input id="autorun" type="hidden" value="imgmount c http://localhost:8080/war/paper.zip -t zip !c:!paper.exe" --&gt;</pre>
-
-<p>to :</p>
-
-<pre>&lt;input id="autorun" type="hidden" value="<strong>YOURZIPFILE.zip</strong> -t zip !c:!<b>YOURCOMMAND.exe</b>"&gt;</pre>
-
-<pre>mv ~/game /var/www/html</pre>
-
-<p>(or wherever you want to serve it from)</p>
-
-<p>Hit the your new webpage from your PC.</p>
-
-<p>Enjoy!</p>
-
-<p>Sample: <a href="http://atechdad.com/games/duke-nukem" target="_blank">http://atechdad.com/games/duke-nukem</a></p>
-
-<p> </p>
-
-<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
-</div>
-
-
-  </div>
-  
 </div>
 
 <div class="pagination">
   
-    <a class="pagination-item older" href="http://atechdad.com/page5">Older</a>
+    <a class="pagination-item older" href="/page5">Older</a>
   
   
     
-      <a class="pagination-item newer" href="http://atechdad.com/page3">Newer</a>
+      <a class="pagination-item newer" href="/page3">Newer</a>
     
   
 </div>
@@ -405,27 +551,5 @@ DISCLAIMER:</p>
         }, false);
       })(document);
     </script>
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-57035528-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- atechdad-responsive -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2211631185657111"
-     data-ad-slot="9518208983"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
   </body>
 </html>

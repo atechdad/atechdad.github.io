@@ -16,14 +16,14 @@
   </title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="http://atechdad.com/public/css/poole.css">
-  <link rel="stylesheet" href="http://atechdad.com/public/css/syntax.css">
-  <link rel="stylesheet" href="http://atechdad.com/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://atechdad.com/public/apple-touch-icon-precomposed.png">
-  <link rel="shortcut icon" href="http://atechdad.com/public/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
@@ -31,6 +31,7 @@
 
 
   <body>
+
     <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
 <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
@@ -38,11 +39,11 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>An attempt to document my ramblings about all things technology. <br />@techdad</p>
+    <p>An attempt to document my ramblings about all things technology. <a href="https://twitter.com/atechdad" target="_blank">@atechdad</a>.</p>
   </div>
 
   <nav class="sidebar-nav">
-    <a class="sidebar-nav-item" href="http://atechdad.com/">Home</a>
+    <a class="sidebar-nav-item" href="/">Home</a>
 
     
 
@@ -75,7 +76,7 @@
       
     
 
-    <span class="sidebar-nav-item">Currently v1.0.0</span>
+    <span class="sidebar-nav-item">Currently v1.0</span>
   </nav>
 
   <div class="sidebar-item">
@@ -83,20 +84,6 @@
       &copy; 2015. All rights reserved.
     </p>
   </div>
-  <div class="sidebar-item">
-<p>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- atechdad-Text -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:200px;height:90px"
-     data-ad-client="ca-pub-2211631185657111"
-     data-ad-slot="3471675386"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-</p>
-</div>
 </div>
 
 
@@ -106,7 +93,7 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="http://atechdad.com/" title="Home">atechdad</a>
+            <a href="/" title="Home">atechdad</a>
             <small>make it so</small>
           </h3>
         </div>
@@ -117,8 +104,73 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://atechdad.com/1980-2014-a-bbs-in-docker/">
-        1980s meet 2014 &#8211; A BBS with Docker
+      <a href="//2014/11/25/how-to-implement-jsdosbox/">
+        How to implement jsDOSBox
+      </a>
+    </h1>
+
+    <span class="post-date">25 Nov 2014</span>
+
+    <p>I had a time getting JsDOSBox going using the current version (I could have been doing it wrong, I dunno). I did manage to get it working. Here’s how I hacked it together:</p>
+
+<p>Needed:</p>
+
+<ul>
+  <li><a href="http://sourceforge.net/p/jsdosbox/home/Home/">JsDOSBox</a></li>
+  <li>Ubuntu 14.04 with Apache (or another webserver)</li>
+</ul>
+
+<p>Issues (As of 11/14):</p>
+
+<ul>
+  <li>Version 3 didn’t seem to have everything I needed.</li>
+  <li>I was able to get version 2 to work with one change.</li>
+</ul>
+
+<pre>mkdir ~/game</pre>
+
+<pre>cd ~/game</pre>
+
+<pre>wget http://downloads.sourceforge.net/project/jsdosbox/version2/jsdosbox.zip</pre>
+
+<pre>unzip jsdosbox.zip</pre>
+
+<pre>wget https://jsdosbox.appspot.com/jsdosbox/jsdosbox.nocache.js</pre>
+
+<pre>mv jsdosbox.nocache.js jsdosbox2/jsdosbox2.nocache.js</pre>
+
+<pre>nano index.html</pre>
+
+<p>change :</p>
+
+<pre>&lt;!-- input id="autorun" type="hidden" value="imgmount c http://localhost:8080/war/paper.zip -t zip !c:!paper.exe" --&gt;</pre>
+
+<p>to :</p>
+
+<pre>&lt;input id="autorun" type="hidden" value="<strong>YOURZIPFILE.zip</strong> -t zip !c:!<b>YOURCOMMAND.exe</b>"&gt;</pre>
+
+<pre>mv ~/game /var/www/html</pre>
+
+<p>(or wherever you want to serve it from)</p>
+
+<p>Hit the your new webpage from your PC.</p>
+
+<p>Enjoy!</p>
+
+<p>Sample: <a href="http://atechdad.com/games/duke-nukem" target="_blank">http://atechdad.com/games/duke-nukem</a></p>
+
+<p> </p>
+
+<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
+</div>
+
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="//2014/11/24/1980s-meet-2014-%E2%80%93-a-bbs-with-docker/">
+        1980s meet 2014 – A BBS with Docker
       </a>
     </h1>
 
@@ -299,7 +351,7 @@ EXPOSE 21
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://atechdad.com/automatically-launch-website-for-kids-on-login/">
+      <a href="//2014/11/23/automatically-launch-website-for-kids-on-login/">
         Automatically Launch website for Kids on Login
       </a>
     </h1>
@@ -394,7 +446,7 @@ EXPOSE 21
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://atechdad.com/hello-world/">
+      <a href="//2014/11/22/hello-world/">
         Hello world!
       </a>
     </h1>
@@ -418,7 +470,7 @@ EXPOSE 21
   
   
     
-      <a class="pagination-item newer" href="http://atechdad.com/page4">Newer</a>
+      <a class="pagination-item newer" href="/page4">Newer</a>
     
   
 </div>
@@ -446,27 +498,5 @@ EXPOSE 21
         }, false);
       })(document);
     </script>
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-57035528-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- atechdad-responsive -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2211631185657111"
-     data-ad-slot="9518208983"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
   </body>
 </html>
