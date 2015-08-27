@@ -4,7 +4,7 @@
  <title>atechdad</title>
  <link href="http://atechdad.comhttp://atechdad.com/atom.xml" rel="self"/>
  <link href="http://atechdad.comhttp://atechdad.com/"/>
- <updated>2015-08-27T11:26:43-04:00</updated>
+ <updated>2015-08-27T11:31:48-04:00</updated>
  <id>http://atechdad.com</id>
  <author>
    <name>Julian</name>
@@ -166,9 +166,9 @@ Yesterday, someone &lt;a href=&quot;http://www.gwern.net/Black-market%20archives
  
  <entry>
    <title>I Sent 281,317 Users Their Passwords</title>
-   <link href="http://atechdad.com/i-sent-281-317-users-their-passwords"/>
+   <link href="http://atechdad.com/i-sent-281317-users-their-passwords"/>
    <updated>2015-07-13T00:00:00-04:00</updated>
-   <id>http://atechdad.comhttp://atechdad.com/i-sent-281-317-users-their-passwords</id>
+   <id>http://atechdad.comhttp://atechdad.com/i-sent-281317-users-their-passwords</id>
    <content type="html">&lt;h2 id=&quot;i-did-it-again&quot;&gt;&lt;strong&gt;I did it again.&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;So- hey again. Several weeks ago, I &lt;a href=&quot;http://atechdad.com/i-emailed-97931-users-their-passwords/&quot;&gt;wrote about&lt;/a&gt; emailing over 97,000 people their own passwords and documented the results. The post was pretty popular. I got lots of feedback from HN, Reddit, via email, and through comments. People were mostly positive and many had very good suggestions. So- I took some of the feedback from folks and did a second experiment.&lt;/p&gt;
@@ -231,9 +231,9 @@ Yesterday, someone &lt;a href=&quot;http://www.gwern.net/Black-market%20archives
  
  <entry>
    <title>I Emailed 97,931 Users Their Passwords</title>
-   <link href="http://atechdad.com/i-emailed-97-931-users-their-passwords"/>
+   <link href="http://atechdad.com/i-emailed-97931-users-their-passwords"/>
    <updated>2015-06-23T00:00:00-04:00</updated>
-   <id>http://atechdad.comhttp://atechdad.com/i-emailed-97-931-users-their-passwords</id>
+   <id>http://atechdad.comhttp://atechdad.com/i-emailed-97931-users-their-passwords</id>
    <content type="html">&lt;p&gt;Hey all-&lt;/p&gt;
 
 &lt;p&gt;I run across lots of passwords on the webs. Passwords to bank accounts, Netflix accounts, email accounts- you name it. Pastebin and its clones are very popular repositories for this kind of information.&lt;/p&gt;

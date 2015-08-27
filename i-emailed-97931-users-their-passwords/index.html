@@ -11,7 +11,7 @@
 
   <title>
     
-      I Sent 281,317 Users Their Passwords &middot; atechdad
+      I Emailed 97,931 Users Their Passwords &middot; atechdad
     
   </title>
 
@@ -101,65 +101,82 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">I Sent 281,317 Users Their Passwords</h1>
-  <span class="post-date">13 Jul 2015</span>
-  <h2 id="i-did-it-again"><strong>I did it again.</strong></h2>
+  <h1 class="post-title">I Emailed 97,931 Users Their Passwords</h1>
+  <span class="post-date">23 Jun 2015</span>
+  <p>Hey all-</p>
 
-<p>So- hey again. Several weeks ago, I <a href="http://atechdad.com/i-emailed-97931-users-their-passwords/">wrote about</a> emailing over 97,000 people their own passwords and documented the results. The post was pretty popular. I got lots of feedback from HN, Reddit, via email, and through comments. People were mostly positive and many had very good suggestions. So- I took some of the feedback from folks and did a second experiment.</p>
+<p>I run across lots of passwords on the webs. Passwords to bank accounts, Netflix accounts, email accounts- you name it. Pastebin and its clones are very popular repositories for this kind of information.</p>
 
-<h2 id="tldr">TL;DR</h2>
+<p>Now, there are a couple of <a href="https://isc.sans.edu/forums/diary/Quick+Tip+Pastebin+Monitoring+Recon/12091/">solutions</a> a person can use to collect this password data. Not all of them are malicious.</p>
+
+<p>Some of these scripts are often used to alert a person when one of their own accounts are compromised as a kind of canary. I’ve seen various services where a person can opt-in to be notified if one of their accounts has been compromised. A “Canary As A Service” if you will. I can see two issues with this:</p>
+
+<ol>
+  <li>Most users have no idea these services exist.</li>
+  <li>Many users are wary of sending the information they care most about to another online service.</li>
+</ol>
+
+<p><strong>Experiment</strong></p>
+
+<p>I wondered what would happen if I just emailed this information to the people who owned it. Instead of asking people to opt-in — I could offer them the chance to opt-out.</p>
+
+<p><strong>The Plan</strong></p>
+
+<p>I decided to do this as part of <a href="http://urhack.com">urhack.com</a> and call it <del>canary</del> <a href="http://urhack.com/robin">Robin</a> (the reasoning behind this change is there). I set up the email and a reply address to offer people a chance to unsubscribe. I even set up a PayPal donation button. I didn’t expect anything in return, but thought , “Why not?” five dollars would cover the VPS time.</p>
+
+<p><strong>Collection</strong></p>
+
+<p>For 3 days, I scraped Pastebin looking for email address/password combinations. This seemed to be the easiest target since it was the most active. After removing the garbage, I was left with over <strong>97,000</strong> email:password combinations.</p>
+
+<p><strong>Execution</strong></p>
+
+<p>On May 19th 2015, I sent out the emails. I could have waited for more, but this was only an experiment– and honestly I was getting impatient.</p>
+
+<p><strong>The Message</strong></p>
+
+<p>I tried to keep the message simple:</p>
+
+<p><a href="http://atechdad.com/wp-content/uploads/2015/06/canary.png"><img class="alignnone size-full wp-image-383" src="http://atechdad.com/wp-content/uploads/2015/06/canary.png" alt="canary" width="888" height="440" /></a></p>
+
+<p><strong>Aftermath</strong></p>
 
 <ul>
-  <li>Got banned from Mandrilla</li>
-  <li>Got prebanned from SendGrid</li>
-  <li>Rolled a mail server</li>
-  <li>Cleaned up password lists</li>
-  <li>Rebuilt Email Templates</li>
-  <li>Sent 281,317 emails</li>
-  <li>Received $82 in donations</li>
-</ul>
-
-<h2 id="changes">Changes</h2>
-
-<p>I realized that in order to make this more successful I would need to make some changes. I am relatively new to the mass email arena, so I tried to  partner with some known vendors.</p>
-
-<p>I chose Mandrilla. Using their site, I found it very easy to convert my message into one that appeared much more professional and trustworthy. I have to admin, their interface is slick. So I began with a test run and queued up around two thousand emails. I decided to try and track open rates to see if messages were successful.  I kept an eye on the GUI all day.</p>
-
-<p>About 900 emails got out before I was banned.  I couldn’t log in or recover any data - nothing. After discussing with their technical support teams,  there was nothing they could do.</p>
-
-<p>I then called Sendgrid– wanting to see if I could partner with them before I went through all the work of setting things up again. I just got a no.</p>
-
-<p>So I ended up rolling my own mail server.  I cleaned up my email template. I tested and retested the spamminess of my message. I asked my wife for her opinion. I cleaned up the password lists.</p>
-
-<h2 id="so-here-are-the-numbers">So here are the numbers:</h2>
-
-<ul>
-  <li>Thanks: 68 (+59) or .02%</li>
-  <li>Unsubscribes: 29 (-12) or .01%
+  <li><strong>9 Thank Yous (0.009%)</strong>
     <ul>
-      <li>Requests when opting out: 4 (+3) or .001%
-        <ul>
-          <li>stop sending spam</li>
-          <li>F**K OFF!!!!!!!!!!!!!!!!!!!!!</li>
-          <li>f**k off slime bag - do your best to hack me and i’ll find you and let my pet camel f**k you in the *ss.</li>
-          <li>F**k off scammer</li>
-        </ul>
-      </li>
+      <li>The thank you notes I got were sincere. One of them validated the entire effort when the person indicated that they use the same password for everything and wanted to know which account had been compromised.</li>
     </ul>
   </li>
-  <li>Opens: 3,478+ (This one is difficult to measure due to image blocking and other tracking blocks)</li>
-  <li>Donations: $82 (+$82)</li>
+  <li><strong>100 Delivery Status Notification (Failure) (0.1%)</strong>
+    <ul>
+      <li>Many of the addresses contacted were no longer in use for obvious reasons.</li>
+    </ul>
+  </li>
+  <li><strong>41 unsubscribes (0.041%)</strong>
+    <ul>
+      <li>Including one request to F**k off. (0.001%) :)” /&gt;</li>
+    </ul>
+  </li>
+  <li><strong>29 Spam (0.029%)</strong>
+    <ul>
+      <li>Some of these addresses were either compromised accounts which reply to emails with spam or were planted for this purpose.</li>
+    </ul>
+  </li>
+  <li><strong>$0</strong>
+    <ul>
+      <li>I received no donations. This was not unexpected– but since the campaign didn’t cost me much, it’s also absolutely fine.</li>
+    </ul>
+  </li>
 </ul>
 
-<h2 id="next-steps">Next Steps</h2>
+<p>Overall I consider this experiment a success. I hope that many people were helped and did not reply instead of ignoring or losing the email to spam filters.</p>
 
-<p>I’m not sure. If I’m going to turn this into a service I will need to better optimize delivery and take care of some back office type stuff. If I do this, all of the donations will be reinvested back into the service.</p>
+<p>My next list has been running since May 19th. My current count has around 300k accounts.</p>
 
-<p>I still consider this effort successful. I look forward to helping more people.</p>
+<p>I might just do this again.</p>
 
-<h2 id="project-location">Project Location</h2>
+<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;">
+</div>
 
-<p>For those that are curious, the project itself is located <a href="http://urhack.com/robin/">here</a>.</p>
 
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -211,9 +228,9 @@
     
       <li>
         <h3>
-          <a href="http://atechdad.com/i-emailed-97-931-users-their-passwords">
-            I Emailed 97,931 Users Their Passwords
-            <small>23 Jun 2015</small>
+          <a href="http://atechdad.com/i-sent-281317-users-their-passwords">
+            I Sent 281,317 Users Their Passwords
+            <small>13 Jul 2015</small>
           </a>
         </h3>
       </li>
