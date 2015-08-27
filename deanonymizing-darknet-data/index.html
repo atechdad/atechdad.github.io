@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Deanonymizing Darknet Data &middot; atechdad
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="http://atechdad.com/public/css/poole.css">
+  <link rel="stylesheet" href="http://atechdad.com/public/css/syntax.css">
+  <link rel="stylesheet" href="http://atechdad.com/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://atechdad.com/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="http://atechdad.com/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>An attempt to document my ramblings about all things technology. <a href="https://twitter.com/atechdad" target="_blank">@atechdad</a>.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://atechdad.com/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+    <span class="sidebar-nav-item">Currently v1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="http://atechdad.com/" title="Home">atechdad</a>
+            <small>make it so</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Deanonymizing Darknet Data</h1>
+  <span class="post-date">17 Jul 2015</span>
+  <p>Hey all,this is a pretty simple post, so I’ll keep it quick. 
+Yesterday, someone <a href="http://www.gwern.net/Black-market%20archives">released a dump</a> containing several archives of Darknet black-market sites for research purposes. This looked interesting, so I took them and did a little research.</p>
+
+<p>One of the suggested uses by gwern was:</p>
+
+<blockquote>
+  <p>“deanonymization and information leaks (eg GPS coordinates in metadata, usernames reused on the clearnet, valid emails in PGP public keys)”</p>
+</blockquote>
+
+<p>Sounds like a good start to me.</p>
+
+<h3 id="assumptions">Assumptions:</h3>
+<ul>
+  <li>Some of these sites and forums were probably custom coded so they may not have sanitized exif data.</li>
+  <li>Some people who posted images probably used their mobile devices.</li>
+  <li>Some people were not aware that some devices record your location when taking a picture by default.</li>
+</ul>
+
+<h3 id="what-i-did">What I did:</h3>
+<p>For my target, I chose a random archive with a decent amount of data. I wanted something that had potential. I also decided to only look at .jpg images. I did this so I could standardize on the method in which I collected the data.</p>
+
+<p>I then hacked together a script that would extract all of the files I wanted from the tar.gz. The script would then get each file’s latitude and longitude if it existed within the metadata of each image.</p>
+
+<h3 id="results">Results:</h3>
+<p>After parsing hundreds of thousands of images, I came across about 37 unique images that were not properly sanitized. This means that the files contained exif data which may identify the latitude and longitude where the pictures were taken. (Keep in mind, this data could also be spoofed). Overall, it appears as if these images came from just a handfull of individuals.</p>
+
+<h3 id="map">Map:</h3>
+
+<p><img src="http://atechdad.com/content/map.jpg" alt="Map of images" /></p>
+
+<h3 id="for-the-curious-this-is-a-sanitized-montage-of-the-images">For the curious, this is a sanitized montage of the images:</h3>
+
+<p><img src="http://atechdad.com/content/montage.jpg" alt="Montage of images" /></p>
+
+<p>sigh.</p>
+
+<h3 id="lessons-learned">Lessons Learned:</h3>
+<ol>
+  <li>You cannot depend on TOR alone to render yourself truly anonymous. If you don’t understand, it’s probably better if you don’t use it.</li>
+  <li>Don’t do illegal things. You’ll get caught eventually.</li>
+</ol>
+
+<p>So that’s it. Have a good weekend!</p>
+
+<p>-julian (@techdad)</p>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="http://atechdad.com/mass-identification-of-wordpress-versions">
+            Mass Identification of WordPress Versions
+            <small>28 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="http://atechdad.com/i-sent-281-317-users-their-passwords">
+            I Sent 281,317 Users Their Passwords
+            <small>13 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="http://atechdad.com/i-emailed-97-931-users-their-passwords">
+            I Emailed 97,931 Users Their Passwords
+            <small>23 Jun 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

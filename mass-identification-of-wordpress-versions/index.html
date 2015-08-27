@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Mass Identification of WordPress Versions &middot; atechdad
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="http://atechdad.com/public/css/poole.css">
+  <link rel="stylesheet" href="http://atechdad.com/public/css/syntax.css">
+  <link rel="stylesheet" href="http://atechdad.com/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://atechdad.com/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="http://atechdad.com/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>An attempt to document my ramblings about all things technology. <a href="https://twitter.com/atechdad" target="_blank">@atechdad</a>.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://atechdad.com/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+    <span class="sidebar-nav-item">Currently v1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="http://atechdad.com/" title="Home">atechdad</a>
+            <small>make it so</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Mass Identification of WordPress Versions</h1>
+  <span class="post-date">28 Aug 2015</span>
+  <p>In case you haven’t noticed, I recently migrated my blog to Jekyll. I did this as a response to the meltdowns I experienced the last time I was on the front page of HN. I could have upgraded my server of course, but I’m stubborn. Besides, Jekyll gave me an opportunity to learn something new.</p>
+
+<p>Anyway, while going through the migration exercise, I became curious as to what the current WordPress install-base looks like. As it often does, general curiosity gave way to brainstorming a method of doing this kind of check. I figured that if I could use a fingerprint for a WordPress install, I could again comb through the <a href="https://scans.io">scans.io</a> http dumps. So that’s what I did.</p>
+
+<p>To better answer this question, I figured I’d also need to check some historical records and compare them to recent dumps.</p>
+
+<h3 id="i-used-the-following-process-to-collect-this-data">I used the following process to collect this data:</h3>
+
+<ol>
+  <li>Download each http dump from 09/2013 until 08/2015
+    <ul>
+      <li>I got a list of the dumps from [scans.io site] (https://scans.io/json) and parsed out each sonar.http entry.</li>
+      <li>I downloaded each of them. Since the disk space is severely limited on my VPS, I had to comb through the data as it streamed down. This added a lot of time– the overall process took about 10 days to get everything I was looking for.  I parsed the data looking for three things.
+        <ol>
+          <li>The date of the scan</li>
+          <li>The IP of the server. I did this so I could track versions over time by source.</li>
+          <li>The version.</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>Parse each dump and look for a marker that identifies the page as a WordPress installation
+    <ul>
+      <li>Since most unmodified WordPress contain the version in a meta tag, I got the value by looking for the regex “content="WordPress [0-9].[0-9].?[0-9]?”</li>
+      <li>Run reports on data - <code>cat log | sort |uniq -c</code> works, but I wanted to try something new.</li>
+      <li>Send the data to Splunk
+        <ul>
+          <li>I decided on Splunk to get more exposure. Lots of companies use it. I set up a Splunk server for this using their free licensing model, but that is outside the scope of this.</li>
+        </ul>
+      </li>
+      <li>Export the parsed data into a format easy for me to configure Splunk to process. I opted for json.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="problems-with-my-methods">Problems with my methods</h3>
+
+<ul>
+  <li>This process doesn’t include https. I get this– and realize that I am missing a large chunk of data. There’s still a lot to be analyzed here so I am good with this for now.</li>
+  <li>This doesn’t include custom configs that have excluded the WordPress metatags. I am making the assumption that this an exception to the rule.</li>
+  <li>Custom version values in the metatags can pollute the data. Another aSSumption…</li>
+</ul>
+
+<h2 id="the-results">The Results:</h2>
+
+<p>Here are some of the reports I’ve run so far:</p>
+
+<h3 id="count-of-wordpress-installs-on-individual-ips-as-of-august-2015">Count of WordPress installs on individual IPs as of August 2015</h3>
+
+<p>Query: <code>index=wp | dedup ip | stats count</code></p>
+
+<p><img src="http://atechdad.com/content/wpcount.png" alt="Count of WP installs" title="Count of WP installs in Aug 2015" /></p>
+
+<p>There appear to be 386,357 installs which fit the criteria above.</p>
+
+<h3 id="top-20-wordpress-versions-as-of-august-2015">Top 20 wordpress versions as of August 2015</h3>
+
+<p>Query: <code>index=wp| top limit=20 version</code></p>
+
+<p><img src="http://atechdad.com/content/top20-wp-versions.png" alt="Top WP installs" title="Top 20 versions in Aug 2015" /></p>
+
+<p>At the time of the last scan, 4.2.4 is the clear winner. However, it was surprising to me that there are some early version 3s in the top 20.</p>
+
+<h3 id="top-20-wordpress-versions-over-time-912013-to-812015">Top 20 WordPress versions over time (9/1/2013 to 8/1/2015)</h3>
+
+<p>Query: <code>index=wp| timechart count by version limit=20 useother=f</code></p>
+
+<p><img src="http://atechdad.com/content/top20wpovertime.png" alt="Top WP installs over time" title="Top 20 versions by date" /></p>
+
+<p>What’s interesting about this one is that you can see clear spikes when new versions are released. It also appears that there is generally about a 3 month overlap between a release and its major successor’s rise.</p>
+
+<h3 id="or-a-pretty-picture-of-the-top-30-in-the-same-date-range-just-for-fun--or-execs">Or a pretty picture of the top 30 in the same date range just for fun–or execs…</h3>
+
+<p>Query: <code>index=wp| timechart count by version limit=30 useother=f</code> (using the area visualization)</p>
+
+<p><img src="http://atechdad.com/content/top30wp-pretty.png" alt="Top 30 WP installs over time" title="Top 30 versions by date" /></p>
+
+<h3 id="other-ideas-for-reports">Other ideas for reports:</h3>
+
+<ul>
+  <li>Versions with the least amount of change by IP. This could indicate some kind of canned WordPress site– maybe.</li>
+  <li>Exposure based on versions with known vulnerabilities.</li>
+</ul>
+
+<p>The reports can go on and on, but you get the idea.</p>
+
+<p>Overall I learned a bit more about Splunk and got a clearer picture of the state of WordPress installs.</p>
+
+<p>If you have any questions, <a href="https://twitter.com/atechdad">let me know</a>.</p>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="http://atechdad.com/deanonymizing-darknet-data">
+            Deanonymizing Darknet Data
+            <small>17 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="http://atechdad.com/i-sent-281-317-users-their-passwords">
+            I Sent 281,317 Users Their Passwords
+            <small>13 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="http://atechdad.com/i-emailed-97-931-users-their-passwords">
+            I Emailed 97,931 Users Their Passwords
+            <small>23 Jun 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
